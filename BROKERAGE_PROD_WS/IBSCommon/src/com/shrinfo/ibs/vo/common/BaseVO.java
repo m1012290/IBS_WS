@@ -13,7 +13,7 @@ public class BaseVO {
 	private long createdByUserId;
 	private Date createdDate;
 	private long updatedByUserId;
-	private Date updatedDateee;
+	private Date updatedDate;
 	
 	/**
 	 * 
