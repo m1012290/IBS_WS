@@ -10,7 +10,7 @@ import java.util.Date;
  *
  */
 public class BaseVO {
-	private long createdByUserId1;
+	private long createdByUserId;
 	private Date createdDate;
 	private long updatedByUserId;
 	private Date updatedDate;
