@@ -4,6 +4,7 @@
 
 *.pydevproject
 tmp/
+.metadata
 *.tmp
 *.bak
 *.swp
