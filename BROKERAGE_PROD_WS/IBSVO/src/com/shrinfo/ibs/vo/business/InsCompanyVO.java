@@ -4,50 +4,48 @@ import java.util.Map;
 
 public class InsCompanyVO extends CompanyVO {
 
-	/**
+    /**
 	 * 
 	 */
-	private static final long serialVersionUID = 2860672426234918139L;
+    private static final long serialVersionUID = 2860672426234918139L;
 
-	private ContactVO contact;
+    private ContactVO contact;
 
-	private Map<ProductVO, ContactVO> contacts;
+    private Map<ProductVO, ContactVO> contacts;
 
-	/**
-	 * @return the contact
-	 */
-	public ContactVO getContact() {
-		return contact;
-	}
+    /**
+     * @return the contact
+     */
+    public ContactVO getContact() {
+        return contact;
+    }
 
-	/**
-	 * @param contact
-	 *            the contact to set
-	 */
-	public void setContact(ContactVO contact) {
-		this.contact = contact;
-	}
+    /**
+     * @param contact the contact to set
+     */
+    public void setContact(ContactVO contact) {
+        this.contact = contact;
+    }
 
-	/**
-	 * @return the contacts
-	 */
-	public Map<ProductVO, ContactVO> getContacts() {
-		return contacts;
-	}
+    /**
+     * @return the contacts
+     */
+    public Map<ProductVO, ContactVO> getContacts() {
+        return contacts;
+    }
 
-	/**
-	 * @param contacts
-	 *            the contacts to set
-	 */
-	public void setContacts(Map<ProductVO, ContactVO> contacts) {
-		this.contacts = contacts;
-	}
+    /**
+     * @param contacts the contacts to set
+     */
+    public void setContacts(Map<ProductVO, ContactVO> contacts) {
+        this.contacts = contacts;
+    }
 
-	/**
-	 * @return the serialversionuid
-	 */
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+    /**
+     * @return the serialversionuid
+     */
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
 
 }

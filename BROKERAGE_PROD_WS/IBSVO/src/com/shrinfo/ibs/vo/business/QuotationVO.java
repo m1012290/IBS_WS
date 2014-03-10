@@ -5,311 +5,296 @@ import java.util.List;
 
 public class QuotationVO extends BaseVO {
 
-	/**
+    /**
 	 * 
 	 */
-	private static final long serialVersionUID = 5592076230860134980L;
+    private static final long serialVersionUID = 5592076230860134980L;
 
-	private Long id;
+    private Long id;
 
-	private EnquiryVO enquiry;
+    private EnquiryVO enquiry;
 
-	private QuoteSlipVO quoteSlip;
+    private QuoteSlipVO quoteSlip;
 
-	private CustomerVO customer;
+    private CustomerVO customer;
 
-	private InsuredVO insured;
+    private InsuredVO insured;
 
-	private InsCompanyVO quotedInsCompany;
+    private InsCompanyVO quotedInsCompany;
 
-	private ProductVO product;
+    private ProductVO product;
 
-	private Date recordValidFrom;
+    private Date recordValidFrom;
 
-	private Date recordValidTo;
+    private Date recordValidTo;
 
-	private Date policyStartDate;
+    private Date policyStartDate;
 
-	private Date policyExpiryDate;
+    private Date policyExpiryDate;
 
-	private Boolean isRecommended;
+    private Boolean isRecommended;
 
-	private String recommendationSummary;
-	
-	private String coverDescription;
+    private String recommendationSummary;
 
-	private UserVO quoteApprovedBy;
+    private String coverDescription;
 
-	private Boolean isQuoteApproved;// is quoteRecommened
+    private UserVO quoteApprovedBy;
 
-	private Boolean isClosingSlipEmailed;
-	
-	private Integer statusCode;
+    private Boolean isQuoteApproved;// is quoteRecommened
 
-	private List<QuotationDetailVO> quotationDetails;
+    private Boolean isClosingSlipEmailed;
 
-	/**
-	 * @return the id
-	 */
-	public Long getId() {
-		return id;
-	}
+    private Integer statusCode;
 
-	/**
-	 * @param id
-	 *            the id to set
-	 */
-	public void setId(Long id) {
-		this.id = id;
-	}
+    private List<QuotationDetailVO> quotationDetails;
 
-	/**
-	 * @return the enquiry
-	 */
-	public EnquiryVO getEnquiry() {
-		return enquiry;
-	}
+    /**
+     * @return the id
+     */
+    public Long getId() {
+        return id;
+    }
 
-	/**
-	 * @param enquiry
-	 *            the enquiry to set
-	 */
-	public void setEnquiry(EnquiryVO enquiry) {
-		this.enquiry = enquiry;
-	}
+    /**
+     * @param id the id to set
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	/**
-	 * @return the quoteSlip
-	 */
-	public QuoteSlipVO getQuoteSlip() {
-		return quoteSlip;
-	}
+    /**
+     * @return the enquiry
+     */
+    public EnquiryVO getEnquiry() {
+        return enquiry;
+    }
 
-	/**
-	 * @param quoteSlip
-	 *            the quoteSlip to set
-	 */
-	public void setQuoteSlip(QuoteSlipVO quoteSlip) {
-		this.quoteSlip = quoteSlip;
-	}
+    /**
+     * @param enquiry the enquiry to set
+     */
+    public void setEnquiry(EnquiryVO enquiry) {
+        this.enquiry = enquiry;
+    }
 
-	/**
-	 * @return the customer
-	 */
-	public CustomerVO getCustomer() {
-		return customer;
-	}
+    /**
+     * @return the quoteSlip
+     */
+    public QuoteSlipVO getQuoteSlip() {
+        return quoteSlip;
+    }
 
-	/**
-	 * @param customer
-	 *            the customer to set
-	 */
-	public void setCustomer(CustomerVO customer) {
-		this.customer = customer;
-	}
+    /**
+     * @param quoteSlip the quoteSlip to set
+     */
+    public void setQuoteSlip(QuoteSlipVO quoteSlip) {
+        this.quoteSlip = quoteSlip;
+    }
 
-	/**
-	 * @return the insured
-	 */
-	public InsuredVO getInsured() {
-		return insured;
-	}
+    /**
+     * @return the customer
+     */
+    public CustomerVO getCustomer() {
+        return customer;
+    }
 
-	/**
-	 * @param insured
-	 *            the insured to set
-	 */
-	public void setInsured(InsuredVO insured) {
-		this.insured = insured;
-	}
+    /**
+     * @param customer the customer to set
+     */
+    public void setCustomer(CustomerVO customer) {
+        this.customer = customer;
+    }
 
-	/**
-	 * @return the recordValidFrom
-	 */
-	public Date getRecordValidFrom() {
-		return recordValidFrom;
-	}
+    /**
+     * @return the insured
+     */
+    public InsuredVO getInsured() {
+        return insured;
+    }
 
-	/**
-	 * @param recordValidFrom
-	 *            the recordValidFrom to set
-	 */
-	public void setRecordValidFrom(Date recordValidFrom) {
-		this.recordValidFrom = recordValidFrom;
-	}
+    /**
+     * @param insured the insured to set
+     */
+    public void setInsured(InsuredVO insured) {
+        this.insured = insured;
+    }
 
-	/**
-	 * @return the recordValidTo
-	 */
-	public Date getRecordValidTo() {
-		return recordValidTo;
-	}
+    /**
+     * @return the recordValidFrom
+     */
+    public Date getRecordValidFrom() {
+        return recordValidFrom;
+    }
 
-	/**
-	 * @param recordValidTo
-	 *            the recordValidTo to set
-	 */
-	public void setRecordValidTo(Date recordValidTo) {
-		this.recordValidTo = recordValidTo;
-	}
+    /**
+     * @param recordValidFrom the recordValidFrom to set
+     */
+    public void setRecordValidFrom(Date recordValidFrom) {
+        this.recordValidFrom = recordValidFrom;
+    }
 
-	/**
-	 * @return the policyStartDate
-	 */
-	public Date getPolicyStartDate() {
-		return policyStartDate;
-	}
+    /**
+     * @return the recordValidTo
+     */
+    public Date getRecordValidTo() {
+        return recordValidTo;
+    }
 
-	/**
-	 * @param policyStartDate
-	 *            the policyStartDate to set
-	 */
-	public void setPolicyStartDate(Date policyStartDate) {
-		this.policyStartDate = policyStartDate;
-	}
+    /**
+     * @param recordValidTo the recordValidTo to set
+     */
+    public void setRecordValidTo(Date recordValidTo) {
+        this.recordValidTo = recordValidTo;
+    }
 
-	/**
-	 * @return the policyExpiryDate
-	 */
-	public Date getPolicyExpiryDate() {
-		return policyExpiryDate;
-	}
+    /**
+     * @return the policyStartDate
+     */
+    public Date getPolicyStartDate() {
+        return policyStartDate;
+    }
 
-	/**
-	 * @param policyExpiryDate
-	 *            the policyExpiryDate to set
-	 */
-	public void setPolicyExpiryDate(Date policyExpiryDate) {
-		this.policyExpiryDate = policyExpiryDate;
-	}
+    /**
+     * @param policyStartDate the policyStartDate to set
+     */
+    public void setPolicyStartDate(Date policyStartDate) {
+        this.policyStartDate = policyStartDate;
+    }
 
-	/**
-	 * @return the isRecommended
-	 */
-	public Boolean getIsRecommended() {
-		return isRecommended;
-	}
+    /**
+     * @return the policyExpiryDate
+     */
+    public Date getPolicyExpiryDate() {
+        return policyExpiryDate;
+    }
 
-	/**
-	 * @param isRecommended
-	 *            the isRecommended to set
-	 */
-	public void setIsRecommended(Boolean isRecommended) {
-		this.isRecommended = isRecommended;
-	}
+    /**
+     * @param policyExpiryDate the policyExpiryDate to set
+     */
+    public void setPolicyExpiryDate(Date policyExpiryDate) {
+        this.policyExpiryDate = policyExpiryDate;
+    }
 
-	/**
-	 * @return the recommendationSummary
-	 */
-	public String getRecommendationSummary() {
-		return recommendationSummary;
-	}
+    /**
+     * @return the isRecommended
+     */
+    public Boolean getIsRecommended() {
+        return isRecommended;
+    }
 
-	/**
-	 * @param recommendationSummary
-	 *            the recommendationSummary to set
-	 */
-	public void setRecommendationSummary(String recommendationSummary) {
-		this.recommendationSummary = recommendationSummary;
-	}
+    /**
+     * @param isRecommended the isRecommended to set
+     */
+    public void setIsRecommended(Boolean isRecommended) {
+        this.isRecommended = isRecommended;
+    }
 
-	/**
-	 * @return the statusCode
-	 */
-	public Integer getStatusCode() {
-		return statusCode;
-	}
+    /**
+     * @return the recommendationSummary
+     */
+    public String getRecommendationSummary() {
+        return recommendationSummary;
+    }
 
-	/**
-	 * @param statusCode
-	 *            the statusCode to set
-	 */
-	public void setStatusCode(Integer statusCode) {
-		this.statusCode = statusCode;
-	}
+    /**
+     * @param recommendationSummary the recommendationSummary to set
+     */
+    public void setRecommendationSummary(String recommendationSummary) {
+        this.recommendationSummary = recommendationSummary;
+    }
 
-	/**
-	 * @return the quotationDetails
-	 */
-	public List<QuotationDetailVO> getQuotationDetails() {
-		return quotationDetails;
-	}
+    /**
+     * @return the statusCode
+     */
+    public Integer getStatusCode() {
+        return statusCode;
+    }
 
-	/**
-	 * @param quotationDetails
-	 *            the quotationDetails to set
-	 */
-	public void setQuotationDetails(List<QuotationDetailVO> quotationDetails) {
-		this.quotationDetails = quotationDetails;
-	}
+    /**
+     * @param statusCode the statusCode to set
+     */
+    public void setStatusCode(Integer statusCode) {
+        this.statusCode = statusCode;
+    }
 
-	/**
-	 * @return the quotedInsCompany
-	 */
-	public InsCompanyVO getQuotedInsCompany() {
-		return quotedInsCompany;
-	}
+    /**
+     * @return the quotationDetails
+     */
+    public List<QuotationDetailVO> getQuotationDetails() {
+        return quotationDetails;
+    }
 
-	/**
-	 * @param quotedInsCompany
-	 *            the quotedInsCompany to set
-	 */
-	public void setQuotedInsCompany(InsCompanyVO quotedInsCompany) {
-		this.quotedInsCompany = quotedInsCompany;
-	}
+    /**
+     * @param quotationDetails the quotationDetails to set
+     */
+    public void setQuotationDetails(List<QuotationDetailVO> quotationDetails) {
+        this.quotationDetails = quotationDetails;
+    }
 
-	/**
-	 * @return the product
-	 */
-	public ProductVO getProduct() {
-		return product;
-	}
+    /**
+     * @return the quotedInsCompany
+     */
+    public InsCompanyVO getQuotedInsCompany() {
+        return quotedInsCompany;
+    }
 
-	/**
-	 * @param product
-	 *            the product to set
-	 */
-	public void setProduct(ProductVO product) {
-		this.product = product;
-	}
+    /**
+     * @param quotedInsCompany the quotedInsCompany to set
+     */
+    public void setQuotedInsCompany(InsCompanyVO quotedInsCompany) {
+        this.quotedInsCompany = quotedInsCompany;
+    }
 
-	public String getCoverDescription() {
-		return coverDescription;
-	}
+    /**
+     * @return the product
+     */
+    public ProductVO getProduct() {
+        return product;
+    }
 
-	public void setCoverDescription(String coverDescription) {
-		this.coverDescription = coverDescription;
-	}
+    /**
+     * @param product the product to set
+     */
+    public void setProduct(ProductVO product) {
+        this.product = product;
+    }
 
-	public UserVO getQuoteApprovedBy() {
-		return quoteApprovedBy;
-	}
+    public String getCoverDescription() {
+        return coverDescription;
+    }
 
-	public void setQuoteApprovedBy(UserVO quoteApprovedBy) {
-		this.quoteApprovedBy = quoteApprovedBy;
-	}
+    public void setCoverDescription(String coverDescription) {
+        this.coverDescription = coverDescription;
+    }
 
-	public Boolean getIsQuoteApproved() {
-		return isQuoteApproved;
-	}
+    public UserVO getQuoteApprovedBy() {
+        return quoteApprovedBy;
+    }
 
-	public void setIsQuoteApproved(Boolean isQuoteApproved) {
-		this.isQuoteApproved = isQuoteApproved;
-	}
+    public void setQuoteApprovedBy(UserVO quoteApprovedBy) {
+        this.quoteApprovedBy = quoteApprovedBy;
+    }
 
-	public Boolean getIsClosingSlipEmailed() {
-		return isClosingSlipEmailed;
-	}
+    public Boolean getIsQuoteApproved() {
+        return isQuoteApproved;
+    }
 
-	public void setIsClosingSlipEmailed(Boolean isClosingSlipEmailed) {
-		this.isClosingSlipEmailed = isClosingSlipEmailed;
-	}
+    public void setIsQuoteApproved(Boolean isQuoteApproved) {
+        this.isQuoteApproved = isQuoteApproved;
+    }
 
-	/**
-	 * @return the serialversionuid
-	 */
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+    public Boolean getIsClosingSlipEmailed() {
+        return isClosingSlipEmailed;
+    }
+
+    public void setIsClosingSlipEmailed(Boolean isClosingSlipEmailed) {
+        this.isClosingSlipEmailed = isClosingSlipEmailed;
+    }
+
+    /**
+     * @return the serialversionuid
+     */
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
 
 }

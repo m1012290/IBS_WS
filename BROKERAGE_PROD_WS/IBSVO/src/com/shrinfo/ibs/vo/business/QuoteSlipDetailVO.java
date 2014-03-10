@@ -4,115 +4,111 @@ import java.util.Date;
 
 public class QuoteSlipDetailVO extends BaseVO {
 
-	/**
+    /**
 	 * 
 	 */
-	private static final long serialVersionUID = 2988845699753210671L;
-	
-	private EnquiryVO enquiry;
-	
-	private Integer version;
+    private static final long serialVersionUID = 2988845699753210671L;
 
-	private ProductFieldVO underWrittenField;
+    private EnquiryVO enquiry;
 
-	private String status;
+    private Integer version;
 
-	private Date recordValidFrom;
+    private ProductFieldVO underWrittenField;
 
-	private Date recordValidTo;
+    private String status;
 
-	/**
-	 * @return the underWrittenField
-	 */
-	public ProductFieldVO getUnderWrittenField() {
-		return underWrittenField;
-	}
+    private Date recordValidFrom;
 
-	/**
-	 * @param underWrittenField
-	 *            the underWrittenField to set
-	 */
-	public void setUnderWrittenField(ProductFieldVO underWrittenField) {
-		this.underWrittenField = underWrittenField;
-	}
+    private Date recordValidTo;
 
-	/**
-	 * @return the status
-	 */
-	public String getStatus() {
-		return status;
-	}
+    /**
+     * @return the underWrittenField
+     */
+    public ProductFieldVO getUnderWrittenField() {
+        return underWrittenField;
+    }
 
-	/**
-	 * @param status
-	 *            the status to set
-	 */
-	public void setStatus(String status) {
-		this.status = status;
-	}
+    /**
+     * @param underWrittenField the underWrittenField to set
+     */
+    public void setUnderWrittenField(ProductFieldVO underWrittenField) {
+        this.underWrittenField = underWrittenField;
+    }
 
-	/**
-	 * @return the recordValidFrom
-	 */
-	public Date getRecordValidFrom() {
-		return recordValidFrom;
-	}
+    /**
+     * @return the status
+     */
+    public String getStatus() {
+        return status;
+    }
 
-	/**
-	 * @param recordValidFrom
-	 *            the recordValidFrom to set
-	 */
-	public void setRecordValidFrom(Date recordValidFrom) {
-		this.recordValidFrom = recordValidFrom;
-	}
+    /**
+     * @param status the status to set
+     */
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
-	/**
-	 * @return the recordValidTo
-	 */
-	public Date getRecordValidTo() {
-		return recordValidTo;
-	}
+    /**
+     * @return the recordValidFrom
+     */
+    public Date getRecordValidFrom() {
+        return recordValidFrom;
+    }
 
-	/**
-	 * @param recordValidTo
-	 *            the recordValidTo to set
-	 */
-	public void setRecordValidTo(Date recordValidTo) {
-		this.recordValidTo = recordValidTo;
-	}
+    /**
+     * @param recordValidFrom the recordValidFrom to set
+     */
+    public void setRecordValidFrom(Date recordValidFrom) {
+        this.recordValidFrom = recordValidFrom;
+    }
 
-	/**
-	 * @return the enquiry
-	 */
-	public EnquiryVO getEnquiry() {
-		return enquiry;
-	}
+    /**
+     * @return the recordValidTo
+     */
+    public Date getRecordValidTo() {
+        return recordValidTo;
+    }
 
-	/**
-	 * @param enquiry the enquiry to set
-	 */
-	public void setEnquiry(EnquiryVO enquiry) {
-		this.enquiry = enquiry;
-	}
+    /**
+     * @param recordValidTo the recordValidTo to set
+     */
+    public void setRecordValidTo(Date recordValidTo) {
+        this.recordValidTo = recordValidTo;
+    }
 
-	/**
-	 * @return the version
-	 */
-	public Integer getVersion() {
-		return version;
-	}
+    /**
+     * @return the enquiry
+     */
+    public EnquiryVO getEnquiry() {
+        return enquiry;
+    }
 
-	/**
-	 * @param version the version to set
-	 */
-	public void setVersion(Integer version) {
-		this.version = version;
-	}
+    /**
+     * @param enquiry the enquiry to set
+     */
+    public void setEnquiry(EnquiryVO enquiry) {
+        this.enquiry = enquiry;
+    }
 
-	/**
-	 * @return the serialversionuid
-	 */
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+    /**
+     * @return the version
+     */
+    public Integer getVersion() {
+        return version;
+    }
+
+    /**
+     * @param version the version to set
+     */
+    public void setVersion(Integer version) {
+        this.version = version;
+    }
+
+    /**
+     * @return the serialversionuid
+     */
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
 }

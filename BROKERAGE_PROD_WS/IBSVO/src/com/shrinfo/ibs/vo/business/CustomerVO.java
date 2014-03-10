@@ -4,187 +4,180 @@ import java.util.List;
 
 public abstract class CustomerVO extends BaseVO {
 
-	/**
+    /**
 	 * 
 	 */
-	private static final long serialVersionUID = -7346107748917877189L;
+    private static final long serialVersionUID = -7346107748917877189L;
 
-	private Long customerId;
+    private Long customerId;
 
-	private String salutation;
+    private String salutation;
 
-	private String name;
-	// Individual / Corporate
-	private String category;
+    private String name;
 
-	private String group;
-	// Any specific classification reqd. Eg/- Government,Private,Public Limited
-	// etc
-	private String classification;
-	// source of business
-	private String source;
+    // Individual / Corporate
+    private String category;
 
-	private ContactVO contact;
+    private String group;
 
-	private List<InsuredVO> insureList;
+    // Any specific classification reqd. Eg/- Government,Private,Public Limited
+    // etc
+    private String classification;
 
-	private String status;
+    // source of business
+    private String source;
 
-	/**
-	 * @return the customerId
-	 */
-	public Long getCustomerId() {
-		return customerId;
-	}
+    private ContactVO contact;
 
-	/**
-	 * @param customerId
-	 *            the customerId to set
-	 */
-	public void setCustomerId(Long customerId) {
-		this.customerId = customerId;
-	}
+    private List<InsuredVO> insureList;
 
-	/**
-	 * @return the salutation
-	 */
-	public String getSalutation() {
-		return salutation;
-	}
+    private String status;
 
-	/**
-	 * @param salutation
-	 *            the salutation to set
-	 */
-	public void setSalutation(String salutation) {
-		this.salutation = salutation;
-	}
+    /**
+     * @return the customerId
+     */
+    public Long getCustomerId() {
+        return customerId;
+    }
 
-	/**
-	 * @return the name
-	 */
-	public String getName() {
-		return name;
-	}
+    /**
+     * @param customerId the customerId to set
+     */
+    public void setCustomerId(Long customerId) {
+        this.customerId = customerId;
+    }
 
-	/**
-	 * @param name
-	 *            the name to set
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
+    /**
+     * @return the salutation
+     */
+    public String getSalutation() {
+        return salutation;
+    }
 
-	/**
-	 * @return the category
-	 */
-	public String getCategory() {
-		return category;
-	}
+    /**
+     * @param salutation the salutation to set
+     */
+    public void setSalutation(String salutation) {
+        this.salutation = salutation;
+    }
 
-	/**
-	 * @param category
-	 *            the category to set
-	 */
-	public void setCategory(String category) {
-		this.category = category;
-	}
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
 
-	/**
-	 * @return the group
-	 */
-	public String getGroup() {
-		return group;
-	}
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	/**
-	 * @param group
-	 *            the group to set
-	 */
-	public void setGroup(String group) {
-		this.group = group;
-	}
+    /**
+     * @return the category
+     */
+    public String getCategory() {
+        return category;
+    }
 
-	/**
-	 * @return the classification
-	 */
-	public String getClassification() {
-		return classification;
-	}
+    /**
+     * @param category the category to set
+     */
+    public void setCategory(String category) {
+        this.category = category;
+    }
 
-	/**
-	 * @param classification
-	 *            the classification to set
-	 */
-	public void setClassification(String classification) {
-		this.classification = classification;
-	}
+    /**
+     * @return the group
+     */
+    public String getGroup() {
+        return group;
+    }
 
-	/**
-	 * @return the source
-	 */
-	public String getSource() {
-		return source;
-	}
+    /**
+     * @param group the group to set
+     */
+    public void setGroup(String group) {
+        this.group = group;
+    }
 
-	/**
-	 * @param source
-	 *            the source to set
-	 */
-	public void setSource(String source) {
-		this.source = source;
-	}
+    /**
+     * @return the classification
+     */
+    public String getClassification() {
+        return classification;
+    }
 
-	/**
-	 * @return the contact
-	 */
-	public ContactVO getContact() {
-		return contact;
-	}
+    /**
+     * @param classification the classification to set
+     */
+    public void setClassification(String classification) {
+        this.classification = classification;
+    }
 
-	/**
-	 * @param contact
-	 *            the contact to set
-	 */
-	public void setContact(ContactVO contact) {
-		this.contact = contact;
-	}
+    /**
+     * @return the source
+     */
+    public String getSource() {
+        return source;
+    }
 
-	/**
-	 * @return the insureList
-	 */
-	public List<InsuredVO> getInsureList() {
-		return insureList;
-	}
+    /**
+     * @param source the source to set
+     */
+    public void setSource(String source) {
+        this.source = source;
+    }
 
-	/**
-	 * @param insureList
-	 *            the insureList to set
-	 */
-	public void setInsureList(List<InsuredVO> insureList) {
-		this.insureList = insureList;
-	}
+    /**
+     * @return the contact
+     */
+    public ContactVO getContact() {
+        return contact;
+    }
 
-	/**
-	 * @return the status
-	 */
-	public String getStatus() {
-		return status;
-	}
+    /**
+     * @param contact the contact to set
+     */
+    public void setContact(ContactVO contact) {
+        this.contact = contact;
+    }
 
-	/**
-	 * @param status
-	 *            the status to set
-	 */
-	public void setStatus(String status) {
-		this.status = status;
-	}
+    /**
+     * @return the insureList
+     */
+    public List<InsuredVO> getInsureList() {
+        return insureList;
+    }
 
-	/**
-	 * @return the serialversionuid
-	 */
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+    /**
+     * @param insureList the insureList to set
+     */
+    public void setInsureList(List<InsuredVO> insureList) {
+        this.insureList = insureList;
+    }
+
+    /**
+     * @return the status
+     */
+    public String getStatus() {
+        return status;
+    }
+
+    /**
+     * @param status the status to set
+     */
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    /**
+     * @return the serialversionuid
+     */
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
 
 }

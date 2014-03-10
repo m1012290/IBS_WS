@@ -2,185 +2,176 @@ package com.shrinfo.ibs.vo.business;
 
 public class ProductFieldVO extends BaseVO {
 
-	/**
+    /**
 	 * 
 	 */
-	private static final long serialVersionUID = -8547918153558242262L;
+    private static final long serialVersionUID = -8547918153558242262L;
 
-	private Long id;
+    private Long id;
 
-	private Long productClass;
+    private Long productClass;
 
-	private Long serialNum;
+    private Long serialNum;
 
-	private String fieldName;
+    private String fieldName;
 
-	private String fieldType;
+    private String fieldType;
 
-	private Boolean isMandatory;
+    private Boolean isMandatory;
 
-	private Integer fieldLength;
+    private Integer fieldLength;
 
-	private String status;
+    private String status;
 
-	private String srcOfData;
-	
-	private String fieldValue;
+    private String srcOfData;
 
-	/**
-	 * @return the id
-	 */
-	public Long getId() {
-		return id;
-	}
+    private String fieldValue;
 
-	/**
-	 * @param id
-	 *            the id to set
-	 */
-	public void setId(Long id) {
-		this.id = id;
-	}
+    /**
+     * @return the id
+     */
+    public Long getId() {
+        return id;
+    }
 
-	/**
-	 * @return the productClass
-	 */
-	public Long getProductClass() {
-		return productClass;
-	}
+    /**
+     * @param id the id to set
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	/**
-	 * @param productClass
-	 *            the productClass to set
-	 */
-	public void setProductClass(Long productClass) {
-		this.productClass = productClass;
-	}
+    /**
+     * @return the productClass
+     */
+    public Long getProductClass() {
+        return productClass;
+    }
 
-	/**
-	 * @return the serialNum
-	 */
-	public Long getSerialNum() {
-		return serialNum;
-	}
+    /**
+     * @param productClass the productClass to set
+     */
+    public void setProductClass(Long productClass) {
+        this.productClass = productClass;
+    }
 
-	/**
-	 * @param serialNum
-	 *            the serialNum to set
-	 */
-	public void setSerialNum(Long serialNum) {
-		this.serialNum = serialNum;
-	}
+    /**
+     * @return the serialNum
+     */
+    public Long getSerialNum() {
+        return serialNum;
+    }
 
-	/**
-	 * @return the fieldName
-	 */
-	public String getFieldName() {
-		return fieldName;
-	}
+    /**
+     * @param serialNum the serialNum to set
+     */
+    public void setSerialNum(Long serialNum) {
+        this.serialNum = serialNum;
+    }
 
-	/**
-	 * @param fieldName
-	 *            the fieldName to set
-	 */
-	public void setFieldName(String fieldName) {
-		this.fieldName = fieldName;
-	}
+    /**
+     * @return the fieldName
+     */
+    public String getFieldName() {
+        return fieldName;
+    }
 
-	/**
-	 * @return the fieldType
-	 */
-	public String getFieldType() {
-		return fieldType;
-	}
+    /**
+     * @param fieldName the fieldName to set
+     */
+    public void setFieldName(String fieldName) {
+        this.fieldName = fieldName;
+    }
 
-	/**
-	 * @param fieldType
-	 *            the fieldType to set
-	 */
-	public void setFieldType(String fieldType) {
-		this.fieldType = fieldType;
-	}
+    /**
+     * @return the fieldType
+     */
+    public String getFieldType() {
+        return fieldType;
+    }
 
-	/**
-	 * @return the isMandatory
-	 */
-	public Boolean getIsMandatory() {
-		return isMandatory;
-	}
+    /**
+     * @param fieldType the fieldType to set
+     */
+    public void setFieldType(String fieldType) {
+        this.fieldType = fieldType;
+    }
 
-	/**
-	 * @param isMandatory
-	 *            the isMandatory to set
-	 */
-	public void setIsMandatory(Boolean isMandatory) {
-		this.isMandatory = isMandatory;
-	}
+    /**
+     * @return the isMandatory
+     */
+    public Boolean getIsMandatory() {
+        return isMandatory;
+    }
 
-	/**
-	 * @return the fieldLength
-	 */
-	public Integer getFieldLength() {
-		return fieldLength;
-	}
+    /**
+     * @param isMandatory the isMandatory to set
+     */
+    public void setIsMandatory(Boolean isMandatory) {
+        this.isMandatory = isMandatory;
+    }
 
-	/**
-	 * @param fieldLength
-	 *            the fieldLength to set
-	 */
-	public void setFieldLength(Integer fieldLength) {
-		this.fieldLength = fieldLength;
-	}
+    /**
+     * @return the fieldLength
+     */
+    public Integer getFieldLength() {
+        return fieldLength;
+    }
 
-	/**
-	 * @return the status
-	 */
-	public String getStatus() {
-		return status;
-	}
+    /**
+     * @param fieldLength the fieldLength to set
+     */
+    public void setFieldLength(Integer fieldLength) {
+        this.fieldLength = fieldLength;
+    }
 
-	/**
-	 * @param status
-	 *            the status to set
-	 */
-	public void setStatus(String status) {
-		this.status = status;
-	}
+    /**
+     * @return the status
+     */
+    public String getStatus() {
+        return status;
+    }
 
-	/**
-	 * @return the srcOfData
-	 */
-	public String getSrcOfData() {
-		return srcOfData;
-	}
+    /**
+     * @param status the status to set
+     */
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
-	/**
-	 * @param srcOfData
-	 *            the srcOfData to set
-	 */
-	public void setSrcOfData(String srcOfData) {
-		this.srcOfData = srcOfData;
-	}
+    /**
+     * @return the srcOfData
+     */
+    public String getSrcOfData() {
+        return srcOfData;
+    }
 
-	/**
-	 * @return the fieldValue
-	 */
-	public String getFieldValue() {
-		return fieldValue;
-	}
+    /**
+     * @param srcOfData the srcOfData to set
+     */
+    public void setSrcOfData(String srcOfData) {
+        this.srcOfData = srcOfData;
+    }
 
-	/**
-	 * @param fieldValue the fieldValue to set
-	 */
-	public void setFieldValue(String fieldValue) {
-		this.fieldValue = fieldValue;
-	}
+    /**
+     * @return the fieldValue
+     */
+    public String getFieldValue() {
+        return fieldValue;
+    }
 
-	/**
-	 * @return the serialversionuid
-	 */
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+    /**
+     * @param fieldValue the fieldValue to set
+     */
+    public void setFieldValue(String fieldValue) {
+        this.fieldValue = fieldValue;
+    }
+
+    /**
+     * @return the serialversionuid
+     */
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
 
 }

@@ -5,155 +5,147 @@ import java.util.Date;
 
 public class EnquiryVO extends BaseVO {
 
-	/**
+    /**
 	 * 
 	 */
-	private static final long serialVersionUID = -5553146497827099745L;
+    private static final long serialVersionUID = -5553146497827099745L;
 
-	private Long enquiryNum;
-	
-	// type of enquireis- policy, endorsement, renewal, claims
-	// TODO enum instead of string
-	private String enquiryType;
+    private Long enquiryNum;
 
-	private CustomerVO recievedFrom;
+    // type of enquireis- policy, endorsement, renewal, claims
+    // TODO enum instead of string
+    private String enquiryType;
 
-	private Date recievedDate;
+    private CustomerVO recievedFrom;
 
-	private ContactVO contact;
+    private Date recievedDate;
 
-	private ProductVO product;
+    private ContactVO contact;
 
-	private String desc;
-	
-	// From Client Side
-	private String enquirySme;
+    private ProductVO product;
 
-	/**
-	 * @return the enquiryNum
-	 */
-	public Long getEnquiryNum() {
-		return enquiryNum;
-	}
+    private String desc;
 
-	/**
-	 * @param enquiryNum
-	 *            the enquiryNum to set
-	 */
-	public void setEnquiryNum(Long enquiryNum) {
-		this.enquiryNum = enquiryNum;
-	}
+    // From Client Side
+    private String enquirySme;
 
-	/**
-	 * @return the enquiryType
-	 */
-	public String getEnquiryType() {
-		return enquiryType;
-	}
+    /**
+     * @return the enquiryNum
+     */
+    public Long getEnquiryNum() {
+        return enquiryNum;
+    }
 
-	/**
-	 * @param enquiryType
-	 *            the enquiryType to set
-	 */
-	public void setEnquiryType(String enquiryType) {
-		this.enquiryType = enquiryType;
-	}
+    /**
+     * @param enquiryNum the enquiryNum to set
+     */
+    public void setEnquiryNum(Long enquiryNum) {
+        this.enquiryNum = enquiryNum;
+    }
 
-	/**
-	 * @return the recievedFrom
-	 */
-	public CustomerVO getRecievedFrom() {
-		return recievedFrom;
-	}
+    /**
+     * @return the enquiryType
+     */
+    public String getEnquiryType() {
+        return enquiryType;
+    }
 
-	/**
-	 * @param recievedFrom
-	 *            the recievedFrom to set
-	 */
-	public void setRecievedFrom(CustomerVO recievedFrom) {
-		this.recievedFrom = recievedFrom;
-	}
+    /**
+     * @param enquiryType the enquiryType to set
+     */
+    public void setEnquiryType(String enquiryType) {
+        this.enquiryType = enquiryType;
+    }
 
-	/**
-	 * @return the recievedDate
-	 */
-	public Date getRecievedDate() {
-		return recievedDate;
-	}
+    /**
+     * @return the recievedFrom
+     */
+    public CustomerVO getRecievedFrom() {
+        return recievedFrom;
+    }
 
-	/**
-	 * @param recievedDate
-	 *            the recievedDate to set
-	 */
-	public void setRecievedDate(Date recievedDate) {
-		this.recievedDate = recievedDate;
-	}
+    /**
+     * @param recievedFrom the recievedFrom to set
+     */
+    public void setRecievedFrom(CustomerVO recievedFrom) {
+        this.recievedFrom = recievedFrom;
+    }
 
-	/**
-	 * @return the contact
-	 */
-	public ContactVO getContact() {
-		return contact;
-	}
+    /**
+     * @return the recievedDate
+     */
+    public Date getRecievedDate() {
+        return recievedDate;
+    }
 
-	/**
-	 * @param contact
-	 *            the contact to set
-	 */
-	public void setContact(ContactVO contact) {
-		this.contact = contact;
-	}
+    /**
+     * @param recievedDate the recievedDate to set
+     */
+    public void setRecievedDate(Date recievedDate) {
+        this.recievedDate = recievedDate;
+    }
 
-	/**
-	 * @return the product
-	 */
-	public ProductVO getProduct() {
-		return product;
-	}
+    /**
+     * @return the contact
+     */
+    public ContactVO getContact() {
+        return contact;
+    }
 
-	/**
-	 * @param product
-	 *            the product to set
-	 */
-	public void setProduct(ProductVO product) {
-		this.product = product;
-	}
+    /**
+     * @param contact the contact to set
+     */
+    public void setContact(ContactVO contact) {
+        this.contact = contact;
+    }
 
-	/**
-	 * @return the desc
-	 */
-	public String getDesc() {
-		return desc;
-	}
+    /**
+     * @return the product
+     */
+    public ProductVO getProduct() {
+        return product;
+    }
 
-	/**
-	 * @param desc
-	 *            the desc to set
-	 */
-	public void setDesc(String desc) {
-		this.desc = desc;
-	}
+    /**
+     * @param product the product to set
+     */
+    public void setProduct(ProductVO product) {
+        this.product = product;
+    }
 
-	/**
-	 * @return the enquirySme
-	 */
-	public String getEnquirySme() {
-		return enquirySme;
-	}
+    /**
+     * @return the desc
+     */
+    public String getDesc() {
+        return desc;
+    }
 
-	/**
-	 * @param enquirySme
-	 *            the enquirySme to set
-	 */
-	public void setEnquirySme(String enquirySme) {
-		this.enquirySme = enquirySme;
-	}
+    /**
+     * @param desc the desc to set
+     */
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
 
-	/**
-	 * @return the serialversionuid
-	 */
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+    /**
+     * @return the enquirySme
+     */
+    public String getEnquirySme() {
+        return enquirySme;
+    }
+
+    /**
+     * @param enquirySme the enquirySme to set
+     */
+    public void setEnquirySme(String enquirySme) {
+        this.enquirySme = enquirySme;
+    }
+
+    /**
+     * @return the serialversionuid
+     */
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
 
 }

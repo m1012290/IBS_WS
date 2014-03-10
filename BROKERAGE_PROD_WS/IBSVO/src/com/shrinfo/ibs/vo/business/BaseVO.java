@@ -5,81 +5,77 @@ import java.util.Date;
 
 public abstract class BaseVO implements Serializable {
 
-	private static final long serialVersionUID = -8650336303052382802L;
+    private static final long serialVersionUID = -8650336303052382802L;
 
-	private Date createdOn;
+    private Date createdOn;
 
-	private Date updatedOn;
+    private Date updatedOn;
 
-	private UserVO createdBy;
+    private UserVO createdBy;
 
-	private UserVO updatedBy;
-	
-	/**
-	 * @return the createdOn
-	 */
-	public Date getCreatedOn() {
-		return createdOn;
-	}
+    private UserVO updatedBy;
 
-	/**
-	 * @param createdOn
-	 *            the createdOn to set
-	 */
-	public void setCreatedOn(Date createdOn) {
-		this.createdOn = createdOn;
-	}
+    /**
+     * @return the createdOn
+     */
+    public Date getCreatedOn() {
+        return createdOn;
+    }
 
-	/**
-	 * @return the updatedOn
-	 */
-	public Date getUpdatedOn() {
-		return updatedOn;
-	}
+    /**
+     * @param createdOn the createdOn to set
+     */
+    public void setCreatedOn(Date createdOn) {
+        this.createdOn = createdOn;
+    }
 
-	/**
-	 * @param updatedOn
-	 *            the updatedOn to set
-	 */
-	public void setUpdatedOn(Date updatedOn) {
-		this.updatedOn = updatedOn;
-	}
+    /**
+     * @return the updatedOn
+     */
+    public Date getUpdatedOn() {
+        return updatedOn;
+    }
 
-	/**
-	 * @return the createdBy
-	 */
-	public UserVO getCreatedBy() {
-		return createdBy;
-	}
+    /**
+     * @param updatedOn the updatedOn to set
+     */
+    public void setUpdatedOn(Date updatedOn) {
+        this.updatedOn = updatedOn;
+    }
 
-	/**
-	 * @param createdBy
-	 *            the createdBy to set
-	 */
-	public void setCreatedBy(UserVO createdBy) {
-		this.createdBy = createdBy;
-	}
+    /**
+     * @return the createdBy
+     */
+    public UserVO getCreatedBy() {
+        return createdBy;
+    }
 
-	/**
-	 * @return the updatedBy
-	 */
-	public UserVO getUpdatedBy() {
-		return updatedBy;
-	}
+    /**
+     * @param createdBy the createdBy to set
+     */
+    public void setCreatedBy(UserVO createdBy) {
+        this.createdBy = createdBy;
+    }
 
-	/**
-	 * @param updatedBy
-	 *            the updatedBy to set
-	 */
-	public void setUpdatedBy(UserVO updatedBy) {
-		this.updatedBy = updatedBy;
-	}
+    /**
+     * @return the updatedBy
+     */
+    public UserVO getUpdatedBy() {
+        return updatedBy;
+    }
 
-	/**
-	 * @return the serialversionuid
-	 */
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+    /**
+     * @param updatedBy the updatedBy to set
+     */
+    public void setUpdatedBy(UserVO updatedBy) {
+        this.updatedBy = updatedBy;
+    }
+
+    /**
+     * @return the serialversionuid
+     */
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
 
 }
