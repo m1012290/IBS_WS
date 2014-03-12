@@ -18,4 +18,7 @@ public class CommonConstants {
     public static final String ENQUIRY_TYPE_ENDORSEMENT = "endorsement";
     public static final String ENQUIRY_TYPE_RENEWAL = "renewal";
     public static final String ENQUIRY_TYPE_CLAIMS = "claims";
+    
+    //Default logging level configuration
+    public static final String APP_CONFIG_DEFAULT_LOG_LEVEL = "DEFAULT_LOG_LEVEL";
 }
