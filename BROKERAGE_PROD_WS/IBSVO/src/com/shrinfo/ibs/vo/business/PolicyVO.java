@@ -51,4 +51,204 @@ public class PolicyVO extends BaseVO {
     private int newQuoteVersion;
     
     private String isQuoteConvertedToPolicy;
+
+    
+    public long getUwTransactionId() {
+        return uwTransactionId;
+    }
+
+    
+    public void setUwTransactionId(long uwTransactionId) {
+        this.uwTransactionId = uwTransactionId;
+    }
+
+    
+    public String getPolicyNo() {
+        return policyNo;
+    }
+
+    
+    public void setPolicyNo(String policyNo) {
+        this.policyNo = policyNo;
+    }
+
+    
+    public String getQuoteNo() {
+        return quoteNo;
+    }
+
+    
+    public void setQuoteNo(String quoteNo) {
+        this.quoteNo = quoteNo;
+    }
+
+    
+    public int getQuoteNoVersion() {
+        return quoteNoVersion;
+    }
+
+    
+    public void setQuoteNoVersion(int quoteNoVersion) {
+        this.quoteNoVersion = quoteNoVersion;
+    }
+
+    
+    public Map<InsCompanyVO, QuoteDetailsVO> getQuoteDetails() {
+        return quoteDetails;
+    }
+
+    
+    public void setQuoteDetails(Map<InsCompanyVO, QuoteDetailsVO> quoteDetails) {
+        this.quoteDetails = quoteDetails;
+    }
+
+    
+    public InsuredVO getInsuredDetails() {
+        return insuredDetails;
+    }
+
+    
+    public void setInsuredDetails(InsuredVO insuredDetails) {
+        this.insuredDetails = insuredDetails;
+    }
+
+    
+    public EnquiryType getEnquiryType() {
+        return enquiryType;
+    }
+
+    
+    public void setEnquiryType(EnquiryType enquiryType) {
+        this.enquiryType = enquiryType;
+    }
+
+    
+    public int getStatusCode() {
+        return statusCode;
+    }
+
+    
+    public void setStatusCode(int statusCode) {
+        this.statusCode = statusCode;
+    }
+
+    
+    public PremiumVO getPremiumDetails() {
+        return premiumDetails;
+    }
+
+    
+    public void setPremiumDetails(PremiumVO premiumDetails) {
+        this.premiumDetails = premiumDetails;
+    }
+
+    
+    public BigDecimal getSumInsured() {
+        return sumInsured;
+    }
+
+    
+    public void setSumInsured(BigDecimal sumInsured) {
+        this.sumInsured = sumInsured;
+    }
+
+    
+    public int getPolicyTerm() {
+        return policyTerm;
+    }
+
+    
+    public void setPolicyTerm(int policyTerm) {
+        this.policyTerm = policyTerm;
+    }
+
+    
+    public String getCoverDescription() {
+        return coverDescription;
+    }
+
+    
+    public void setCoverDescription(String coverDescription) {
+        this.coverDescription = coverDescription;
+    }
+
+    
+    public long getPolicyApprovedByUserId() {
+        return policyApprovedByUserId;
+    }
+
+    
+    public void setPolicyApprovedByUserId(long policyApprovedByUserId) {
+        this.policyApprovedByUserId = policyApprovedByUserId;
+    }
+
+    
+    public boolean isQuote() {
+        return isQuote;
+    }
+
+    
+    public void setQuote(boolean isQuote) {
+        this.isQuote = isQuote;
+    }
+
+    
+    public Date getPolicyEffectiveDate() {
+        return policyEffectiveDate;
+    }
+
+    
+    public void setPolicyEffectiveDate(Date policyEffectiveDate) {
+        this.policyEffectiveDate = policyEffectiveDate;
+    }
+
+    
+    public Date getPolicyExpiryDate() {
+        return policyExpiryDate;
+    }
+
+    
+    public void setPolicyExpiryDate(Date policyExpiryDate) {
+        this.policyExpiryDate = policyExpiryDate;
+    }
+
+    
+    public Date getEndtEffectiveDate() {
+        return endtEffectiveDate;
+    }
+
+    
+    public void setEndtEffectiveDate(Date endtEffectiveDate) {
+        this.endtEffectiveDate = endtEffectiveDate;
+    }
+
+    
+    public Date getEndtExpiryDate() {
+        return endtExpiryDate;
+    }
+
+    
+    public void setEndtExpiryDate(Date endtExpiryDate) {
+        this.endtExpiryDate = endtExpiryDate;
+    }
+
+    
+    public int getNewQuoteVersion() {
+        return newQuoteVersion;
+    }
+
+    
+    public void setNewQuoteVersion(int newQuoteVersion) {
+        this.newQuoteVersion = newQuoteVersion;
+    }
+
+    
+    public String getIsQuoteConvertedToPolicy() {
+        return isQuoteConvertedToPolicy;
+    }
+
+    
+    public void setIsQuoteConvertedToPolicy(String isQuoteConvertedToPolicy) {
+        this.isQuoteConvertedToPolicy = isQuoteConvertedToPolicy;
+    }
 }
