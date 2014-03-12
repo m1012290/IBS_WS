@@ -2,8 +2,8 @@ package com.shrinfo.ibs.service.helper;
 
 import java.math.BigDecimal;
 
+import com.shrinfo.ibs.cmn.vo.UserVO;
 import com.shrinfo.ibs.vo.business.TaskVO;
-import com.shrinfo.ibs.vo.business.UserVO;
 
 public class ReferralServiceImpl implements ReferralService {
 
