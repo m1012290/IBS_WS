@@ -2,7 +2,7 @@ package com.shrinfo.ibs.helper;
 
 import java.math.BigDecimal;
 
-import com.shrinfo.ibs.vo.business.UserVO;
+//import com.shrinfo.ibs.vo.business.UserVO;
 
 /**
  * 
@@ -20,11 +20,12 @@ public class ReferralHelper {
      * @param amount : amount entered during quote-slip generation or policy generation
      * @return
      */
+    /*
     public Boolean isReferralApplicable(String referralType, String flow, UserVO assignedBy,
             BigDecimal amount) {
 
         return false;
-    }
+    }*/
 
     /**
      * 
@@ -35,10 +36,11 @@ public class ReferralHelper {
      * @param amount
      * @return
      */
+    /*
     public boolean refer(String referralType, String flow, UserVO assignedBy, UserVO assignedTo,
             BigDecimal amount) {
 
         return false;
-    }
+    }*/
 
 }

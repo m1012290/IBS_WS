@@ -1,10 +1,10 @@
 package com.shrinfo.ibs.vo.business;
 
+import com.shrinfo.ibs.cmn.vo.BaseVO;
+
+
 public class UserRolePrivilege extends BaseVO {
 
-    /**
-	 * 
-	 */
     private static final long serialVersionUID = -3280000395236550395L;
 
     private Integer id;

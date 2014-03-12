@@ -2,50 +2,30 @@ package com.shrinfo.ibs.vo.business;
 
 import java.util.Map;
 
+/**
+ * @author Sunil kumar
+ * This class  represents Insurance Company entity in the application. This class inherits
+ * company details from CompanyVO, however additionally contact details product wise 
+ * would also be available.
+ */
 public class InsCompanyVO extends CompanyVO {
-
-    /**
-	 * 
-	 */
+    
     private static final long serialVersionUID = 2860672426234918139L;
 
-    private ContactVO contact;
-
-    private Map<ProductVO, ContactVO> contacts;
+    private Map<ProductVO, ContactVO> contactForProduct;
 
     /**
-     * @return the contact
+     * @return Map consisting of contacts for each of the products portfolio
      */
-    public ContactVO getContact() {
-        return contact;
+    public Map<ProductVO, ContactVO> getContactForProduct() {
+        return contactForProduct;
     }
 
     /**
-     * @param contact the contact to set
+     * 
+     * @param contactForProduct
      */
-    public void setContact(ContactVO contact) {
-        this.contact = contact;
+    public void setContactForProduct(Map<ProductVO, ContactVO> contactForProduct) {
+        this.contactForProduct = contactForProduct;
     }
-
-    /**
-     * @return the contacts
-     */
-    public Map<ProductVO, ContactVO> getContacts() {
-        return contacts;
-    }
-
-    /**
-     * @param contacts the contacts to set
-     */
-    public void setContacts(Map<ProductVO, ContactVO> contacts) {
-        this.contacts = contacts;
-    }
-
-    /**
-     * @return the serialversionuid
-     */
-    public static long getSerialversionuid() {
-        return serialVersionUID;
-    }
-
 }

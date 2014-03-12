@@ -1,5 +1,7 @@
 package com.shrinfo.ibs.vo.business;
 
+import com.shrinfo.ibs.cmn.vo.BaseVO;
+
 public class UserRoleVO extends BaseVO {
 
     /**

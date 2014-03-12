@@ -1,19 +1,21 @@
 package com.shrinfo.ibs.vo.business;
 
-public class CompanyVO extends BaseVO {
+import com.shrinfo.ibs.cmn.vo.BaseVO;
 
-    /**
-	 * 
-	 */
+/**
+ * @author Sunil Kumar - This class represents Company entity in the application. Company can further
+ *         be broking company, insurance company. Hence this class will act as base abstract for
+ *         basic company details.
+ */
+public abstract class CompanyVO extends BaseVO {
+
     private static final long serialVersionUID = 8674776028827953900L;
 
     private String code;
 
     private String name;
 
-    private AddressVO address;
-
-    private String status;
+    private ContactVO contactAndAddrDetails;
 
     /**
      * @return the code
@@ -43,38 +45,15 @@ public class CompanyVO extends BaseVO {
         this.name = name;
     }
 
-    /**
-     * @return the address
-     */
-    public AddressVO getAddress() {
-        return address;
+
+
+    public ContactVO getContactAndAddrDetails() {
+        return contactAndAddrDetails;
     }
 
-    /**
-     * @param address the address to set
-     */
-    public void setAddress(AddressVO address) {
-        this.address = address;
+
+    public void setContactAndAddrDetails(ContactVO contactAndAddrDetails) {
+        this.contactAndAddrDetails = contactAndAddrDetails;
     }
 
-    /**
-     * @return the status
-     */
-    public String getStatus() {
-        return status;
-    }
-
-    /**
-     * @param status the status to set
-     */
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    /**
-     * @return the serialversionuid
-     */
-    public static long getSerialversionuid() {
-        return serialVersionUID;
-    }
 }

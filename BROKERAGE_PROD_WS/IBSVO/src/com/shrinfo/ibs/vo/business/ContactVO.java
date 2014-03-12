@@ -1,102 +1,187 @@
 package com.shrinfo.ibs.vo.business;
 
+import com.shrinfo.ibs.cmn.vo.BaseVO;
+
+/**
+ * @author Sunil kumar This class represents Contact record for various entities like User,
+ *         Customer, Broking Company , Broking Company branch and finally insurance company contact.
+ */
 public class ContactVO extends BaseVO {
 
-    /**
-	 * 
-	 */
     private static final long serialVersionUID = -1199380266871786516L;
 
-    private String name;
+    private String firstName;
 
-    private String status;
+    private String middleName;
 
-    private String phone;
+    private String lastName;
 
-    private String phoneAlternate1;
+    private String mobileNo;
 
-    private String phoneAlternate2;
+    private String alternateMobileNo1;
 
-    private String landline;
+    private String alternateMobileNo2;
 
-    private String email;
+    private String landlineNo;
 
-    private String emailAlternate1;
+    private String alternateLandlineNo1;
 
-    private String emailAlternate2;
+    private String alternateLandLineNo2;
 
-    private String fax;
+    private String emailId;
+
+    private String alternateEmailId1;
+
+    private String alternateEmailId2;
+
+    private String faxNo;
 
     private AddressVO Address;
 
-    /**
-     * @return the name
-     */
-    public String getName() {
-        return name;
+    // Record type here would be record type codes from IBS_RECORD_TYPES which are
+    // basically to signify type of the contact record current entity represents.
+    // We can contact record for User, Customer, Broking Company, Broking Company Branch
+    // and Insurance company. Hence record types will exactly tell us whom does the contact
+    // details belong to.
+    private int recordType;
+
+    private String recordTypeDesc;
+
+    public String getFirstName() {
+        return firstName;
     }
 
-    /**
-     * @param name the name to set
-     */
-    public void setName(String name) {
-        this.name = name;
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    /**
-     * @return the status
-     */
-    protected String getStatus() {
-        return status;
+
+    public String getMiddleName() {
+        return middleName;
     }
 
-    /**
-     * @param status the status to set
-     */
-    protected void setStatus(String status) {
-        this.status = status;
+
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
     }
 
-    /**
-     * @return the phone
-     */
-    public String getPhone() {
-        return phone;
+
+    public String getLastName() {
+        return lastName;
     }
 
-    /**
-     * @param phone the phone to set
-     */
-    public void setPhone(String phone) {
-        this.phone = phone;
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    /**
-     * @return the email
-     */
-    public String getEmail() {
-        return email;
+
+    public String getMobileNo() {
+        return mobileNo;
     }
 
-    /**
-     * @param email the email to set
-     */
-    public void setEmail(String email) {
-        this.email = email;
+
+    public void setMobileNo(String mobileNo) {
+        this.mobileNo = mobileNo;
     }
 
-    /**
-     * @return the fax
-     */
-    public String getFax() {
-        return fax;
+
+    public String getAlternateMobileNo1() {
+        return alternateMobileNo1;
     }
 
-    /**
-     * @param fax the fax to set
-     */
-    public void setFax(String fax) {
-        this.fax = fax;
+
+    public void setAlternateMobileNo1(String alternateMobileNo1) {
+        this.alternateMobileNo1 = alternateMobileNo1;
+    }
+
+
+    public String getAlternateMobileNo2() {
+        return alternateMobileNo2;
+    }
+
+
+    public void setAlternateMobileNo2(String alternateMobileNo2) {
+        this.alternateMobileNo2 = alternateMobileNo2;
+    }
+
+
+    public String getLandlineNo() {
+        return landlineNo;
+    }
+
+
+    public void setLandlineNo(String landlineNo) {
+        this.landlineNo = landlineNo;
+    }
+
+
+
+    public String getAlternateLandlineNo1() {
+        return alternateLandlineNo1;
+    }
+
+
+
+    public void setAlternateLandlineNo1(String alternateLandlineNo1) {
+        this.alternateLandlineNo1 = alternateLandlineNo1;
+    }
+
+
+
+    public String getAlternateLandLineNo2() {
+        return alternateLandLineNo2;
+    }
+
+
+
+    public void setAlternateLandLineNo2(String alternateLandLineNo2) {
+        this.alternateLandLineNo2 = alternateLandLineNo2;
+    }
+
+
+    public String getEmailId() {
+        return emailId;
+    }
+
+
+
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
+    }
+
+
+
+    public String getAlternateEmailId1() {
+        return alternateEmailId1;
+    }
+
+
+
+    public void setAlternateEmailId1(String alternateEmailId1) {
+        this.alternateEmailId1 = alternateEmailId1;
+    }
+
+
+
+    public String getAlternateEmailId2() {
+        return alternateEmailId2;
+    }
+
+
+
+    public void setAlternateEmailId2(String alternateEmailId2) {
+        this.alternateEmailId2 = alternateEmailId2;
+    }
+
+    public String getFaxNo() {
+        return faxNo;
+    }
+
+
+    public void setFaxNo(String faxNo) {
+        this.faxNo = faxNo;
     }
 
     /**
@@ -113,81 +198,25 @@ public class ContactVO extends BaseVO {
         Address = address;
     }
 
-    /**
-     * @return the phoneAlternate1
-     */
-    public String getPhoneAlternate1() {
-        return phoneAlternate1;
+
+
+    public int getRecordType() {
+        return recordType;
     }
 
-    /**
-     * @param phoneAlternate1 the phoneAlternate1 to set
-     */
-    public void setPhoneAlternate1(String phoneAlternate1) {
-        this.phoneAlternate1 = phoneAlternate1;
+
+
+    public void setRecordType(int recordType) {
+        this.recordType = recordType;
     }
 
-    /**
-     * @return the phoneAlternate2
-     */
-    public String getPhoneAlternate2() {
-        return phoneAlternate2;
+    public String getRecordTypeDesc() {
+        return recordTypeDesc;
     }
 
-    /**
-     * @param phoneAlternate2 the phoneAlternate2 to set
-     */
-    public void setPhoneAlternate2(String phoneAlternate2) {
-        this.phoneAlternate2 = phoneAlternate2;
-    }
 
-    /**
-     * @return the landline
-     */
-    public String getLandline() {
-        return landline;
-    }
 
-    /**
-     * @param landline the landline to set
-     */
-    public void setLandline(String landline) {
-        this.landline = landline;
+    public void setRecordTypeDesc(String recordTypeDesc) {
+        this.recordTypeDesc = recordTypeDesc;
     }
-
-    /**
-     * @return the emailAlternate1
-     */
-    public String getEmailAlternate1() {
-        return emailAlternate1;
-    }
-
-    /**
-     * @param emailAlternate1 the emailAlternate1 to set
-     */
-    public void setEmailAlternate1(String emailAlternate1) {
-        this.emailAlternate1 = emailAlternate1;
-    }
-
-    /**
-     * @return the emailAlternate2
-     */
-    public String getEmailAlternate2() {
-        return emailAlternate2;
-    }
-
-    /**
-     * @param emailAlternate2 the emailAlternate2 to set
-     */
-    public void setEmailAlternate2(String emailAlternate2) {
-        this.emailAlternate2 = emailAlternate2;
-    }
-
-    /**
-     * @return the serialversionuid
-     */
-    public static long getSerialversionuid() {
-        return serialVersionUID;
-    }
-
 }

@@ -1,12 +1,13 @@
 package com.shrinfo.ibs.vo.business;
 
+import com.shrinfo.ibs.cmn.vo.BaseVO;
+
 public class AddressVO extends BaseVO {
 
-    /**
-	 * 
-	 */
     private static final long serialVersionUID = 2132316498974290653L;
 
+    private String address;
+    
     private String city;
 
     private String country;
@@ -15,8 +16,25 @@ public class AddressVO extends BaseVO {
 
     private String longitude;
 
-    private String status;
+    private String poBox;
 
+    /**
+     * 
+     * @return
+     */
+    public String getAddress() {
+        return address;
+    }
+
+    /**
+     * 
+     * @param address
+     */
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    
     /**
      * @return the city
      */
@@ -73,25 +91,14 @@ public class AddressVO extends BaseVO {
         this.longitude = longitude;
     }
 
-    /**
-     * @return the status
-     */
-    public String getStatus() {
-        return status;
+        
+    public String getPoBox() {
+        return poBox;
     }
 
-    /**
-     * @param status the status to set
-     */
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    /**
-     * @return the serialversionuid
-     */
-    public static long getSerialversionuid() {
-        return serialVersionUID;
+    
+    public void setPoBox(String poBox) {
+        this.poBox = poBox;
     }
 
 }

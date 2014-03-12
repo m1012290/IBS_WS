@@ -1,10 +1,14 @@
 package com.shrinfo.ibs.vo.business;
 
-public class InsuredVO extends BaseVO {
+import com.shrinfo.ibs.cmn.vo.BaseVO;
 
-    /**
-	 * 
-	 */
+/** 
+ * @author Sunil Kumar
+ * This Class represents Insured entity in the application. These
+ * details are considered for underwriting as this entity is the insured.
+ */
+public class InsuredVO extends BaseVO {
+    
     private static final long serialVersionUID = -2934748953623182662L;
 
     private String salutation;
@@ -12,87 +16,60 @@ public class InsuredVO extends BaseVO {
     private String name;
 
     // source of business
-    private String source;
+    private String sourceOfBusiness;
 
-    private ContactVO contact;
+    private ContactVO contactAndAddrDetails;
 
-    private CustomerVO customer;
+    private CustomerVO customerDetails;
 
-    /**
-     * @return the salutation
-     */
+    
     public String getSalutation() {
         return salutation;
     }
 
-    /**
-     * @param salutation the salutation to set
-     */
+    
     public void setSalutation(String salutation) {
         this.salutation = salutation;
     }
 
-    /**
-     * @return the name
-     */
+    
     public String getName() {
         return name;
     }
 
-    /**
-     * @param name the name to set
-     */
+    
     public void setName(String name) {
         this.name = name;
     }
 
-    /**
-     * @return the source
-     */
-    public String getSource() {
-        return source;
+    
+    public String getSourceOfBusiness() {
+        return sourceOfBusiness;
     }
 
-    /**
-     * @param source the source to set
-     */
-    public void setSource(String source) {
-        this.source = source;
+    
+    public void setSourceOfBusiness(String sourceOfBusiness) {
+        this.sourceOfBusiness = sourceOfBusiness;
     }
 
-    /**
-     * @return the contact
-     */
-    public ContactVO getContact() {
-        return contact;
+    
+    public ContactVO getContactAndAddrDetails() {
+        return contactAndAddrDetails;
     }
 
-    /**
-     * @param contact the contact to set
-     */
-    public void setContact(ContactVO contact) {
-        this.contact = contact;
+    
+    public void setContactAndAddrDetails(ContactVO contactAndAddrDetails) {
+        this.contactAndAddrDetails = contactAndAddrDetails;
     }
 
-    /**
-     * @return the customer
-     */
-    public CustomerVO getCustomer() {
-        return customer;
+    
+    public CustomerVO getInsuredCustomer() {
+        return customerDetails;
     }
 
-    /**
-     * @param customer the customer to set
-     */
-    public void setCustomer(CustomerVO customer) {
-        this.customer = customer;
+    
+    public void setInsuredCustomer(CustomerVO insuredCustomer) {
+        this.customerDetails = insuredCustomer;
     }
-
-    /**
-     * @return the serialversionuid
-     */
-    public static long getSerialversionuid() {
-        return serialVersionUID;
-    }
-
+    
 }

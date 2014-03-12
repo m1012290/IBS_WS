@@ -1,10 +1,10 @@
 package com.shrinfo.ibs.vo.business;
 
+import com.shrinfo.ibs.cmn.vo.BaseVO;
+import com.shrinfo.ibs.cmn.vo.UserVO;
+
 public class TaskVO extends BaseVO {
 
-    /**
-	 * 
-	 */
     private static final long serialVersionUID = -3912956915649056656L;
 
     private Long id;

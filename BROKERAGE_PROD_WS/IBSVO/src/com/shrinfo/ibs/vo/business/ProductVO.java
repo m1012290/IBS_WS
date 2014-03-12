@@ -2,115 +2,88 @@ package com.shrinfo.ibs.vo.business;
 
 import java.util.List;
 
+import com.shrinfo.ibs.cmn.vo.BaseVO;
+
+/**
+ * @author Sunil Kumar
+ *  This class represents product details for a particular product class.
+ *  This class includes details such as product name, product class,
+ *  Underwriting fields applicable etc..
+ */
 public class ProductVO extends BaseVO {
 
-    /**
-	 * 
-	 */
     private static final long serialVersionUID = -1081127236877284077L;
 
     private String name;
 
-    private Long productClass;
+    private int productClass;
 
     private String shortName;
 
+    private int subClass;
     // Categorization like Retail / corporate product
     private String category;
 
-    private String status;
+    private List<ProductUWFieldVO> uwFieldsList;
 
-    private List<ProductFieldVO> productFieldVO;
-
-    /**
-     * @return the name
-     */
+    
     public String getName() {
         return name;
     }
 
-    /**
-     * @param name the name to set
-     */
+    
     public void setName(String name) {
         this.name = name;
     }
 
-    /**
-     * @return the productClass
-     */
-    public Long getProductClass() {
+    
+    public int getProductClass() {
         return productClass;
     }
 
-    /**
-     * @param productClass the productClass to set
-     */
-    public void setProductClass(Long productClass) {
+    
+    public void setProductClass(int productClass) {
         this.productClass = productClass;
     }
 
-    /**
-     * @return the shortName
-     */
+    
     public String getShortName() {
         return shortName;
     }
 
-    /**
-     * @param shortName the shortName to set
-     */
+    
     public void setShortName(String shortName) {
         this.shortName = shortName;
     }
 
-    /**
-     * @return the category
-     */
+    
+    public int getSubClass() {
+        return subClass;
+    }
+
+    
+    public void setSubClass(int subClass) {
+        this.subClass = subClass;
+    }
+
+    
     public String getCategory() {
         return category;
     }
 
-    /**
-     * @param category the category to set
-     */
+    
     public void setCategory(String category) {
         this.category = category;
     }
 
-    /**
-     * @return the status
-     */
-    public String getStatus() {
-        return status;
+    
+    public List<ProductUWFieldVO> getUwFieldsList() {
+        return uwFieldsList;
     }
 
-    /**
-     * @param status the status to set
-     */
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    /**
-     * @return the productFieldVO
-     */
-    public List<ProductFieldVO> getProductFieldVO() {
-        return productFieldVO;
-    }
-
-    /**
-     * @param productFieldVO the productFieldVO to set
-     */
-    public void setProductFieldVO(List<ProductFieldVO> productFieldVO) {
-        this.productFieldVO = productFieldVO;
-    }
-
-    /**
-     * @return the serialversionuid
-     */
-    public static long getSerialversionuid() {
-        return serialVersionUID;
+    
+    public void setUwFieldsList(List<ProductUWFieldVO> uwFieldsList) {
+        this.uwFieldsList = uwFieldsList;
     }
 
 }

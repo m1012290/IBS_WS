@@ -1,10 +1,13 @@
 package com.shrinfo.ibs.vo.business;
 
+import com.shrinfo.ibs.cmn.vo.BaseVO;
+
+/**
+ * @author Sunil kumar
+ * 
+ */
 public class DocumentVO extends BaseVO {
 
-    /**
-	 * 
-	 */
     private static final long serialVersionUID = -6850564858341322159L;
 
     private Long id;

@@ -1,10 +1,9 @@
 package com.shrinfo.ibs.vo.business;
 
+import com.shrinfo.ibs.cmn.vo.BaseVO;
+
 public class BranchVO extends BaseVO {
 
-    /**
-	 * 
-	 */
     private static final long serialVersionUID = 7657694427397868180L;
 
     private String code;
@@ -15,11 +14,7 @@ public class BranchVO extends BaseVO {
 
     private CompanyVO company;
 
-    private AddressVO address;
-
-    private ContactVO incharge;
-
-    private String status;
+    private ContactVO inchargeContactAndAddrDets;
 
     /**
      * @return the code
@@ -77,53 +72,14 @@ public class BranchVO extends BaseVO {
         this.company = company;
     }
 
-    /**
-     * @return the address
-     */
-    public AddressVO getAddress() {
-        return address;
+    
+    public ContactVO getInchargeContactAndAddrDets() {
+        return inchargeContactAndAddrDets;
     }
 
-    /**
-     * @param address the address to set
-     */
-    public void setAddress(AddressVO address) {
-        this.address = address;
-    }
-
-    /**
-     * @return the incharge
-     */
-    public ContactVO getIncharge() {
-        return incharge;
-    }
-
-    /**
-     * @param incharge the incharge to set
-     */
-    public void setIncharge(ContactVO incharge) {
-        this.incharge = incharge;
-    }
-
-    /**
-     * @return the status
-     */
-    public String getStatus() {
-        return status;
-    }
-
-    /**
-     * @param status the status to set
-     */
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    /**
-     * @return the serialversionuid
-     */
-    public static long getSerialversionuid() {
-        return serialVersionUID;
+    
+    public void setInchargeContactAndAddrDets(ContactVO inchargeContactAndAddrDets) {
+        this.inchargeContactAndAddrDets = inchargeContactAndAddrDets;
     }
 
 }
