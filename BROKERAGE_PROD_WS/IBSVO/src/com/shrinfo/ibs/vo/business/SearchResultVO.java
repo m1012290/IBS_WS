@@ -1,6 +1,7 @@
 package com.shrinfo.ibs.vo.business;
 
 import com.shrinfo.ibs.cmn.vo.BaseVO;
+import com.shrinfo.ibs.cmn.vo.UserVO;
 
 
 public class SearchResultVO extends BaseVO {
@@ -10,13 +11,17 @@ public class SearchResultVO extends BaseVO {
      */
     private static final long serialVersionUID = 733026355772901204L;
 
-    private CustomerVO customer;
+    private CustomerVO customerDetails;
+    
+    private InsuredVO insuredDetails;
+    
+    private long enquiryNum;
 
-    private String insuredCode;
+    private long quotationNum;
 
-    private String docType;
-
-    private String docId;
+    private long policyNum;
+    
+    private UserVO createdBy;
 
 
 
