@@ -5,24 +5,25 @@ package com.shrinfo.ibs.cmn.vo;
 
 
 /**
- * @author Sunil Kumar Base User VO class which would be extended by the application to create
- *         IBSUser who will have more details like roles assigned and branch user belongs to.
+ * @author Sunil Kumar 
+ * Base User VO class which would be extended by the application to create
+ * IBSUser who will have more details like roles assigned and branch user belongs to.
  */
 public abstract class UserVO implements java.io.Serializable {
 
     private static final long serialVersionUID = 8814906103217778844L;
 
-    private String loginName; // user login name
+    private String loginName; //user login name
 
     private String password;
 
-    private Long userId; // unique id associated with the user (IBS_USER table)
+    private Long userId; //unique id associated with the user (IBS_USER table)
 
     private String userName; // Logged in user name
-
+    
     // User status which would be "Y" in case user is active and "N" in case user is inactive
-    private String isActive;
-
+    private String isActive; 
+    
 
     public String getLoginName() {
         return loginName;
@@ -56,12 +57,12 @@ public abstract class UserVO implements java.io.Serializable {
         this.userName = userName;
     }
 
-
+    
     public String getIsActive() {
         return isActive;
     }
 
-
+    
     public void setIsActive(String isActive) {
         this.isActive = isActive;
     }
