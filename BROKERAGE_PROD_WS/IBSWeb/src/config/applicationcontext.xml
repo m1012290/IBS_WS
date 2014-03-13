@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+    <bean id="hibernateProperties"
+		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="properties">
+			<props>
+				<!-- <prop> key="hibernate.transaction.factory_class"> org.hibernate.transaction.JTATransactionFactory 
+					</prop> <prop key="hibernate.transaction.manager_lookup_class"> org.hibernate.transaction.WeblogicTransactionManagerLookup 
+					</prop> <prop key="jta.UserTransaction"> java:comp/UserTransaction </prop> -->
+				<prop key="hibernate.connection.isolation">1</prop>
+				<!-- <prop key="hibernate.query.factory_class"> org.hibernate.hql.classic.ClassicQueryTranslatorFactory 
+					org.hibernate.hql.ast.ASTQueryTranslatorFactory </prop> -->
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.Oracle9Dialect
+				</prop>
+				<!-- For MySQL database usage -->
+				<!-- <prop key="hibernate.dialect"> org.hibernate.dialect.MySQL5Dialect 
+					</prop> -->
+				<!-- <prop key="hibernate.query.substitutions"> true 'Y', false 'N' </prop> -->
+				<prop key="hibernate.show_sql">true</prop>
+				<!-- <prop key="hibernate.c3p0.minPoolSize">5</prop> <prop key="hibernate.c3p0.maxPoolSize">20</prop> 
+					<prop key="hibernate.c3p0.timeout">600</prop> <prop key="hibernate.c3p0.max_statement">50</prop> 
+					<prop key="hibernate.c3p0.testConnectionOnCheckout"> false </prop> -->
+			</props>
+		</property>
+	</bean>
+	
+    <bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource">
+			<ref local="ibsDS" />
+		</property>
+
+		<property name="annotatedClasses">
+			<list>
+				<value>com/rsaame/pas/dao/model/LookUpView.hbm.xml</value>
+			</list>
+		</property>
+		<property name="hibernateProperties" ref="hibernateProperties" />
+	</bean>
+	
+    <bean id="hibernateTransactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="jndiObject" abstract="true"
+		class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName">
+			<value>java:comp/env/IBSDataSource</value>
+		</property>
+	</bean>
+	
+	<!-- Sample data source configuration -->
+	<bean id="ibsDS" class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
+		<constructor-arg ref="ibsDataSource"/>
+	</bean>
+	<bean id="ibsDataSource" parent="jndiObject">
+		<property name="jndiName" value="IBSDataSource" />
+	</bean>
+	
+	<!-- Configuration for the transaction manager -->
+	<bean id="baseProxyBean"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"
+		abstract="true">
+		<property name="transactionManager" ref="hibernateTransactionManager" />
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">
+					PROPAGATION_REQUIRED,-com.shrinfo.ibs.cmn.exception.BusinessException,-com.shrinfo.ibs.cmn.exception.SystemException
+				</prop>
+			</props>
+		</property>
+		<property name="proxyTargetClass" value="true" />
+	</bean>
+	
+	<!--  Test entries for transaction management on services and dao -->
+	<!-- 
+	<bean id="saveClaimsHistoryService" parent="baseProxyBean">
+		<property name="target" ref="saveClaimsHistoryServiceBean" />
+	</bean>
+	<bean id="saveClaimsHistoryServiceBean" class="com.rsaame.pas.quote.svc.SaveClaimsHistSvc">
+		<property name="claimsHistoryDAO" ref="saveClaimsHistDAO" />
+	</bean>
+	<bean id="saveClaimsHistDAO" class="com.rsaame.pas.quote.dao.SaveClaimsHistoryDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+     -->
+     
+    
+ </beans>
+
+	

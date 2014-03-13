@@ -9,4 +9,23 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+ <context-param id="appName">
+  <param-name>appName</param-name>
+  <param-value>IBS</param-value>
+ </context-param>
+ 
+ <listener>
+  <display-name>TomcatDataSourceInitContextListener</display-name>
+  <listener-class>com.shrinfo.ibs.web.TomcatDataSourceInitContextListener</listener-class>
+ </listener>
+ <!-- - Loads the root application context of this web app at startup. - 
+		The application context is then available via - WebApplicationContextUtils.getWebApplicationContext(servletContext). -->
+ <listener>
+  <description>Loads the spring context</description>
+  <display-name>IBS AppContext Loader</display-name>
+  <listener-class>com.shrinfo.ibs.web.IBSAppContextInit</listener-class>
+ </listener>
+ 
+ 
 </web-app>

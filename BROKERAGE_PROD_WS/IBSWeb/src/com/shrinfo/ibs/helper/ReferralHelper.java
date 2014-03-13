@@ -1,19 +1,19 @@
-package com.shrinfo.ibs.helper;
+/*package com.shrinfo.ibs.helper;
 
 import java.math.BigDecimal;
 
 import com.shrinfo.ibs.cmn.vo.UserVO;
 import com.shrinfo.ibs.vo.business.ReferalTaskVO;
 
-/**
+*//**
  * 
  * @author Rahul Reddy
  * 
- */
+ *//*
 
 public class ReferralHelper {
 
-    /**
+    *//**
      * 
      * @param referralType :Values- QUOTESLIP, POLICY
      * @param flow : values- EDIT, NORMAL
@@ -21,7 +21,7 @@ public class ReferralHelper {
      * @param assignedTo
      * @param amount : amount entered during quote-slip generation or policy generation
      * @return
-     */
+     *//*
     public ReferalTaskVO applyReferral(String referralType, String flow, UserVO assignedBy,
             UserVO assignedTo, BigDecimal amount) {
 
@@ -39,21 +39,21 @@ public class ReferralHelper {
         return referalTask;
     }
 
-    /**
+    *//**
      * 
      * @param referralType :Values- QUOTESLIP, POLICY
      * @param flow : values- EDIT, NORMAL
      * @param assignedBy :
      * @param amount : amount entered during quote-slip generation or policy generation
      * @return
-     */
+     *//*
     private Boolean isReferralApplicable(String referralType, String flow, UserVO assignedBy,
             BigDecimal amount) {
 
         return false;
     }
 
-    /**
+    *//**
      * 
      * @param referralType
      * @param flow
@@ -61,7 +61,7 @@ public class ReferralHelper {
      * @param assignedTo
      * @param amount
      * @return
-     */
+     *//*
     private ReferalTaskVO refer(String referralType, String flow, UserVO assignedBy,
             UserVO assignedTo, BigDecimal amount) {
 
@@ -69,3 +69,4 @@ public class ReferralHelper {
     }
 
 }
+*/
