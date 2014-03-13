@@ -7,7 +7,7 @@ public class AddressVO extends BaseVO {
     private static final long serialVersionUID = 2132316498974290653L;
 
     private String address;
-    
+
     private String city;
 
     private String country;
@@ -34,7 +34,7 @@ public class AddressVO extends BaseVO {
         this.address = address;
     }
 
-    
+
     /**
      * @return the city
      */
@@ -91,12 +91,12 @@ public class AddressVO extends BaseVO {
         this.longitude = longitude;
     }
 
-        
+
     public String getPoBox() {
         return poBox;
     }
 
-    
+
     public void setPoBox(String poBox) {
         this.poBox = poBox;
     }

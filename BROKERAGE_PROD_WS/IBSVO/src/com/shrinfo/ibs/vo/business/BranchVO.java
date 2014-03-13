@@ -72,12 +72,12 @@ public class BranchVO extends BaseVO {
         this.company = company;
     }
 
-    
+
     public ContactVO getInchargeContactAndAddrDets() {
         return inchargeContactAndAddrDets;
     }
 
-    
+
     public void setInchargeContactAndAddrDets(ContactVO inchargeContactAndAddrDets) {
         this.inchargeContactAndAddrDets = inchargeContactAndAddrDets;
     }

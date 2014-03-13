@@ -3,9 +3,9 @@ package com.shrinfo.ibs.vo.business;
 import com.shrinfo.ibs.cmn.vo.BaseVO;
 
 /**
- * @author Sunil Kumar - This class represents Company entity in the application. Company can further
- *         be broking company, insurance company. Hence this class will act as base abstract for
- *         basic company details.
+ * @author Sunil Kumar - This class represents Company entity in the application. Company can
+ *         further be broking company, insurance company. Hence this class will act as base abstract
+ *         for basic company details.
  */
 public abstract class CompanyVO extends BaseVO {
 

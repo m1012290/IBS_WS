@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 13, 2014 1:39:55 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.shrinfo.ibs.gen.pojo.IbsQuoteComparisionHeader" table="IBS_QUOTE_COMPARISION_HEADER" schema="IBSUSER">
+        <id name="id" type="big_decimal">
+            <column name="ID" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="ibsStatusMaster" class="com.shrinfo.ibs.gen.pojo.IbsStatusMaster" fetch="select">
+            <column name="STATUS_CODE" precision="22" scale="0" />
+        </many-to-one>
+        <many-to-one name="ibsQuoteSlipHeader" class="com.shrinfo.ibs.gen.pojo.IbsQuoteSlipHeader" fetch="select">
+            <column name="QUOTE_SLIP_ID" precision="22" scale="0" />
+            <column name="QUOTE_SLIP_VERSION" precision="22" scale="0" />
+        </many-to-one>
+        <many-to-one name="ibsProductMaster" class="com.shrinfo.ibs.gen.pojo.IbsProductMaster" fetch="select">
+            <column name="PRODUCT_CLASS" precision="22" scale="0" />
+        </many-to-one>
+        <property name="enquiryNo" type="big_decimal">
+            <column name="ENQUIRY_NO" precision="22" scale="0" />
+        </property>
+        <property name="subClass" type="string">
+            <column name="SUB_CLASS" length="50" />
+        </property>
+        <property name="customerId" type="big_decimal">
+            <column name="CUSTOMER_ID" precision="22" scale="0" />
+        </property>
+        <property name="insuredId" type="big_decimal">
+            <column name="INSURED_ID" precision="22" scale="0" />
+        </property>
+        <property name="insuredName" type="string">
+            <column name="INSURED_NAME" length="50" />
+        </property>
+        <property name="policyStartDate" type="serializable">
+            <column name="POLICY_START_DATE" />
+        </property>
+        <property name="policyExpiryDate" type="serializable">
+            <column name="POLICY_EXPIRY_DATE" />
+        </property>
+        <property name="recommendationSummary" type="string">
+            <column name="RECOMMENDATION_SUMMARY" length="1000" />
+        </property>
+        <property name="quoteRecommended" type="string">
+            <column name="QUOTE_RECOMMENDED" length="1" />
+        </property>
+        <property name="recCreUserId" type="big_decimal">
+            <column name="REC_CRE_USER_ID" precision="22" scale="0" />
+        </property>
+        <property name="recCreDate" type="serializable">
+            <column name="REC_CRE_DATE" />
+        </property>
+        <property name="recUpdUserId" type="big_decimal">
+            <column name="REC_UPD_USER_ID" precision="22" scale="0" />
+        </property>
+        <property name="recUpdDate" type="serializable">
+            <column name="REC_UPD_DATE" />
+        </property>
+    </class>
+</hibernate-mapping>

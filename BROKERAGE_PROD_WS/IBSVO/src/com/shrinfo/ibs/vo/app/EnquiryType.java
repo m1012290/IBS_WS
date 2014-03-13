@@ -3,8 +3,7 @@ package com.shrinfo.ibs.vo.app;
 import com.shrinfo.ibs.cmn.constants.CommonConstants;
 
 /**
- * @author Sunil Kumar 
- * This Enum represents enquiry types available in the system.
+ * @author Sunil Kumar This Enum represents enquiry types available in the system.
  */
 public enum EnquiryType {
 
@@ -22,8 +21,8 @@ public enum EnquiryType {
         this.enquiryType = enquiryType;
     }
 
-    /** 
-     * @return String which is referred in DB using this string returned by this method 
+    /**
+     * @return String which is referred in DB using this string returned by this method
      */
     public String getEnquiryType() {
         return this.enquiryType;

@@ -4,9 +4,9 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 /**
- * @author Sunil Kumar
- * This class will act as base for all the backing beans in the application. Hence it has been
- * intentionally made as abstract in order to restrict any direct object creation of this class
+ * @author Sunil Kumar This class will act as base for all the backing beans in the application.
+ *         Hence it has been intentionally made as abstract in order to restrict any direct object
+ *         creation of this class
  */
 public abstract class BaseVO implements Serializable {
 
@@ -15,9 +15,9 @@ public abstract class BaseVO implements Serializable {
      */
     private static final long serialVersionUID = -780370559913529771L;
 
-    //Logged in user details would be available through below field at any point of time
+    // Logged in user details would be available through below field at any point of time
     private UserVO loggedInUser;
-    
+
     private long createdByUserId;
 
     private Timestamp createdDate;
@@ -27,8 +27,8 @@ public abstract class BaseVO implements Serializable {
     private Timestamp updatedDate;
 
     private String isStatusActive;
-    
-    
+
+
     /**
      * 
      * @return
@@ -92,22 +92,22 @@ public abstract class BaseVO implements Serializable {
         this.updatedDate = updatedDate;
     }
 
-    
+
     public String getIsStatusActive() {
         return isStatusActive;
     }
 
-    
+
     public void setIsStatusActive(String isStatusActive) {
         this.isStatusActive = isStatusActive;
     }
 
-    
+
     public UserVO getLoggedInUser() {
         return loggedInUser;
     }
 
-    
+
     public void setLoggedInUser(UserVO loggedInUser) {
         this.loggedInUser = loggedInUser;
     }
