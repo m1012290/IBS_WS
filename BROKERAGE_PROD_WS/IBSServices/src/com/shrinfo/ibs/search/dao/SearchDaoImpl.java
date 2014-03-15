@@ -1,5 +1,6 @@
 package com.shrinfo.ibs.search.dao;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,11 +11,7 @@ import com.shrinfo.ibs.cmn.exception.BusinessException;
 import com.shrinfo.ibs.cmn.logger.Logger;
 import com.shrinfo.ibs.cmn.utils.Utils;
 import com.shrinfo.ibs.cmn.vo.BaseVO;
-import com.shrinfo.ibs.gen.pojo.IbsRecordTypes;
 import com.shrinfo.ibs.gen.pojo.IbsVInsuredSearch;
-import com.shrinfo.ibs.vo.business.ContactVO;
-import com.shrinfo.ibs.vo.business.CustomerVO;
-import com.shrinfo.ibs.vo.business.InsuredVO;
 import com.shrinfo.ibs.vo.business.SearchItemVO;
 import com.shrinfo.ibs.vo.business.SearchVO;
 
@@ -27,11 +24,6 @@ public class SearchDaoImpl extends BaseDBDAO implements SearchDao {
     public BaseVO getSearchResult(BaseVO baseVO) {
 
 
-        // Testing the code to retrieve the records
-        //
-        List<IbsRecordTypes> ibsRecordTypes =
-            getHibernateTemplate().find("from IbsRecordTypes ibsRecordTypes");
-        System.out.println("ibsRecordTypes-->" + ibsRecordTypes);
         SearchVO searchVO = new SearchVO();
 
         if (null == baseVO) {
@@ -44,21 +36,30 @@ public class SearchDaoImpl extends BaseDBDAO implements SearchDao {
 
         searchVO.setSearchItems(fetchInsuredSearchResults(searchItemVO));
 
+        LOGGER.info("search results: " + searchVO.toString());
+
         return searchVO;
     }
 
 
+    @SuppressWarnings("unchecked")
     private List<SearchItemVO> fetchInsuredSearchResults(SearchItemVO searchItem) {
 
         List<SearchItemVO> searchResults = new ArrayList<SearchItemVO>();
 
         List<IbsVInsuredSearch> ibsVInsuredSearch = null;
-        // List<Object> ibsVInsuredSearch = null;
         try {
             ibsVInsuredSearch =
-                getHibernateTemplate().find(getQuery(searchItem),
-                    searchItem.getCustomerDetails().getName(),
-                    searchItem.getCustomerDetails().getContactAndAddrDets().getEmailId());
+                getHibernateTemplate()
+                        .find(
+                            "from IbsVInsuredSearch ibsVInsuredSearch where ibsVInsuredSearch.custName = ?"
+                                + " and ibsVInsuredSearch.email = ? and ibsVInsuredSearch.mobNo = ? and ibsVInsuredSearch.insuredName = ? and"
+                                + " ibsVInsuredSearch.id.enquiryNo = ? and ibsVInsuredSearch.quotationNo = ? and ibsVInsuredSearch.policyNo = ?",
+                            searchItem.getCustomerName(), searchItem.getCustomerEmail(),
+                            searchItem.getCustomerMob(), searchItem.getInsuredName(),
+                            BigDecimal.valueOf(searchItem.getEnquiryNum()),
+                            BigDecimal.valueOf(searchItem.getQuotationNum()),
+                            searchItem.getPolicyNum());
         } catch (HibernateException hibernateException) {
             throw new BusinessException("pas.gi.couldNotGetCustDetails", hibernateException,
                 "Error while insured search");
@@ -72,38 +73,23 @@ public class SearchDaoImpl extends BaseDBDAO implements SearchDao {
         return searchResults;
     }
 
-    private String getQuery(SearchItemVO searchItem) {
-
-        StringBuffer buffer = new StringBuffer();
-        buffer.append(" from IbsVInsuredSearch ibsVInsuredSearch where ibsVInsuredSearch.custName = ?"
-            + " and ibsVInsuredSearch.email = ?");
-
-        return buffer.toString();
-    }
-
     private void populate(SearchItemVO itemVO, IbsVInsuredSearch ibsVInsuredSearch) {
 
-        if (null == itemVO) {
+        if (Utils.isEmpty(ibsVInsuredSearch)) {
+            return;
+        }
+
+        if (Utils.isEmpty(itemVO)) {
             itemVO = new SearchItemVO();
         }
 
-        CustomerVO customerVO = new CustomerVO();
-        customerVO.setName(ibsVInsuredSearch.getCustName());
-        ContactVO contactVO = new ContactVO();
-        contactVO.setEmailId(ibsVInsuredSearch.getEmail());
-        contactVO.setEmailId(ibsVInsuredSearch.getMobNo());
-        customerVO.setContactAndAddrDets(contactVO);
-
-        itemVO.setCustomerDetails(customerVO);
-
-        InsuredVO insuredVO = new InsuredVO();
-        insuredVO.setName(ibsVInsuredSearch.getInsuredName());
-
-        itemVO.setInsuredDetails(insuredVO);
-
-        itemVO.setEnquiryNum(ibsVInsuredSearch.getId().getEnquiryNo().longValue());
-        if (!Utils.isEmpty(ibsVInsuredSearch.getPolicyNo())) {
-            itemVO.setPolicyNum(ibsVInsuredSearch.getPolicyNo());
+        itemVO.setCustomerName(ibsVInsuredSearch.getCustName());
+        itemVO.setCustomerEmail(ibsVInsuredSearch.getEmail());
+        itemVO.setCustomerMob(ibsVInsuredSearch.getMobNo());
+        itemVO.setInsuredName(ibsVInsuredSearch.getInsuredName());
+        itemVO.setPolicyNum(ibsVInsuredSearch.getPolicyNo());
+        if (!Utils.isEmpty(ibsVInsuredSearch.getId().getEnquiryNo())) {
+            itemVO.setEnquiryNum(ibsVInsuredSearch.getId().getEnquiryNo().longValue());
         }
         if (!Utils.isEmpty(ibsVInsuredSearch.getQuotationNo())) {
             itemVO.setQuotationNum(ibsVInsuredSearch.getQuotationNo().longValue());

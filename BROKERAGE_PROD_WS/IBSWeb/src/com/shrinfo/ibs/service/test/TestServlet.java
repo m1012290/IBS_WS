@@ -39,13 +39,13 @@ public class TestServlet extends HttpServlet {
         // SearchDaoImpl daoImpl = new SearchDaoImpl();
 
         SearchItemVO item = new SearchItemVO();
-
-        CustomerVO customer = new CustomerVO();
-        customer.setName("Shaik");
-        ContactVO contact = new ContactVO();
-        contact.setEmailId("ABC_GMAIL.COM");
-        customer.setContactAndAddrDets(contact);
-        item.setCustomerDetails(customer);
+        item.setCustomerName("Shaik");
+        item.setCustomerEmail("ABC_GMAIL.COM");
+        item.setCustomerMob("9980808080");
+        item.setInsuredName("insured");
+        item.setEnquiryNum(3);
+        item.setQuotationNum(2);
+        item.setPolicyNum("1234567890");
 
         SearchService service = (SearchService) Utils.getBean("customerInsuredSearchSvcBean");
 
@@ -59,19 +59,7 @@ public class TestServlet extends HttpServlet {
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        SearchDaoImpl daoImpl = new SearchDaoImpl();
-
-        SearchItemVO item = new SearchItemVO();
-
-        CustomerVO customer = new CustomerVO();
-        customer.setName("Shaik");
-        ContactVO contact = new ContactVO();
-        contact.setEmailId("ABC_GMAIL.COM");
-        customer.setContactAndAddrDets(contact);
-        item.setCustomerDetails(customer);
-
-        daoImpl.getSearchResult(item);
-
+        
     }
 
 }

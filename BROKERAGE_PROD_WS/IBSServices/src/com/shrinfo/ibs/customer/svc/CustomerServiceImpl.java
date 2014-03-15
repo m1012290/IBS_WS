@@ -2,10 +2,14 @@ package com.shrinfo.ibs.customer.svc;
 
 import com.shrinfo.ibs.base.service.BaseService;
 import com.shrinfo.ibs.cmn.vo.BaseVO;
+import com.shrinfo.ibs.customer.dao.CustomerDao;
 
 
 
 public class CustomerServiceImpl extends BaseService implements CustomerService {
+
+    CustomerDao customerDao;
+
 
     @Override
     public Object invokeMethod(String methodName, Object... args) {
@@ -23,15 +27,19 @@ public class CustomerServiceImpl extends BaseService implements CustomerService 
 
     @Override
     public BaseVO getCustomer(BaseVO baseVO) {
-        // TODO Auto-generated method stub
-        return null;
+        return customerDao.getCustomer(baseVO);
     }
 
     @Override
     public BaseVO createCustomer(BaseVO baseVO) {
-        // TODO Auto-generated method stub
-        return null;
+
+        return customerDao.createCustomer(baseVO);
     }
+
+    public void setCustomerDao(CustomerDao customerDao) {
+        this.customerDao = customerDao;
+    }
+
 
 
 }

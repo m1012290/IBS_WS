@@ -4,6 +4,11 @@ import com.shrinfo.ibs.base.service.BaseService;
 import com.shrinfo.ibs.cmn.vo.BaseVO;
 import com.shrinfo.ibs.search.dao.SearchDao;
 
+/**
+ * 
+ * @author Rahul
+ *
+ */
 
 public class SearchServiceImpl extends BaseService implements SearchService {
 

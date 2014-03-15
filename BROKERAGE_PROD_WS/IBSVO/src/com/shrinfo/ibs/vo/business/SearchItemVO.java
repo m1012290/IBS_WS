@@ -10,9 +10,17 @@ public class SearchItemVO extends BaseVO {
      */
     private static final long serialVersionUID = 733026355772901204L;
 
-    private CustomerVO customerDetails;
+    private String customerName;
 
-    private InsuredVO insuredDetails;
+    private String customerMob;
+
+    private String customerEmail;
+
+    private long customerId;
+
+    private String insuredName;
+
+    private long insuredId;
 
     private long enquiryNum;
 
@@ -21,23 +29,63 @@ public class SearchItemVO extends BaseVO {
     private String policyNum;
 
 
-    public CustomerVO getCustomerDetails() {
-        return customerDetails;
+    public String getCustomerName() {
+        return customerName;
     }
 
 
-    public void setCustomerDetails(CustomerVO customerDetails) {
-        this.customerDetails = customerDetails;
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
     }
 
 
-    public InsuredVO getInsuredDetails() {
-        return insuredDetails;
+    public String getCustomerMob() {
+        return customerMob;
     }
 
 
-    public void setInsuredDetails(InsuredVO insuredDetails) {
-        this.insuredDetails = insuredDetails;
+    public void setCustomerMob(String customerMob) {
+        this.customerMob = customerMob;
+    }
+
+
+    public String getCustomerEmail() {
+        return customerEmail;
+    }
+
+
+    public void setCustomerEmail(String customerEmail) {
+        this.customerEmail = customerEmail;
+    }
+
+
+    public long getCustomerId() {
+        return customerId;
+    }
+
+
+    public void setCustomerId(long customerId) {
+        this.customerId = customerId;
+    }
+
+
+    public String getInsuredName() {
+        return insuredName;
+    }
+
+
+    public void setInsuredName(String insuredName) {
+        this.insuredName = insuredName;
+    }
+
+
+    public long getInsuredId() {
+        return insuredId;
+    }
+
+
+    public void setInsuredId(long insuredId) {
+        this.insuredId = insuredId;
     }
 
 
@@ -64,7 +112,6 @@ public class SearchItemVO extends BaseVO {
     public String getPolicyNum() {
         return policyNum;
     }
-
 
 
     public void setPolicyNum(String policyNum) {
