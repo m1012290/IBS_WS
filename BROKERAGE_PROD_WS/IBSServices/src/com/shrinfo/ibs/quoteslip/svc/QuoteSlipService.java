@@ -3,8 +3,6 @@ package com.shrinfo.ibs.quoteslip.svc;
 import java.util.List;
 
 import com.shrinfo.ibs.cmn.vo.BaseVO;
-import com.shrinfo.ibs.vo.business.EnquiryVO;
-import com.shrinfo.ibs.vo.business.QuoteDetailsVO;
 
 
 public interface QuoteSlipService {

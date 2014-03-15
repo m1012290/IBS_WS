@@ -2,6 +2,7 @@ package com.shrinfo.ibs.task.svc;
 
 import java.util.List;
 
+import com.shrinfo.ibs.base.service.BaseService;
 import com.shrinfo.ibs.cmn.vo.BaseVO;
 
 /**

@@ -17,9 +17,11 @@
         <mapping class="com.shrinfo.ibs.gen.pojo.IbsRoles" />
         <mapping class="com.shrinfo.ibs.gen.pojo.IbsCustomer" />
         <mapping class="com.shrinfo.ibs.gen.pojo.IbsProductMaster" />
+        <mapping class="com.shrinfo.ibs.gen.pojo.IbsVInsuredSearch" />
         <mapping class="com.shrinfo.ibs.gen.pojo.IbsDocumentTable" />
         <mapping class="com.shrinfo.ibs.gen.pojo.IbsCompanyBranch" />
         <mapping class="com.shrinfo.ibs.gen.pojo.IbsQuoteComparisionDetail" />
+        <mapping class="com.shrinfo.ibs.gen.pojo.IbsUwTransactionHeader" />
         <mapping class="com.shrinfo.ibs.gen.pojo.IbsStatusMaster" />
         <mapping class="com.shrinfo.ibs.gen.pojo.IbsInsuranceCompProdLink" />
         <mapping class="com.shrinfo.ibs.gen.pojo.IbsUser" />

@@ -1,6 +1,6 @@
 package com.shrinfo.ibs.gen.pojo;
 
-// Generated Mar 13, 2014 6:53:45 PM by Hibernate Tools 3.4.0.CR1
+// Generated Mar 15, 2014 6:17:35 AM by Hibernate Tools 3.4.0.CR1
 
 
 import java.io.Serializable;
@@ -48,6 +48,9 @@ public class IbsProductMaster implements java.io.Serializable {
     private Set<IbsQuoteComparisionDetail> ibsQuoteComparisionDetails =
         new HashSet<IbsQuoteComparisionDetail>(0);
 
+    private Set<IbsUwTransactionHeader> ibsUwTransactionHeaders =
+        new HashSet<IbsUwTransactionHeader>(0);
+
     private Set<IbsRolesProductPrivileges> ibsRolesProductPrivilegeses =
         new HashSet<IbsRolesProductPrivileges>(0);
 
@@ -80,6 +83,7 @@ public class IbsProductMaster implements java.io.Serializable {
             Set<IbsQuoteSlipHeader> ibsQuoteSlipHeaders,
             Set<IbsInsuranceCompProdLink> ibsInsuranceCompProdLinks,
             Set<IbsQuoteComparisionDetail> ibsQuoteComparisionDetails,
+            Set<IbsUwTransactionHeader> ibsUwTransactionHeaders,
             Set<IbsRolesProductPrivileges> ibsRolesProductPrivilegeses,
             Set<IbsUwTransaction> ibsUwTransactions,
             Set<IbsInsuranceCompanyContact> ibsInsuranceCompanyContacts,
@@ -100,6 +104,7 @@ public class IbsProductMaster implements java.io.Serializable {
         this.ibsQuoteSlipHeaders = ibsQuoteSlipHeaders;
         this.ibsInsuranceCompProdLinks = ibsInsuranceCompProdLinks;
         this.ibsQuoteComparisionDetails = ibsQuoteComparisionDetails;
+        this.ibsUwTransactionHeaders = ibsUwTransactionHeaders;
         this.ibsRolesProductPrivilegeses = ibsRolesProductPrivilegeses;
         this.ibsUwTransactions = ibsUwTransactions;
         this.ibsInsuranceCompanyContacts = ibsInsuranceCompanyContacts;
@@ -226,6 +231,15 @@ public class IbsProductMaster implements java.io.Serializable {
     public void setIbsQuoteComparisionDetails(
             Set<IbsQuoteComparisionDetail> ibsQuoteComparisionDetails) {
         this.ibsQuoteComparisionDetails = ibsQuoteComparisionDetails;
+    }
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "ibsProductMaster")
+    public Set<IbsUwTransactionHeader> getIbsUwTransactionHeaders() {
+        return this.ibsUwTransactionHeaders;
+    }
+
+    public void setIbsUwTransactionHeaders(Set<IbsUwTransactionHeader> ibsUwTransactionHeaders) {
+        this.ibsUwTransactionHeaders = ibsUwTransactionHeaders;
     }
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "ibsProductMaster")

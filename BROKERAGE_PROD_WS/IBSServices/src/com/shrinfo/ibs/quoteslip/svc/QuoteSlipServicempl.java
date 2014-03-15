@@ -2,11 +2,8 @@ package com.shrinfo.ibs.quoteslip.svc;
 
 import java.util.List;
 
-import com.shrinfo.ibs.cmn.svc.BaseService;
+import com.shrinfo.ibs.base.service.BaseService;
 import com.shrinfo.ibs.cmn.vo.BaseVO;
-import com.shrinfo.ibs.vo.business.CompanyVO;
-import com.shrinfo.ibs.vo.business.EnquiryVO;
-import com.shrinfo.ibs.vo.business.QuoteDetailsVO;
 
 
 /**
@@ -28,7 +25,7 @@ public class QuoteSlipServicempl extends BaseService implements QuoteSlipService
             returnValue = createQuoteSlip( (BaseVO) args[ 0 ] );
         }
         if( "emailQuoteSlip".equals( methodName ) ){
-            returnValue = emailQuoteSlip( (BaseVO) args[ 0 ], args );
+            //returnValue = emailQuoteSlip( (BaseVO) args[ 0 ], args );
         }
 
         return returnValue;

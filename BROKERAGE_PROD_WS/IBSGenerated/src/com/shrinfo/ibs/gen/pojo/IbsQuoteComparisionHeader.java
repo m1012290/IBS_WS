@@ -1,10 +1,12 @@
 package com.shrinfo.ibs.gen.pojo;
 
-// Generated Mar 13, 2014 6:53:45 PM by Hibernate Tools 3.4.0.CR1
+// Generated Mar 15, 2014 6:17:35 AM by Hibernate Tools 3.4.0.CR1
 
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -56,6 +59,9 @@ public class IbsQuoteComparisionHeader implements java.io.Serializable {
 
     private Serializable recUpdDate;
 
+    private Set<IbsUwTransactionHeader> ibsUwTransactionHeaders =
+        new HashSet<IbsUwTransactionHeader>(0);
+
     public IbsQuoteComparisionHeader() {}
 
 
@@ -68,7 +74,8 @@ public class IbsQuoteComparisionHeader implements java.io.Serializable {
             BigDecimal enquiryNo, String subClass, BigDecimal customerId, BigDecimal insuredId,
             String insuredName, Serializable policyStartDate, Serializable policyExpiryDate,
             String recommendationSummary, String quoteRecommended, BigDecimal recCreUserId,
-            Serializable recCreDate, BigDecimal recUpdUserId, Serializable recUpdDate) {
+            Serializable recCreDate, BigDecimal recUpdUserId, Serializable recUpdDate,
+            Set<IbsUwTransactionHeader> ibsUwTransactionHeaders) {
         this.id = id;
         this.ibsStatusMaster = ibsStatusMaster;
         this.ibsQuoteSlipHeader = ibsQuoteSlipHeader;
@@ -86,6 +93,7 @@ public class IbsQuoteComparisionHeader implements java.io.Serializable {
         this.recCreDate = recCreDate;
         this.recUpdUserId = recUpdUserId;
         this.recUpdDate = recUpdDate;
+        this.ibsUwTransactionHeaders = ibsUwTransactionHeaders;
     }
 
     @Id
@@ -257,6 +265,15 @@ public class IbsQuoteComparisionHeader implements java.io.Serializable {
 
     public void setRecUpdDate(Serializable recUpdDate) {
         this.recUpdDate = recUpdDate;
+    }
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "ibsQuoteComparisionHeader")
+    public Set<IbsUwTransactionHeader> getIbsUwTransactionHeaders() {
+        return this.ibsUwTransactionHeaders;
+    }
+
+    public void setIbsUwTransactionHeaders(Set<IbsUwTransactionHeader> ibsUwTransactionHeaders) {
+        this.ibsUwTransactionHeaders = ibsUwTransactionHeaders;
     }
 
 

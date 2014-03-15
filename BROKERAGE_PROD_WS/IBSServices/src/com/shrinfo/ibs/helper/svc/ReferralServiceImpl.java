@@ -1,5 +1,6 @@
 package com.shrinfo.ibs.helper.svc;
 
+import com.shrinfo.ibs.base.service.BaseService;
 import com.shrinfo.ibs.cmn.vo.BaseVO;
 
 public class ReferralServiceImpl extends BaseService implements ReferralService {

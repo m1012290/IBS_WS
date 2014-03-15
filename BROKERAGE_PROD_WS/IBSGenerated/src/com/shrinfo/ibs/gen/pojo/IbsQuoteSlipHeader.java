@@ -1,6 +1,6 @@
 package com.shrinfo.ibs.gen.pojo;
 
-// Generated Mar 13, 2014 6:53:45 PM by Hibernate Tools 3.4.0.CR1
+// Generated Mar 15, 2014 6:17:35 AM by Hibernate Tools 3.4.0.CR1
 
 
 import java.io.Serializable;
@@ -64,6 +64,9 @@ public class IbsQuoteSlipHeader implements java.io.Serializable {
 
     private Serializable recUpdDate;
 
+    private Set<IbsUwTransactionHeader> ibsUwTransactionHeaders =
+        new HashSet<IbsUwTransactionHeader>(0);
+
     private Set<IbsQuoteSlipDetail> ibsQuoteSlipDetails = new HashSet<IbsQuoteSlipDetail>(0);
 
     private Set<IbsQuoteComparisionDetail> ibsQuoteComparisionDetails =
@@ -88,6 +91,7 @@ public class IbsQuoteSlipHeader implements java.io.Serializable {
             Serializable policyStartDate, Serializable policyExpiryDate, String quoteSlipEmailed,
             String remarks, BigDecimal recCreUserId, Serializable recCreDate,
             BigDecimal recUpdUserId, Serializable recUpdDate,
+            Set<IbsUwTransactionHeader> ibsUwTransactionHeaders,
             Set<IbsQuoteSlipDetail> ibsQuoteSlipDetails,
             Set<IbsQuoteComparisionDetail> ibsQuoteComparisionDetails,
             Set<IbsQuoteComparisionHeader> ibsQuoteComparisionHeaders,
@@ -111,6 +115,7 @@ public class IbsQuoteSlipHeader implements java.io.Serializable {
         this.recCreDate = recCreDate;
         this.recUpdUserId = recUpdUserId;
         this.recUpdDate = recUpdDate;
+        this.ibsUwTransactionHeaders = ibsUwTransactionHeaders;
         this.ibsQuoteSlipDetails = ibsQuoteSlipDetails;
         this.ibsQuoteComparisionDetails = ibsQuoteComparisionDetails;
         this.ibsQuoteComparisionHeaders = ibsQuoteComparisionHeaders;
@@ -307,6 +312,15 @@ public class IbsQuoteSlipHeader implements java.io.Serializable {
 
     public void setRecUpdDate(Serializable recUpdDate) {
         this.recUpdDate = recUpdDate;
+    }
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "ibsQuoteSlipHeader")
+    public Set<IbsUwTransactionHeader> getIbsUwTransactionHeaders() {
+        return this.ibsUwTransactionHeaders;
+    }
+
+    public void setIbsUwTransactionHeaders(Set<IbsUwTransactionHeader> ibsUwTransactionHeaders) {
+        this.ibsUwTransactionHeaders = ibsUwTransactionHeaders;
     }
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "ibsQuoteSlipHeader")

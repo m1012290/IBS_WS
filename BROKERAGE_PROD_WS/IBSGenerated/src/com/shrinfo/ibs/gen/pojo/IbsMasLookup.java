@@ -1,6 +1,6 @@
 package com.shrinfo.ibs.gen.pojo;
 
-// Generated Mar 13, 2014 6:53:45 PM by Hibernate Tools 3.4.0.CR1
+// Generated Mar 15, 2014 6:17:35 AM by Hibernate Tools 3.4.0.CR1
 
 
 import javax.persistence.AttributeOverride;

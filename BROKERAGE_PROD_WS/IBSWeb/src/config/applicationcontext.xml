@@ -33,12 +33,7 @@
 		<property name="dataSource">
 			<ref local="ibsDS" />
 		</property>
-
-		<property name="annotatedClasses">
-			<list>
-				<value>com/rsaame/pas/dao/model/LookUpView.hbm.xml</value>
-			</list>
-		</property>
+		<property name="packagesToScan" value="com.shrinfo.ibs.gen.pojo"/>
 		<property name="hibernateProperties" ref="hibernateProperties" />
 	</bean>
 	
@@ -77,7 +72,12 @@
 		</property>
 		<property name="proxyTargetClass" value="true" />
 	</bean>
-	
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate"
+		scope="prototype">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
 	<!--  Test entries for transaction management on services and dao -->
 	<!-- 
 	<bean id="saveClaimsHistoryService" parent="baseProxyBean">
@@ -90,6 +90,17 @@
 		<property name="hibernateTemplate" ref="hibernateTemplate" />
 	</bean>
      -->
+     <!--  Svc and DAO for Customer/Insured Search -->
+    <bean id="customerInsuredSearchSvc" parent="baseProxyBean">
+		<property name="target" ref="customerInsuredSearchSvcBean" />
+	</bean>
+	<bean id="customerInsuredSearchSvcBean" class="com.shrinfo.ibs.search.svc.SearchServiceImpl">
+		<property name="searchDao" ref="customerSearchSvcDAOBean" />
+	</bean>
+	<bean id="customerSearchSvcDAOBean" class="com.shrinfo.ibs.search.dao.SearchDaoImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+     
      
     
  </beans>

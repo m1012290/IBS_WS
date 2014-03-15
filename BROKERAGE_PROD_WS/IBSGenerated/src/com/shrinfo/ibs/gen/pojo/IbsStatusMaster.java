@@ -1,6 +1,6 @@
 package com.shrinfo.ibs.gen.pojo;
 
-// Generated Mar 13, 2014 6:53:45 PM by Hibernate Tools 3.4.0.CR1
+// Generated Mar 15, 2014 6:17:35 AM by Hibernate Tools 3.4.0.CR1
 
 
 import java.math.BigDecimal;
@@ -25,6 +25,9 @@ public class IbsStatusMaster implements java.io.Serializable {
 
     private String description;
 
+    private Set<IbsUwTransactionHeader> ibsUwTransactionHeaders =
+        new HashSet<IbsUwTransactionHeader>(0);
+
     private Set<IbsQuoteSlipHeader> ibsQuoteSlipHeaders = new HashSet<IbsQuoteSlipHeader>(0);
 
     private Set<IbsTask> ibsTasks = new HashSet<IbsTask>(0);
@@ -47,12 +50,14 @@ public class IbsStatusMaster implements java.io.Serializable {
     }
 
     public IbsStatusMaster(BigDecimal code, String description,
+            Set<IbsUwTransactionHeader> ibsUwTransactionHeaders,
             Set<IbsQuoteSlipHeader> ibsQuoteSlipHeaders, Set<IbsTask> ibsTasks,
             Set<IbsQuoteComparisionHeader> ibsQuoteComparisionHeaders,
             Set<IbsUwTransaction> ibsUwTransactions, Set<IbsQuoteSlipDetail> ibsQuoteSlipDetails,
             Set<IbsQuoteComparisionDetail> ibsQuoteComparisionDetails) {
         this.code = code;
         this.description = description;
+        this.ibsUwTransactionHeaders = ibsUwTransactionHeaders;
         this.ibsQuoteSlipHeaders = ibsQuoteSlipHeaders;
         this.ibsTasks = ibsTasks;
         this.ibsQuoteComparisionHeaders = ibsQuoteComparisionHeaders;
@@ -79,6 +84,15 @@ public class IbsStatusMaster implements java.io.Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "ibsStatusMaster")
+    public Set<IbsUwTransactionHeader> getIbsUwTransactionHeaders() {
+        return this.ibsUwTransactionHeaders;
+    }
+
+    public void setIbsUwTransactionHeaders(Set<IbsUwTransactionHeader> ibsUwTransactionHeaders) {
+        this.ibsUwTransactionHeaders = ibsUwTransactionHeaders;
     }
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "ibsStatusMaster")
