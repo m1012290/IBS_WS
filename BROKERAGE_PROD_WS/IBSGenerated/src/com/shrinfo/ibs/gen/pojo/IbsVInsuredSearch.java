@@ -1,9 +1,7 @@
 package com.shrinfo.ibs.gen.pojo;
 
-// Generated Mar 15, 2014 6:17:35 AM by Hibernate Tools 3.4.0.CR1
+// Generated Mar 15, 2014 8:53:32 PM by Hibernate Tools 3.4.0.CR1
 
-
-import java.math.BigDecimal;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
@@ -21,22 +19,6 @@ public class IbsVInsuredSearch implements java.io.Serializable {
 
 
     private IbsVInsuredSearchId id;
-    
-    private String custName;
-
-    private String email;
-
-    private String mobNo;
-
-    private String insuredName;
-    
-    private BigDecimal quotationNo;
-
-    private String policyNo;
-
-    private BigDecimal custContactId;
-
-    private BigDecimal insuredId;
 
     public IbsVInsuredSearch() {}
 
@@ -47,93 +29,21 @@ public class IbsVInsuredSearch implements java.io.Serializable {
     @EmbeddedId
     @AttributeOverrides({
             @AttributeOverride(name = "custId", column = @Column(name = "CUST_ID", nullable = false, precision = 22, scale = 0)),
+            @AttributeOverride(name = "custName", column = @Column(name = "CUST_NAME", length = 100)),
+            @AttributeOverride(name = "email", column = @Column(name = "EMAIL", length = 50)),
+            @AttributeOverride(name = "mobNo", column = @Column(name = "MOB_NO", length = 20)),
+            @AttributeOverride(name = "insuredName", column = @Column(name = "INSURED_NAME", length = 100)),
             @AttributeOverride(name = "enquiryNo", column = @Column(name = "ENQUIRY_NO", nullable = false, precision = 22, scale = 0)),
-            })
+            @AttributeOverride(name = "quotationNo", column = @Column(name = "QUOTATION_NO", precision = 22, scale = 0)),
+            @AttributeOverride(name = "policyNo", column = @Column(name = "POLICY_NO", length = 20)),
+            @AttributeOverride(name = "custContactId", column = @Column(name = "CUST_CONTACT_ID", precision = 25, scale = 0)),
+            @AttributeOverride(name = "insuredId", column = @Column(name = "INSURED_ID", nullable = false, precision = 22, scale = 0)) })
     public IbsVInsuredSearchId getId() {
         return this.id;
     }
 
     public void setId(IbsVInsuredSearchId id) {
         this.id = id;
-    }
-    
-    
-    @Column(name = "CUST_NAME", length = 100)
-    public String getCustName() {
-        return this.custName;
-    }
-
-    public void setCustName(String custName) {
-        this.custName = custName;
-    }
-
-
-    @Column(name = "EMAIL", length = 50)
-    public String getEmail() {
-        return this.email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-
-    @Column(name = "MOB_NO", length = 20)
-    public String getMobNo() {
-        return this.mobNo;
-    }
-
-    public void setMobNo(String mobNo) {
-        this.mobNo = mobNo;
-    }
-
-
-    @Column(name = "INSURED_NAME", length = 100)
-    public String getInsuredName() {
-        return this.insuredName;
-    }
-
-    public void setInsuredName(String insuredName) {
-        this.insuredName = insuredName;
-    }
-    
-    @Column(name = "QUOTATION_NO", precision = 22, scale = 0)
-    public BigDecimal getQuotationNo() {
-        return this.quotationNo;
-    }
-
-    public void setQuotationNo(BigDecimal quotationNo) {
-        this.quotationNo = quotationNo;
-    }
-
-
-    @Column(name = "POLICY_NO", length = 20)
-    public String getPolicyNo() {
-        return this.policyNo;
-    }
-
-    public void setPolicyNo(String policyNo) {
-        this.policyNo = policyNo;
-    }
-
-
-    @Column(name = "CUST_CONTACT_ID", precision = 25, scale = 0)
-    public BigDecimal getCustContactId() {
-        return this.custContactId;
-    }
-
-    public void setCustContactId(BigDecimal custContactId) {
-        this.custContactId = custContactId;
-    }
-
-
-    @Column(name = "INSURED_ID", nullable = false, precision = 22, scale = 0)
-    public BigDecimal getInsuredId() {
-        return this.insuredId;
-    }
-
-    public void setInsuredId(BigDecimal insuredId) {
-        this.insuredId = insuredId;
     }
 
 

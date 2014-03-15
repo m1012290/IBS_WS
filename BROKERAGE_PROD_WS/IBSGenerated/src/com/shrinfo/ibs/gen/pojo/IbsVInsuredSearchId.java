@@ -1,6 +1,6 @@
 package com.shrinfo.ibs.gen.pojo;
 
-// Generated Mar 15, 2014 6:17:35 AM by Hibernate Tools 3.4.0.CR1
+// Generated Mar 15, 2014 8:53:32 PM by Hibernate Tools 3.4.0.CR1
 
 
 import java.math.BigDecimal;
@@ -16,17 +16,47 @@ public class IbsVInsuredSearchId implements java.io.Serializable {
 
     private BigDecimal custId;
 
+    private String custName;
+
+    private String email;
+
+    private String mobNo;
+
+    private String insuredName;
+
     private BigDecimal enquiryNo;
+
+    private BigDecimal quotationNo;
+
+    private String policyNo;
+
+    private BigDecimal custContactId;
+
+    private BigDecimal insuredId;
 
     public IbsVInsuredSearchId() {}
 
 
-    public IbsVInsuredSearchId( BigDecimal custId, BigDecimal enquiryNo ) {
+    public IbsVInsuredSearchId(BigDecimal custId, BigDecimal enquiryNo, BigDecimal insuredId) {
         this.custId = custId;
         this.enquiryNo = enquiryNo;
+        this.insuredId = insuredId;
     }
 
-    
+    public IbsVInsuredSearchId(BigDecimal custId, String custName, String email, String mobNo,
+            String insuredName, BigDecimal enquiryNo, BigDecimal quotationNo, String policyNo,
+            BigDecimal custContactId, BigDecimal insuredId) {
+        this.custId = custId;
+        this.custName = custName;
+        this.email = email;
+        this.mobNo = mobNo;
+        this.insuredName = insuredName;
+        this.enquiryNo = enquiryNo;
+        this.quotationNo = quotationNo;
+        this.policyNo = policyNo;
+        this.custContactId = custContactId;
+        this.insuredId = insuredId;
+    }
 
 
 
@@ -40,7 +70,44 @@ public class IbsVInsuredSearchId implements java.io.Serializable {
     }
 
 
-    
+    @Column(name = "CUST_NAME", length = 100)
+    public String getCustName() {
+        return this.custName;
+    }
+
+    public void setCustName(String custName) {
+        this.custName = custName;
+    }
+
+
+    @Column(name = "EMAIL", length = 50)
+    public String getEmail() {
+        return this.email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+
+    @Column(name = "MOB_NO", length = 20)
+    public String getMobNo() {
+        return this.mobNo;
+    }
+
+    public void setMobNo(String mobNo) {
+        this.mobNo = mobNo;
+    }
+
+
+    @Column(name = "INSURED_NAME", length = 100)
+    public String getInsuredName() {
+        return this.insuredName;
+    }
+
+    public void setInsuredName(String insuredName) {
+        this.insuredName = insuredName;
+    }
 
 
     @Column(name = "ENQUIRY_NO", nullable = false, precision = 22, scale = 0)
@@ -53,43 +120,100 @@ public class IbsVInsuredSearchId implements java.io.Serializable {
     }
 
 
-    @Override
+    @Column(name = "QUOTATION_NO", precision = 22, scale = 0)
+    public BigDecimal getQuotationNo() {
+        return this.quotationNo;
+    }
+
+    public void setQuotationNo(BigDecimal quotationNo) {
+        this.quotationNo = quotationNo;
+    }
+
+
+    @Column(name = "POLICY_NO", length = 20)
+    public String getPolicyNo() {
+        return this.policyNo;
+    }
+
+    public void setPolicyNo(String policyNo) {
+        this.policyNo = policyNo;
+    }
+
+
+    @Column(name = "CUST_CONTACT_ID", precision = 25, scale = 0)
+    public BigDecimal getCustContactId() {
+        return this.custContactId;
+    }
+
+    public void setCustContactId(BigDecimal custContactId) {
+        this.custContactId = custContactId;
+    }
+
+
+    @Column(name = "INSURED_ID", nullable = false, precision = 22, scale = 0)
+    public BigDecimal getInsuredId() {
+        return this.insuredId;
+    }
+
+    public void setInsuredId(BigDecimal insuredId) {
+        this.insuredId = insuredId;
+    }
+
+
+    public boolean equals(Object other) {
+        if ((this == other))
+            return true;
+        if ((other == null))
+            return false;
+        if (!(other instanceof IbsVInsuredSearchId))
+            return false;
+        IbsVInsuredSearchId castOther = (IbsVInsuredSearchId) other;
+
+        return ((this.getCustId() == castOther.getCustId()) || (this.getCustId() != null
+            && castOther.getCustId() != null && this.getCustId().equals(castOther.getCustId())))
+            && ((this.getCustName() == castOther.getCustName()) || (this.getCustName() != null
+                && castOther.getCustName() != null && this.getCustName().equals(
+                castOther.getCustName())))
+            && ((this.getEmail() == castOther.getEmail()) || (this.getEmail() != null
+                && castOther.getEmail() != null && this.getEmail().equals(castOther.getEmail())))
+            && ((this.getMobNo() == castOther.getMobNo()) || (this.getMobNo() != null
+                && castOther.getMobNo() != null && this.getMobNo().equals(castOther.getMobNo())))
+            && ((this.getInsuredName() == castOther.getInsuredName()) || (this.getInsuredName() != null
+                && castOther.getInsuredName() != null && this.getInsuredName().equals(
+                castOther.getInsuredName())))
+            && ((this.getEnquiryNo() == castOther.getEnquiryNo()) || (this.getEnquiryNo() != null
+                && castOther.getEnquiryNo() != null && this.getEnquiryNo().equals(
+                castOther.getEnquiryNo())))
+            && ((this.getQuotationNo() == castOther.getQuotationNo()) || (this.getQuotationNo() != null
+                && castOther.getQuotationNo() != null && this.getQuotationNo().equals(
+                castOther.getQuotationNo())))
+            && ((this.getPolicyNo() == castOther.getPolicyNo()) || (this.getPolicyNo() != null
+                && castOther.getPolicyNo() != null && this.getPolicyNo().equals(
+                castOther.getPolicyNo())))
+            && ((this.getCustContactId() == castOther.getCustContactId()) || (this
+                    .getCustContactId() != null && castOther.getCustContactId() != null && this
+                    .getCustContactId().equals(castOther.getCustContactId())))
+            && ((this.getInsuredId() == castOther.getInsuredId()) || (this.getInsuredId() != null
+                && castOther.getInsuredId() != null && this.getInsuredId().equals(
+                castOther.getInsuredId())));
+    }
+
     public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((custId == null) ? 0 : custId.hashCode());
-        result = prime * result + ((enquiryNo == null) ? 0 : enquiryNo.hashCode());
+        int result = 17;
+
+        result = 37 * result + (getCustId() == null ? 0 : this.getCustId().hashCode());
+        result = 37 * result + (getCustName() == null ? 0 : this.getCustName().hashCode());
+        result = 37 * result + (getEmail() == null ? 0 : this.getEmail().hashCode());
+        result = 37 * result + (getMobNo() == null ? 0 : this.getMobNo().hashCode());
+        result = 37 * result + (getInsuredName() == null ? 0 : this.getInsuredName().hashCode());
+        result = 37 * result + (getEnquiryNo() == null ? 0 : this.getEnquiryNo().hashCode());
+        result = 37 * result + (getQuotationNo() == null ? 0 : this.getQuotationNo().hashCode());
+        result = 37 * result + (getPolicyNo() == null ? 0 : this.getPolicyNo().hashCode());
+        result =
+            37 * result + (getCustContactId() == null ? 0 : this.getCustContactId().hashCode());
+        result = 37 * result + (getInsuredId() == null ? 0 : this.getInsuredId().hashCode());
         return result;
     }
-
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        IbsVInsuredSearchId other = (IbsVInsuredSearchId) obj;
-        if (custId == null) {
-            if (other.custId != null)
-                return false;
-        } else if (!custId.equals(other.custId))
-            return false;
-        if (enquiryNo == null) {
-            if (other.enquiryNo != null)
-                return false;
-        } else if (!enquiryNo.equals(other.enquiryNo))
-            return false;
-        return true;
-    }
-
-
-    
-
-
-   
 
 
 }

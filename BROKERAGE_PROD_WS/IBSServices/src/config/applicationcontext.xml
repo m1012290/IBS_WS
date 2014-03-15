@@ -24,6 +24,8 @@
 				<!-- <prop key="hibernate.c3p0.minPoolSize">5</prop> <prop key="hibernate.c3p0.maxPoolSize">20</prop> 
 					<prop key="hibernate.c3p0.timeout">600</prop> <prop key="hibernate.c3p0.max_statement">50</prop> 
 					<prop key="hibernate.c3p0.testConnectionOnCheckout"> false </prop> -->
+					<prop key="hibernate.current_session_context_class">thread</prop>
+					<prop key="hibernate.use_sql_comments">true</prop>
 			</props>
 		</property>
 	</bean>
@@ -31,11 +33,25 @@
     <bean id="sessionFactory"
 		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
 		<property name="dataSource">
-			<ref local="ibsDS" />
+			<ref bean="ibsDS" />
 		</property>
 		<property name="packagesToScan" value="com.shrinfo.ibs.gen.pojo"/>
 		<property name="hibernateProperties" ref="hibernateProperties" />
 	</bean>
+	
+	<bean  class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	<property name="location">
+		<value>config/appconfig.properties</value>
+	</property>
+</bean>
+ 
+<bean id="ibsDS" 
+         class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<property name="driverClassName" value="${IBSDataSource_DSCLASSNAME}" />
+	<property name="url" value="${IBSDataSource_URL}" />
+	<property name="username" value="${IBSDataSource_USER}" />
+	<property name="password" value="${IBSDataSource_PWD}" />
+</bean>
 	
     <bean id="hibernateTransactionManager"
 		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
@@ -43,6 +59,7 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
+	<!-- 
 	<bean id="jndiObject" abstract="true"
 		class="org.springframework.jndi.JndiObjectFactoryBean">
 		<property name="jndiName">
@@ -50,13 +67,23 @@
 		</property>
 	</bean>
 	
+	-->
 	<!-- Sample data source configuration -->
+	<!-- 
 	<bean id="ibsDS" class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
 		<constructor-arg ref="ibsDataSource"/>
 	</bean>
 	<bean id="ibsDataSource" parent="jndiObject">
 		<property name="jndiName" value="IBSDataSource" />
+	</bean> -->
+
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate"
+		scope="prototype">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
 	</bean>
+	
 	
 	<!-- Configuration for the transaction manager -->
 	<bean id="baseProxyBean"
@@ -85,7 +112,18 @@
 		<property name="hibernateTemplate" ref="hibernateTemplate" />
 	</bean>
      -->
-      <bean id="customerInsuredSearchSvc" parent="baseProxyBean">
+     <!-- 
+    <bean id="masterDataLookupSvc" parent="baseProxyBean">
+		<property name="target" ref="masterDataLookupSvcBean" />
+	</bean>
+	<bean id="masterDataLookupSvcBean" class="com.shrinfo.ibs.lookup.svc.MasterDataLookupServiceImpl">
+		<property name="masterDataLookupDAO" ref="masterDataLookupSvcDAOBean" />
+	</bean>
+	<bean id="masterDataLookupSvcDAOBean" class="com.shrinfo.ibs.lookup.dao.MasterDataLookupDAOImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>-->
+     
+	 <bean id="customerInsuredSearchSvc" parent="baseProxyBean">
 		<property name="target" ref="customerInsuredSearchSvcBean" />
 	</bean>
 	<bean id="customerInsuredSearchSvcBean" class="com.shrinfo.ibs.search.svc.SearchServiceImpl">

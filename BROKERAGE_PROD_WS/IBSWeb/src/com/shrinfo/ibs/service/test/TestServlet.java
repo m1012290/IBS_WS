@@ -40,12 +40,12 @@ public class TestServlet extends HttpServlet {
 
         SearchItemVO item = new SearchItemVO();
         item.setCustomerName("Shaik");
-        item.setCustomerEmail("ABC_GMAIL.COM");
-        item.setCustomerMob("9980808080");
-        item.setInsuredName("insured");
-        item.setEnquiryNum(3);
-        item.setQuotationNum(2);
-        item.setPolicyNum("1234567890");
+        //item.setCustomerEmail("ABC_GMAIL.COM");
+        //item.setCustomerMob("99808080801");
+        //item.setInsuredName("insured");
+        //item.setEnquiryNum(3);
+        //item.setQuotationNum(2);
+        //item.setPolicyNum("1234567890");
 
         SearchService service = (SearchService) Utils.getBean("customerInsuredSearchSvcBean");
 

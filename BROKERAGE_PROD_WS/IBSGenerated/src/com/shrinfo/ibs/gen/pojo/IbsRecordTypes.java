@@ -1,6 +1,6 @@
 package com.shrinfo.ibs.gen.pojo;
 
-// Generated Mar 15, 2014 6:17:35 AM by Hibernate Tools 3.4.0.CR1
+// Generated Mar 15, 2014 8:53:32 PM by Hibernate Tools 3.4.0.CR1
 
 
 import javax.persistence.AttributeOverride;
@@ -16,6 +16,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "IBS_RECORD_TYPES", schema = "IBSUSER")
 public class IbsRecordTypes implements java.io.Serializable {
+
 
     private IbsRecordTypesId id;
 
