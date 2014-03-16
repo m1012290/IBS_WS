@@ -9,6 +9,8 @@ public interface QuoteSlipService {
 
     public BaseVO getQuoteSlipDetails(BaseVO baseVO);
 
+    public BaseVO getInsuredDetails(BaseVO baseVO);
+
     public BaseVO createQuoteSlip(BaseVO baseVO);
 
     public BaseVO emailQuoteSlip(BaseVO baseVO, List<BaseVO> companies);

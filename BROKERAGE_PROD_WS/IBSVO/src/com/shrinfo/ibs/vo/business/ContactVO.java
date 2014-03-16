@@ -10,6 +10,8 @@ public class ContactVO extends BaseVO {
 
     private static final long serialVersionUID = -1199380266871786516L;
 
+    private long contactId;
+
     private String firstName;
 
     private String middleName;
@@ -46,6 +48,25 @@ public class ContactVO extends BaseVO {
     private int recordType;
 
     private String recordTypeDesc;
+
+
+
+    public long getContactId() {
+        return contactId;
+    }
+
+
+
+    public void setContactId(long contactId) {
+        this.contactId = contactId;
+    }
+
+
+
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
+
 
     public String getFirstName() {
         return firstName;
@@ -188,6 +209,9 @@ public class ContactVO extends BaseVO {
      * @return the address
      */
     public AddressVO getAddress() {
+        if(null == Address){
+            Address = new AddressVO();
+        }
         return Address;
     }
 

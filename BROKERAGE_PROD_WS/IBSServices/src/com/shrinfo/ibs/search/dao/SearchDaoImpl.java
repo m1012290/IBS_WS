@@ -50,7 +50,7 @@ public class SearchDaoImpl extends BaseDBDAO implements SearchDao {
         List<SearchItemVO> searchResults = new ArrayList<SearchItemVO>();
         Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
         session.beginTransaction();
-        Query query = session.createSQLQuery(fetchQuery(searchItem));
+        Query query = session.createSQLQuery(fetchInsuredSearchQuery(searchItem));
         List<Object[]> result = null;
         try {
             result = (List<Object[]>) query.list();
@@ -65,14 +65,14 @@ public class SearchDaoImpl extends BaseDBDAO implements SearchDao {
         while (it.hasNext()) {
             object = it.next();
             itemVO = new SearchItemVO();
-            populate(itemVO, object);
+            populateSearchItemVO(itemVO, object);
             searchResults.add(itemVO);
 
         }
         return searchResults;
     }
 
-    private String fetchQuery(SearchItemVO searchItem) {
+    private String fetchInsuredSearchQuery(SearchItemVO searchItem) {
 
         StringBuffer buffer = new StringBuffer();
         String query =
@@ -108,7 +108,7 @@ public class SearchDaoImpl extends BaseDBDAO implements SearchDao {
         return query;
     }
 
-    private void populate(SearchItemVO itemVO, Object[] ibsVInsuredSearch) {
+    private void populateSearchItemVO(SearchItemVO itemVO, Object[] ibsVInsuredSearch) {
 
         if (Utils.isEmpty(ibsVInsuredSearch)) {
             return;

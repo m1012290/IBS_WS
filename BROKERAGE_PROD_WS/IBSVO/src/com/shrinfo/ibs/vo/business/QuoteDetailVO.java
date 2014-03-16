@@ -12,7 +12,12 @@ import com.shrinfo.ibs.cmn.vo.BaseVO;
  * @author Sunil Kumar
  * 
  */
-public class QuoteDetailsVO extends BaseVO {
+public class QuoteDetailVO extends BaseVO {
+
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -5498039917625223122L;
 
     private String quoteNo;
 
@@ -43,6 +48,8 @@ public class QuoteDetailsVO extends BaseVO {
     private String isClosingSlipGenerated;
 
     private String isClosingSlipEmailed;
+
+    private InsuredVO insuredDetails;
 
     public long getQuoteSlipId() {
         return quoteSlipId;
@@ -130,6 +137,61 @@ public class QuoteDetailsVO extends BaseVO {
 
     public void setRecommendationSummary(String recommendationSummary) {
         this.recommendationSummary = recommendationSummary;
+    }
+
+
+    public String getQuoteNo() {
+        return quoteNo;
+    }
+
+
+    public void setQuoteNo(String quoteNo) {
+        this.quoteNo = quoteNo;
+    }
+
+
+    public Date getQuoteSlipApprovalDate() {
+        return quoteSlipApprovalDate;
+    }
+
+
+    public void setQuoteSlipApprovalDate(Date quoteSlipApprovalDate) {
+        this.quoteSlipApprovalDate = quoteSlipApprovalDate;
+    }
+
+
+    public String getIsClosingSlipGenerated() {
+        return isClosingSlipGenerated;
+    }
+
+
+    public void setIsClosingSlipGenerated(String isClosingSlipGenerated) {
+        this.isClosingSlipGenerated = isClosingSlipGenerated;
+    }
+
+
+    public String getIsClosingSlipEmailed() {
+        return isClosingSlipEmailed;
+    }
+
+
+    public void setIsClosingSlipEmailed(String isClosingSlipEmailed) {
+        this.isClosingSlipEmailed = isClosingSlipEmailed;
+    }
+
+
+    public InsuredVO getInsuredDetails() {
+        return insuredDetails;
+    }
+
+
+    public void setInsuredDetails(InsuredVO insuredDetails) {
+        this.insuredDetails = insuredDetails;
+    }
+
+
+    public static long getSerialversionuid() {
+        return serialVersionUID;
     }
 
 }

@@ -1,12 +1,13 @@
 package com.shrinfo.ibs.enquiry.svc;
 
-import java.util.List;
-
 import com.shrinfo.ibs.base.service.BaseService;
 import com.shrinfo.ibs.cmn.vo.BaseVO;
+import com.shrinfo.ibs.enquiry.dao.EnquiryDao;
 
 
 public class EnquiryServiceImpl extends BaseService implements EnquiryService {
+
+    EnquiryDao enquiryDao;
 
     @Override
     public Object invokeMethod(String methodName, Object... args) {
@@ -14,9 +15,6 @@ public class EnquiryServiceImpl extends BaseService implements EnquiryService {
 
         if ("getEnquiryDetail".equals(methodName)) {
             returnValue = getEnquiryDetail((BaseVO) args[0]);
-        }
-        if ("getEnquiryDetails".equals(methodName)) {
-            returnValue = getEnquiryDetails((BaseVO) args[0]);
         }
         if ("createEnquiry".equals(methodName)) {
             returnValue = createEnquiry((BaseVO) args[0]);
@@ -28,20 +26,18 @@ public class EnquiryServiceImpl extends BaseService implements EnquiryService {
 
     @Override
     public BaseVO getEnquiryDetail(BaseVO baseVO) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public List<BaseVO> getEnquiryDetails(BaseVO baseVO) {
-        // TODO Auto-generated method stub
-        return null;
+        return enquiryDao.getEnquiryDetail(baseVO);
     }
 
     @Override
     public BaseVO createEnquiry(BaseVO baseVO) {
-        // TODO Auto-generated method stub
-        return null;
+        return enquiryDao.createEnquiry(baseVO);
+    }
+
+
+
+    public void setEnquiryDao(EnquiryDao enquiryDao) {
+        this.enquiryDao = enquiryDao;
     }
 
 

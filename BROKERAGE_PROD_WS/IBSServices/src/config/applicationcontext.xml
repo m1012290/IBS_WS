@@ -35,8 +35,42 @@
 		<property name="dataSource">
 			<ref bean="ibsDS" />
 		</property>
-		<property name="packagesToScan" value="com.shrinfo.ibs.gen.pojo"/>
+		<!--
+		<property name="packagesToScan" value="com.shrinfo.ibs.gen.pojo"/> -->
 		<property name="hibernateProperties" ref="hibernateProperties" />
+		<property name="mappingResources">
+			<list>
+				<value>com/shrinfo/ibs/gen/pojo/IbsQuoteSlipHeader.hbm.xml</value>
+		<value>com/shrinfo/ibs/gen/pojo/IbsTask.hbm.xml</value>
+        <value>com/shrinfo/ibs/gen/pojo/IbsQuoteSlipDetail.hbm.xml</value>
+        <value>com/shrinfo/ibs/gen/pojo/IbsRoles.hbm.xml</value>
+        <value>com/shrinfo/ibs/gen/pojo/IbsCustomer.hbm.xml</value>
+       <value>com/shrinfo/ibs/gen/pojo/IbsProductMaster.hbm.xml</value>
+        <value>com/shrinfo/ibs/gen/pojo/IbsVInsuredSearch.hbm.xml</value>
+        <value>com/shrinfo/ibs/gen/pojo/IbsDocumentTable.hbm.xml</value>
+        <value>com/shrinfo/ibs/gen/pojo/IbsCompanyBranch.hbm.xml</value>
+        <value>com/shrinfo/ibs/gen/pojo/IbsQuoteComparisionDetail.hbm.xml</value>
+        <value>com/shrinfo/ibs/gen/pojo/IbsUwTransactionHeader.hbm.xml</value>
+        <value>com/shrinfo/ibs/gen/pojo/IbsStatusMaster.hbm.xml</value>
+        <value>com/shrinfo/ibs/gen/pojo/IbsInsuranceCompProdLink.hbm.xml</value>
+       <value>com/shrinfo/ibs/gen/pojo/IbsUser.hbm.xml</value>
+        <value>com/shrinfo/ibs/gen/pojo/IbsUserRoleLink.hbm.xml</value>
+       <value>com/shrinfo/ibs/gen/pojo/IbsMasLookup.hbm.xml</value>
+        <value>com/shrinfo/ibs/gen/pojo/IbsCustomerEnquiry.hbm.xml</value>
+        <value>com/shrinfo/ibs/gen/pojo/IbsUserProductLink.hbm.xml</value>
+        <value>com/shrinfo/ibs/gen/pojo/IbsRolesProductPrivileges.hbm.xml</value>
+        <value>com/shrinfo/ibs/gen/pojo/IbsContact.hbm.xml</value>
+        <value>com/shrinfo/ibs/gen/pojo/IbsCompany.hbm.xml</value>
+        <value>com/shrinfo/ibs/gen/pojo/IbsRecordTypes.hbm.xml</value>
+        <value>com/shrinfo/ibs/gen/pojo/IbsInsuranceCompanyContact.hbm.xml</value>
+        <value>com/shrinfo/ibs/gen/pojo/IbsUwTransaction.hbm.xml</value>
+        <value>com/shrinfo/ibs/gen/pojo/IbsInsuredMaster.hbm.xml</value>
+        <value>com/shrinfo/ibs/gen/pojo/IbsProductUwFields.hbm.xml</value>
+        <value>com/shrinfo/ibs/gen/pojo/IbsInsuranceCompany.hbm.xml</value>
+        <value>com/shrinfo/ibs/gen/pojo/IbsQuoteComparisionHeader.hbm.xml</value>
+		</list>
+		</property>
+		
 	</bean>
 	
 	<bean  class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -130,6 +164,28 @@
 		<property name="searchDao" ref="customerSearchSvcDAOBean" />
 	</bean>
 	<bean id="customerSearchSvcDAOBean" class="com.shrinfo.ibs.search.dao.SearchDaoImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	
+	<bean id="customerEnquirySvc" parent="baseProxyBean">
+		<property name="target" ref="customerEnquirySvcBean" />
+	</bean>
+	<bean id="customerEnquirySvcBean" class="com.shrinfo.ibs.customerenquiry.svc.CustomerEnquiryServiceImpl">
+		<property name="customerDao" ref="customerSvcDAOBean" />
+		<property name="enquiryDao" ref="enquirySvcDAOBean" />
+	</bean>
+	<bean id="customerSvcDAOBean" class="com.shrinfo.ibs.customer.dao.CustomerDaoImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	
+	
+	<bean id="enquirySvc" parent="baseProxyBean">
+		<property name="target" ref="enquirySvcBean" />
+	</bean>
+	<bean id="enquirySvcBean" class="com.shrinfo.ibs.enquiry.svc.EnquiryServiceImpl">
+		<property name="enquiryDao" ref="enquirySvcDAOBean" />
+	</bean>
+	<bean id="enquirySvcDAOBean" class="com.shrinfo.ibs.enquiry.dao.EnquiryDaoImpl">
 		<property name="hibernateTemplate" ref="hibernateTemplate" />
 	</bean>
     

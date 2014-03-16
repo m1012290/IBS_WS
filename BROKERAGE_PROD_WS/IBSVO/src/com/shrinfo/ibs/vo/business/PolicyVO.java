@@ -5,7 +5,6 @@ import java.util.Date;
 import java.util.Map;
 
 import com.shrinfo.ibs.cmn.vo.BaseVO;
-import com.shrinfo.ibs.vo.app.EnquiryType;
 
 public class PolicyVO extends BaseVO {
 
@@ -20,11 +19,12 @@ public class PolicyVO extends BaseVO {
 
     private int quoteNoVersion;
 
-    private Map<InsCompanyVO, QuoteDetailsVO> quoteDetails;
+    private Map<InsCompanyVO, QuoteDetailVO> quoteDetails;
 
     private InsuredVO insuredDetails;
 
-    private EnquiryType enquiryType;// enquiry type enum
+    private EnquiryVO enquiryDetails;
+    //private EnquiryType enquiryType;// enquiry type enum
 
     private int statusCode;
 
@@ -93,12 +93,12 @@ public class PolicyVO extends BaseVO {
     }
 
 
-    public Map<InsCompanyVO, QuoteDetailsVO> getQuoteDetails() {
+    public Map<InsCompanyVO, QuoteDetailVO> getQuoteDetails() {
         return quoteDetails;
     }
 
 
-    public void setQuoteDetails(Map<InsCompanyVO, QuoteDetailsVO> quoteDetails) {
+    public void setQuoteDetails(Map<InsCompanyVO, QuoteDetailVO> quoteDetails) {
         this.quoteDetails = quoteDetails;
     }
 
@@ -113,13 +113,12 @@ public class PolicyVO extends BaseVO {
     }
 
 
-    public EnquiryType getEnquiryType() {
-        return enquiryType;
+    public EnquiryVO getEnquiryDetails() {
+        return enquiryDetails;
     }
-
-
-    public void setEnquiryType(EnquiryType enquiryType) {
-        this.enquiryType = enquiryType;
+    
+    public void setEnquiryDetails(EnquiryVO enquiryDetails) {
+        this.enquiryDetails = enquiryDetails;
     }
 
 
@@ -251,4 +250,8 @@ public class PolicyVO extends BaseVO {
     public void setIsQuoteConvertedToPolicy(String isQuoteConvertedToPolicy) {
         this.isQuoteConvertedToPolicy = isQuoteConvertedToPolicy;
     }
+
+
+    
+   
 }

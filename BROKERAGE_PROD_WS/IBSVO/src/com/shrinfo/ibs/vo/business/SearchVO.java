@@ -7,6 +7,11 @@ import com.shrinfo.ibs.cmn.vo.BaseVO;
 
 public class SearchVO extends BaseVO {
 
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 7014452341462513452L;
+
     List<SearchItemVO> searchItems;
 
 

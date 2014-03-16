@@ -10,6 +10,10 @@ public class InsuredVO extends BaseVO {
 
     private static final long serialVersionUID = -2934748953623182662L;
 
+    private long id;
+
+    private int version;
+
     private String salutation;
 
     private String name;
@@ -20,6 +24,32 @@ public class InsuredVO extends BaseVO {
     private ContactVO contactAndAddrDetails;
 
     private CustomerVO customerDetails;
+
+
+
+    public long getId() {
+        return id;
+    }
+
+
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+
+
+    public int getVersion() {
+        return version;
+    }
+
+
+
+
+    public void setVersion(int version) {
+        this.version = version;
+    }
+
 
 
     public String getSalutation() {
@@ -62,13 +92,21 @@ public class InsuredVO extends BaseVO {
     }
 
 
-    public CustomerVO getInsuredCustomer() {
+
+    public CustomerVO getCustomerDetails() {
         return customerDetails;
     }
 
 
-    public void setInsuredCustomer(CustomerVO insuredCustomer) {
-        this.customerDetails = insuredCustomer;
+
+    public void setCustomerDetails(CustomerVO customerDetails) {
+        this.customerDetails = customerDetails;
+    }
+
+
+
+    public static long getSerialversionuid() {
+        return serialVersionUID;
     }
 
 }
