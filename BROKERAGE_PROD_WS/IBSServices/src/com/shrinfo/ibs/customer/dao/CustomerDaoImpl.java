@@ -6,6 +6,7 @@ import org.hibernate.HibernateException;
 
 import com.shrinfo.ibs.base.dao.BaseDBDAO;
 import com.shrinfo.ibs.cmn.exception.BusinessException;
+import com.shrinfo.ibs.cmn.exception.SystemException;
 import com.shrinfo.ibs.cmn.vo.BaseVO;
 import com.shrinfo.ibs.dao.utils.DAOUtils;
 import com.shrinfo.ibs.dao.utils.MapperUtil;
@@ -48,7 +49,7 @@ public class CustomerDaoImpl extends BaseDBDAO implements CustomerDao {
         return customerVO;
     }
 
-    
+
     @Override
     public BaseVO createCustomer(BaseVO baseVO) {
 
@@ -60,11 +61,21 @@ public class CustomerDaoImpl extends BaseDBDAO implements CustomerDao {
             throw new BusinessException("cmn.unknownError", null, "Customer details are invalid");
         }
         CustomerVO customerVO = (CustomerVO) baseVO;
-        IbsContact ibsContact =
-            DAOUtils.constructIbsContactForRecType(customerVO, RecordType.CUSTOMER);
-        saveOrUpdate(ibsContact);
-        IbsCustomer ibsCustomer = (IbsCustomer) ((ibsContact.getIbsCustomers().toArray())[0]);
-        customerVO.setCustomerId(ibsCustomer.getId());
+        IbsContact ibsContact = null;
+        try {
+            ibsContact = DAOUtils.constructIbsContactForRecType(customerVO, RecordType.CUSTOMER);
+            saveOrUpdate(ibsContact);
+
+            IbsCustomer ibsCustomer = (IbsCustomer) ((ibsContact.getIbsCustomers().toArray())[0]);
+            customerVO.setCustomerId(ibsCustomer.getId());
+
+        } catch (HibernateException hibernateException) {
+            throw new BusinessException("ibs.gi.couldNotSaveCustomerDetails", hibernateException,
+                "Error while saving enquiry data");
+        } catch (Exception exception) {
+            throw new SystemException("ins.gi.couldNotSaveCustomerDetails", exception,
+                "Error while saving enquiry data");
+        }
         return customerVO;
     }
 

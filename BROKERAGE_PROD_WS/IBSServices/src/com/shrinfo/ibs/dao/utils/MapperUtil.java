@@ -42,6 +42,9 @@ public class MapperUtil {
 
     public static void populateContactVO(ContactVO contactVO, IbsContact ibsContact) {
 
+        if (null == ibsContact) {
+            return;
+        }
         contactVO.setAlternateEmailId1(ibsContact.getAlternateEmailId1());
         contactVO.setAlternateEmailId2(ibsContact.getAlternateEmailId2());
         contactVO.setAlternateLandlineNo1(ibsContact.getAlternateLandlineNo1());
@@ -55,7 +58,8 @@ public class MapperUtil {
         contactVO.setLastName(ibsContact.getLastName());
         contactVO.setMiddleName(ibsContact.getMiddleName());
         contactVO.setMobileNo(ibsContact.getPrimaryMobileNo());
-        contactVO.setRecordType(ibsContact.getRecordType());
+        if(null != ibsContact.getRecordType())
+        contactVO.setRecordType(ibsContact.getRecordType().intValue());
         // contactVO.setRecordTypeDesc(ibsContact.getRecordType());
         AddressVO addressVO = new AddressVO();
         populateAddressVO(addressVO, ibsContact);
@@ -89,6 +93,8 @@ public class MapperUtil {
 
         enquiryVO.setEnquiryNo(ibsCustomerEnquiry.getEnquiryNo().longValue());
         enquiryVO.setEnquirySme(ibsCustomerEnquiry.getEnquirySubjectmatterExpert());
+        CustomerVO customerVO = new CustomerVO();
+        populateCustomerVO(customerVO, ibsCustomerEnquiry.getIbsCustomer());
         ProductVO productVO = new ProductVO();
         populateProductVO(productVO, ibsCustomerEnquiry.getIbsProductMaster());
         enquiryVO.setProduct(productVO);

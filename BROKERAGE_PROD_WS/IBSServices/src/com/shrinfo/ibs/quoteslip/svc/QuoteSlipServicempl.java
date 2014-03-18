@@ -52,8 +52,9 @@ public class QuoteSlipServicempl extends BaseService implements QuoteSlipService
     @Override
     public BaseVO createQuoteSlip(BaseVO baseVO) {
         InsuredVO insuredVO = (InsuredVO) insuredDao.createInsuredDetails(baseVO);
-        QuoteDetailVO quoteDetailVO = (QuoteDetailVO) quoteSlipDao.createQuoteSlip(baseVO);
+        QuoteDetailVO quoteDetailVO = (QuoteDetailVO) baseVO;
         quoteDetailVO.setInsuredDetails(insuredVO);
+        quoteDetailVO = (QuoteDetailVO) quoteSlipDao.createQuoteSlip(baseVO);
         return quoteDetailVO;
     }
 

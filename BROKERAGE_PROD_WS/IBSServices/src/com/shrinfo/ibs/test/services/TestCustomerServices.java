@@ -14,7 +14,7 @@ public class TestCustomerServices {
         Utils.setAppContext(Utils.loadSpringBeansFactory("config/applicationcontext.xml"));
 
         CustomerEnquiryService customerService =
-            (CustomerEnquiryService) Utils.getBean("customerSvcBean");
+            (CustomerEnquiryService) Utils.getBean("customerEnquirySvc");
 
         CustomerVO customerVO = new CustomerVO();
         customerVO.setCategory("Retail");
@@ -31,16 +31,30 @@ public class TestCustomerServices {
         contactVO.getAddress().setLongitude("1");
 
         EnquiryVO enquiryVO = new EnquiryVO();
+        enquiryVO.setEnquiryNo(23l);
         customerVO.setContactAndAddrDets(contactVO);
-
+        enquiryVO.setEnquiryContact(contactVO);
         enquiryVO.setCustomerDetails(customerVO);
 
+        System.out.println(customerService.getCustomerEnquiry(enquiryVO));
 
-
-        // customerVO.setCustomerId(1l);
-        // System.out.println(customerService.getCustomer(customerVO));
-
-        System.out.println(customerService.createCustomerEnquiry(enquiryVO));
+         //System.out.println(customerService.createCustomerEnquiry(enquiryVO));
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 }

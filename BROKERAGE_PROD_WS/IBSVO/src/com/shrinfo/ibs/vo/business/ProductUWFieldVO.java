@@ -17,6 +17,8 @@ public class ProductUWFieldVO extends BaseVO {
     private int fieldOrder;
 
     private String fieldName;
+    
+    private String fieldValue;
 
     private String fieldType;
 
@@ -106,5 +108,23 @@ public class ProductUWFieldVO extends BaseVO {
 
     public void setResponse(String response) {
         this.response = response;
+    }
+
+
+    
+    public String getFieldValue() {
+        return fieldValue;
+    }
+
+
+    
+    public void setFieldValue(String fieldValue) {
+        this.fieldValue = fieldValue;
+    }
+
+
+    
+    public static long getSerialversionuid() {
+        return serialVersionUID;
     }
 }

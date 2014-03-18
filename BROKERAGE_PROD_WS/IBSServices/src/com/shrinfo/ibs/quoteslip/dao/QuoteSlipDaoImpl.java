@@ -5,6 +5,7 @@ import org.hibernate.HibernateException;
 import com.shrinfo.ibs.base.dao.BaseDBDAO;
 import com.shrinfo.ibs.cmn.exception.BusinessException;
 import com.shrinfo.ibs.cmn.vo.BaseVO;
+import com.shrinfo.ibs.dao.utils.DAOUtils;
 import com.shrinfo.ibs.dao.utils.MapperUtil;
 import com.shrinfo.ibs.gen.pojo.IbsQuoteSlipHeader;
 import com.shrinfo.ibs.vo.business.QuoteDetailVO;
@@ -47,7 +48,20 @@ public class QuoteSlipDaoImpl extends BaseDBDAO implements QuoteSlipDao {
     @Override
     public BaseVO createQuoteSlip(BaseVO baseVO) {
         // TODO Auto-generated method stub
-        return null;
-    }    
+
+        if (null == baseVO) {
+            throw new BusinessException("cmn.unknownError", null, "Customer details cannot be null");
+        }
+        if (!(baseVO instanceof QuoteDetailVO)) {
+            throw new BusinessException("cmn.unknownError", null, "Customer details are invalid");
+        }
+        QuoteDetailVO quoteDetailVO = (QuoteDetailVO) baseVO;
+        IbsQuoteSlipHeader quoteSlipHeader = DAOUtils.constructIbsQuoteSlipHeader(quoteDetailVO);
+        saveOrUpdate(quoteSlipHeader);
+
+        quoteDetailVO.setQuoteNo(String.valueOf(quoteSlipHeader.getId().getId()));
+        quoteDetailVO.setQuoteSlipVersion(quoteSlipHeader.getId().getQuoteSlipVersion().intValue());
+        return quoteDetailVO;
+    }
 
 }

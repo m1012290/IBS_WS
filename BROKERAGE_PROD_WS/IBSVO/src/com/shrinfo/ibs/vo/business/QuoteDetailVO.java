@@ -29,6 +29,10 @@ public class QuoteDetailVO extends BaseVO {
 
     private ProductVO productDetails;
 
+    private long customerId;
+
+    private long enquiryNum;
+
     private long quoteSlipApprovedByUserId;
 
     private Date quoteSlipApprovalDate;
@@ -50,6 +54,8 @@ public class QuoteDetailVO extends BaseVO {
     private String isClosingSlipEmailed;
 
     private InsuredVO insuredDetails;
+
+    private PolicyVO policyVO;
 
     public long getQuoteSlipId() {
         return quoteSlipId;
@@ -82,6 +88,27 @@ public class QuoteDetailVO extends BaseVO {
     public void setProductDetails(ProductVO productDetails) {
         this.productDetails = productDetails;
     }
+
+
+    public long getCustomerId() {
+        return customerId;
+    }
+
+
+    public void setCustomerId(long customerId) {
+        this.customerId = customerId;
+    }
+
+
+    public long getEnquiryNum() {
+        return enquiryNum;
+    }
+
+
+    public void setEnquiryNum(long enquiryNum) {
+        this.enquiryNum = enquiryNum;
+    }
+
 
     public long getQuoteSlipApprovedByUserId() {
         return quoteSlipApprovedByUserId;
@@ -189,6 +216,16 @@ public class QuoteDetailVO extends BaseVO {
         this.insuredDetails = insuredDetails;
     }
 
+
+
+    public PolicyVO getPolicyVO() {
+        return policyVO;
+    }
+
+
+    public void setPolicyVO(PolicyVO policyVO) {
+        this.policyVO = policyVO;
+    }
 
     public static long getSerialversionuid() {
         return serialVersionUID;

@@ -35,9 +35,10 @@ public class CustomerEnquiryServiceImpl extends BaseService implements CustomerE
 
     @Override
     public BaseVO createCustomerEnquiry(BaseVO baseVO) {
-        CustomerVO customerVO = (CustomerVO) customerDao.createCustomer(baseVO);
-        EnquiryVO enquiryVO = (EnquiryVO) enquiryDao.createEnquiry(baseVO);
+        EnquiryVO enquiryVO = (EnquiryVO)baseVO;
+        CustomerVO customerVO = (CustomerVO) customerDao.createCustomer(enquiryVO.getCustomerDetails());
         enquiryVO.setCustomerDetails(customerVO);
+        enquiryVO = (EnquiryVO) enquiryDao.createEnquiry(baseVO);        
         return enquiryVO;
     }
 

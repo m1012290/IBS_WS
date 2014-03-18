@@ -18,6 +18,8 @@ public class ContactVO extends BaseVO {
 
     private String lastName;
 
+    private String title;
+
     private String mobileNo;
 
     private String alternateMobileNo1;
@@ -96,6 +98,20 @@ public class ContactVO extends BaseVO {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
+
+
+    public String getTitle() {
+        return title;
+    }
+
+
+
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
 
 
     public String getMobileNo() {
@@ -209,7 +225,7 @@ public class ContactVO extends BaseVO {
      * @return the address
      */
     public AddressVO getAddress() {
-        if(null == Address){
+        if (null == Address) {
             Address = new AddressVO();
         }
         return Address;

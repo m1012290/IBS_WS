@@ -32,6 +32,8 @@ public class CustomerVO extends BaseVO {
     private String sourceOfBusiness;
 
     private ContactVO contactAndAddrDets;
+    
+    private String salesExecutive;
 
 
     public Long getCustomerId() {
@@ -111,5 +113,23 @@ public class CustomerVO extends BaseVO {
 
     public void setContactAndAddrDets(ContactVO contactAndAddrDets) {
         this.contactAndAddrDets = contactAndAddrDets;
+    }
+
+
+
+    public String getSalesExecutive() {
+        return salesExecutive;
+    }
+
+
+
+    public void setSalesExecutive(String salesExecutive) {
+        this.salesExecutive = salesExecutive;
+    }
+
+
+
+    public static long getSerialversionuid() {
+        return serialVersionUID;
     }
 }
