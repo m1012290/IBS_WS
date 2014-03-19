@@ -22,12 +22,12 @@ public class TestQuoteSlipServices {
 
         QuoteDetailVO quoteDetailVO = new QuoteDetailVO();
 
-        quoteDetailVO.setEnquiryNum(23l);
-        quoteDetailVO.setCustomerId(80l);
+        quoteDetailVO.setEnquiryNum(26l);
+        quoteDetailVO.setCustomerId(83l);
 
         InsuredVO insuredVO = new InsuredVO();
         CustomerVO customerVO = new CustomerVO();
-        customerVO.setCustomerId(80l);
+        customerVO.setCustomerId(83l);
         customerVO.setCategory("Retail");
         customerVO.setClassification("");
         customerVO.setGroup("");
