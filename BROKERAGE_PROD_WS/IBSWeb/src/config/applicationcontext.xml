@@ -2,8 +2,8 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
-	
-    <bean id="hibernateProperties"
+
+	<bean id="hibernateProperties"
 		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
 		<property name="properties">
 			<props>
@@ -21,24 +21,23 @@
 					</prop> -->
 				<!-- <prop key="hibernate.query.substitutions"> true 'Y', false 'N' </prop> -->
 				<prop key="hibernate.show_sql">true</prop>
-				<prop key="hibernate.current_session_context_class">thread</prop>
 				<!-- <prop key="hibernate.c3p0.minPoolSize">5</prop> <prop key="hibernate.c3p0.maxPoolSize">20</prop> 
 					<prop key="hibernate.c3p0.timeout">600</prop> <prop key="hibernate.c3p0.max_statement">50</prop> 
 					<prop key="hibernate.c3p0.testConnectionOnCheckout"> false </prop> -->
 			</props>
 		</property>
 	</bean>
-	
-    <bean id="sessionFactory"
+
+	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
 		<property name="dataSource">
 			<ref local="ibsDS" />
 		</property>
-		<property name="packagesToScan" value="com.shrinfo.ibs.gen.pojo"/>
+		<property name="packagesToScan" value="com.shrinfo.ibs.gen.pojo" />
 		<property name="hibernateProperties" ref="hibernateProperties" />
 	</bean>
-	
-    <bean id="hibernateTransactionManager"
+
+	<bean id="hibernateTransactionManager"
 		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
@@ -47,18 +46,19 @@
 	<bean id="jndiObject" abstract="true"
 		class="org.springframework.jndi.JndiObjectFactoryBean">
 		<property name="jndiName">
-			<value>java:jboss/datasources/IBSDataSource</value>
+			<value>java:comp/env/IBSDataSource</value>
 		</property>
 	</bean>
-	
+
 	<!-- Sample data source configuration -->
-	<bean id="ibsDS" class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
-		<constructor-arg ref="ibsDataSource"/>
+	<bean id="ibsDS"
+		class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
+		<constructor-arg ref="ibsDataSource" />
 	</bean>
 	<bean id="ibsDataSource" parent="jndiObject">
 		<property name="jndiName" value="IBSDataSource" />
 	</bean>
-	
+
 	<!-- Configuration for the transaction manager -->
 	<bean id="baseProxyBean"
 		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"
@@ -79,20 +79,14 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
-	<!--  Test entries for transaction management on services and dao -->
-	<!-- 
-	<bean id="saveClaimsHistoryService" parent="baseProxyBean">
-		<property name="target" ref="saveClaimsHistoryServiceBean" />
-	</bean>
-	<bean id="saveClaimsHistoryServiceBean" class="com.rsaame.pas.quote.svc.SaveClaimsHistSvc">
-		<property name="claimsHistoryDAO" ref="saveClaimsHistDAO" />
-	</bean>
-	<bean id="saveClaimsHistDAO" class="com.rsaame.pas.quote.dao.SaveClaimsHistoryDAO">
-		<property name="hibernateTemplate" ref="hibernateTemplate" />
-	</bean>
-     -->
-     <!--  Svc and DAO for Customer/Insured Search -->
-    <bean id="customerInsuredSearchSvc" parent="baseProxyBean">
+	<!-- Test entries for transaction management on services and dao -->
+	<!-- <bean id="saveClaimsHistoryService" parent="baseProxyBean"> <property 
+		name="target" ref="saveClaimsHistoryServiceBean" /> </bean> <bean id="saveClaimsHistoryServiceBean" 
+		class="com.rsaame.pas.quote.svc.SaveClaimsHistSvc"> <property name="claimsHistoryDAO" 
+		ref="saveClaimsHistDAO" /> </bean> <bean id="saveClaimsHistDAO" class="com.rsaame.pas.quote.dao.SaveClaimsHistoryDAO"> 
+		<property name="hibernateTemplate" ref="hibernateTemplate" /> </bean> -->
+	<!-- Svc and DAO for Customer/Insured Search -->
+	<bean id="customerInsuredSearchSvc" parent="baseProxyBean">
 		<property name="target" ref="customerInsuredSearchSvcBean" />
 	</bean>
 	<bean id="customerInsuredSearchSvcBean" class="com.shrinfo.ibs.search.svc.SearchServiceImpl">
@@ -121,8 +115,7 @@
 	<bean id="enquirySvcDAOBean" class="com.shrinfo.ibs.enquiry.dao.EnquiryDaoImpl">
 		<property name="hibernateTemplate" ref="hibernateTemplate" />
 	</bean>
-     
-    
- </beans>
+	
+</beans>
 
 	

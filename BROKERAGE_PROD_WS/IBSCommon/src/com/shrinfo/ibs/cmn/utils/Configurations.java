@@ -104,15 +104,14 @@ public enum Configurations{
         java.io.FileInputStream fin = null;
         try{
             java.net.URL urlToFile = this.getClass().getClassLoader().getResource( bundle );
-            
-            fin = new FileInputStream( urlToFile.getFile() );
+            fin = new FileInputStream( new File( urlToFile.toURI() ) );
         }
         catch( FileNotFoundException e ){
             throw new SystemException( CommonErrorKeys.CONFIG_FILE_NOT_FOUND, e, "Bundle not found [" + bundle + "]" );
-        }/*
+        }
         catch( URISyntaxException e ){
             throw new SystemException( CommonErrorKeys.CONFIG_FILE_NOT_FOUND, e, "URI syntax exception" );
-        }*/
+        }
         
         /* Shun the current instance and create a new one. */
         props = new Properties();
