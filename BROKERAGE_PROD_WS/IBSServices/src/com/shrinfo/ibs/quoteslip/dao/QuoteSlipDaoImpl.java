@@ -33,10 +33,10 @@ public class QuoteSlipDaoImpl extends BaseDBDAO implements QuoteSlipDao {
         try {
             ibsQuoteSlipHeader =
                 (IbsQuoteSlipHeader) getHibernateTemplate().find(
-                    " from IbsQuoteSlipHeader ibsQuoteSlipHeader where ibsCustomerEnquiry.id = ? "
-                        + "and ibsCustomerEnquiry.quoteSlipVersion = ?",
+                    " from IbsQuoteSlipHeader ibsQuoteSlipHeader where ibsQuoteSlipHeader.id.id = ? "
+                        + "and ibsQuoteSlipHeader.id.quoteSlipVersion = ?",
                     ((QuoteDetailVO) baseVO).getQuoteSlipId(),
-                    ((QuoteDetailVO) baseVO).getQuoteSlipId()).get(0);
+                    ((QuoteDetailVO) baseVO).getQuoteSlipVersion()).get(0);
         } catch (HibernateException hibernateException) {
             throw new BusinessException("pas.gi.couldNotGetCustDetails", hibernateException,
                 "Error while insured search");
@@ -69,9 +69,8 @@ public class QuoteSlipDaoImpl extends BaseDBDAO implements QuoteSlipDao {
             quoteSlipHeader.setId(quoteSlipHeaderId);
             saveOrUpdate(quoteSlipHeader);
 
-            quoteDetailVO.setQuoteNo(String.valueOf(quoteSlipHeader.getId().getId()));
-            quoteDetailVO.setQuoteSlipVersion(quoteSlipHeader.getId().getQuoteSlipVersion()
-                    .intValue());
+            quoteDetailVO.setQuoteSlipId(quoteSlipHeader.getId().getId());
+            quoteDetailVO.setQuoteSlipVersion(quoteSlipHeader.getId().getQuoteSlipVersion());
         } catch (HibernateException hibernateException) {
             throw new BusinessException("pas.gi.couldNotSaveQuoteSlipDetails", hibernateException,
                 "Error while saving Quote Slip data");

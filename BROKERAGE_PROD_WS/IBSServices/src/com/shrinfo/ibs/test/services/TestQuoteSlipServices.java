@@ -54,16 +54,23 @@ public class TestQuoteSlipServices {
         fieldVO.setFieldName("name");
         fieldVO.setFieldType("text");
         fieldVO.setFieldValue("field value name");
+        ProductUWFieldVO fieldVO1 = new ProductUWFieldVO();
+        fieldVO1.setUwFieldId(1l);
+        fieldVO1.setFieldName("name");
+        fieldVO1.setFieldType("text");
+        fieldVO1.setFieldValue("field value name");
         List<ProductUWFieldVO> fieldVOs = new ArrayList<ProductUWFieldVO>();
         fieldVOs.add(fieldVO);
+        fieldVOs.add(fieldVO1);
         productVO.setUwFieldsList(fieldVOs);
 
         quoteDetailVO.setInsuredDetails(insuredVO);
         quoteDetailVO.setProductDetails(productVO);
         quoteDetailVO.setStatusCode(1);
-
+        
         quoteSlipService.createQuoteSlip(quoteDetailVO);
 
+        System.out.println(quoteSlipService.getQuoteSlipDetails(quoteDetailVO));
     }
 
 

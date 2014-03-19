@@ -23,7 +23,7 @@ public class QuoteDetailVO extends BaseVO {
 
     private long quoteSlipId;
 
-    private int quoteSlipVersion;
+    private long quoteSlipVersion;
 
     private String quoteSlipDescription;
 
@@ -67,11 +67,14 @@ public class QuoteDetailVO extends BaseVO {
         this.quoteSlipId = quoteSlipId;
     }
 
-    public int getQuoteSlipVersion() {
+
+
+    public long getQuoteSlipVersion() {
         return quoteSlipVersion;
     }
 
-    public void setQuoteSlipVersion(int quoteSlipVersion) {
+
+    public void setQuoteSlipVersion(long quoteSlipVersion) {
         this.quoteSlipVersion = quoteSlipVersion;
     }
 
@@ -112,12 +115,12 @@ public class QuoteDetailVO extends BaseVO {
     }
 
 
-    
+
     public String getEnquiryCompanyCode() {
         return enquiryCompanyCode;
     }
 
-    
+
     public void setEnquiryCompanyCode(String enquiryCompanyCode) {
         this.enquiryCompanyCode = enquiryCompanyCode;
     }

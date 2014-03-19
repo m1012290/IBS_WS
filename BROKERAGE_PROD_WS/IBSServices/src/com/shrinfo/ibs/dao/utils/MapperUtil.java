@@ -1,11 +1,14 @@
 package com.shrinfo.ibs.dao.utils;
 
+import java.util.Set;
+
 import com.shrinfo.ibs.cmn.utils.Utils;
 import com.shrinfo.ibs.gen.pojo.IbsContact;
 import com.shrinfo.ibs.gen.pojo.IbsCustomer;
 import com.shrinfo.ibs.gen.pojo.IbsCustomerEnquiry;
 import com.shrinfo.ibs.gen.pojo.IbsInsuredMaster;
 import com.shrinfo.ibs.gen.pojo.IbsProductMaster;
+import com.shrinfo.ibs.gen.pojo.IbsQuoteComparisionDetail;
 import com.shrinfo.ibs.gen.pojo.IbsQuoteComparisionHeader;
 import com.shrinfo.ibs.gen.pojo.IbsQuoteSlipHeader;
 import com.shrinfo.ibs.vo.business.AddressVO;
@@ -59,8 +62,8 @@ public class MapperUtil {
         contactVO.setLastName(ibsContact.getLastName());
         contactVO.setMiddleName(ibsContact.getMiddleName());
         contactVO.setMobileNo(ibsContact.getPrimaryMobileNo());
-        if(null != ibsContact.getRecordType())
-        contactVO.setRecordType(ibsContact.getRecordType().intValue());
+        if (null != ibsContact.getRecordType())
+            contactVO.setRecordType(ibsContact.getRecordType().intValue());
         // contactVO.setRecordTypeDesc(ibsContact.getRecordType());
         AddressVO addressVO = new AddressVO();
         populateAddressVO(addressVO, ibsContact);
@@ -129,9 +132,41 @@ public class MapperUtil {
 
     public static void populateQuoteSlipDetailVO(QuoteDetailVO quoteDetailVO,
             IbsQuoteComparisionHeader ibsQuoteComparisionHeader) {
-        // TODO Auto-generated method stub
-        
+
+        if (null == ibsQuoteComparisionHeader) {
+            return;
+        }
+        if (null == quoteDetailVO) {
+            quoteDetailVO = new QuoteDetailVO();
+        }
+        quoteDetailVO.setCustomerId(ibsQuoteComparisionHeader.getCustomerId());
+        if (null != ibsQuoteComparisionHeader.getIbsInsuranceCompany())
+            quoteDetailVO.setEnquiryCompanyCode(ibsQuoteComparisionHeader.getIbsInsuranceCompany()
+                    .getCode());
+        quoteDetailVO.setEnquiryNum(ibsQuoteComparisionHeader.getEnquiryNo());
+        InsuredVO insuredVO = new InsuredVO();
+        insuredVO.setId(ibsQuoteComparisionHeader.getInsuredId());
+        insuredVO.setName(ibsQuoteComparisionHeader.getInsuredName());
+        quoteDetailVO.setInsuredDetails(insuredVO);
+        if (null != ibsQuoteComparisionHeader.getIbsQuoteComparisionDetails()
+            && 0 != ibsQuoteComparisionHeader.getIbsQuoteComparisionDetails().size()) {
+            Set<IbsQuoteComparisionDetail> ibsQuoteComparisionDetails =
+                ibsQuoteComparisionHeader.getIbsQuoteComparisionDetails();
+
+            IbsQuoteComparisionDetail ibsQuoteComparisionDetail =
+                ibsQuoteComparisionDetails
+                        .toArray(new IbsQuoteComparisionDetail[ibsQuoteComparisionDetails.size()])[0];
+            quoteDetailVO
+                    .setIsClosingSlipEmailed(ibsQuoteComparisionDetail.getClosingSlipEmailed());
+            quoteDetailVO.setIsQuoteSlipEmailed(ibsQuoteComparisionDetail.getClosingSlipEmailed());
+
+        }
+        quoteDetailVO.setIsQuoteRecommended(ibsQuoteComparisionHeader.getQuoteRecommended());
+        // quoteDetailVO.setIsStatusActive(ibsQuoteComparisionHeader.getIbsStatusMaster().getCode());
+        ProductVO productVO = new ProductVO();
+        populateProductVO(productVO, ibsQuoteComparisionHeader.getIbsProductMaster());
+        quoteDetailVO.setProductDetails(productVO);
+        //quoteDetailVO.setQuoteNo(ibsQuoteComparisionHeader.getId());
+
     }
-
-
 }
