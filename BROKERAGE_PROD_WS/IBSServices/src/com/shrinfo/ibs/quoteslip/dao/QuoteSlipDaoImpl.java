@@ -4,10 +4,13 @@ import org.hibernate.HibernateException;
 
 import com.shrinfo.ibs.base.dao.BaseDBDAO;
 import com.shrinfo.ibs.cmn.exception.BusinessException;
+import com.shrinfo.ibs.cmn.exception.SystemException;
 import com.shrinfo.ibs.cmn.vo.BaseVO;
 import com.shrinfo.ibs.dao.utils.DAOUtils;
 import com.shrinfo.ibs.dao.utils.MapperUtil;
+import com.shrinfo.ibs.dao.utils.NextSequenceValue;
 import com.shrinfo.ibs.gen.pojo.IbsQuoteSlipHeader;
+import com.shrinfo.ibs.gen.pojo.IbsQuoteSlipHeaderId;
 import com.shrinfo.ibs.vo.business.QuoteDetailVO;
 
 
@@ -47,7 +50,6 @@ public class QuoteSlipDaoImpl extends BaseDBDAO implements QuoteSlipDao {
 
     @Override
     public BaseVO createQuoteSlip(BaseVO baseVO) {
-        // TODO Auto-generated method stub
 
         if (null == baseVO) {
             throw new BusinessException("cmn.unknownError", null, "Customer details cannot be null");
@@ -56,11 +58,27 @@ public class QuoteSlipDaoImpl extends BaseDBDAO implements QuoteSlipDao {
             throw new BusinessException("cmn.unknownError", null, "Customer details are invalid");
         }
         QuoteDetailVO quoteDetailVO = (QuoteDetailVO) baseVO;
-        IbsQuoteSlipHeader quoteSlipHeader = DAOUtils.constructIbsQuoteSlipHeader(quoteDetailVO);
-        saveOrUpdate(quoteSlipHeader);
+        IbsQuoteSlipHeader quoteSlipHeader = null;
 
-        quoteDetailVO.setQuoteNo(String.valueOf(quoteSlipHeader.getId().getId()));
-        quoteDetailVO.setQuoteSlipVersion(quoteSlipHeader.getId().getQuoteSlipVersion().intValue());
+        try {
+            quoteSlipHeader = DAOUtils.constructIbsQuoteSlipHeader(quoteDetailVO);
+            IbsQuoteSlipHeaderId quoteSlipHeaderId = new IbsQuoteSlipHeaderId();
+            quoteSlipHeaderId.setId(NextSequenceValue.getNextSequence("IBS_QUOTE_SLIP_HEADER_SEQ",
+                getHibernateTemplate()));
+            quoteSlipHeaderId.setQuoteSlipVersion(1l);
+            quoteSlipHeader.setId(quoteSlipHeaderId);
+            saveOrUpdate(quoteSlipHeader);
+
+            quoteDetailVO.setQuoteNo(String.valueOf(quoteSlipHeader.getId().getId()));
+            quoteDetailVO.setQuoteSlipVersion(quoteSlipHeader.getId().getQuoteSlipVersion()
+                    .intValue());
+        } catch (HibernateException hibernateException) {
+            throw new BusinessException("pas.gi.couldNotSaveQuoteSlipDetails", hibernateException,
+                "Error while saving Quote Slip data");
+        } catch (Exception exception) {
+            throw new SystemException("pas.gi.couldNotSaveQuoteSlipDetails", exception,
+                "Error while saving Quote Slip data");
+        }
         return quoteDetailVO;
     }
 

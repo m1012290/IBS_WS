@@ -18,6 +18,7 @@ import com.shrinfo.ibs.gen.pojo.IbsInsuranceCompany;
 import com.shrinfo.ibs.gen.pojo.IbsInsuranceCompanyContact;
 import com.shrinfo.ibs.gen.pojo.IbsInsuredMaster;
 import com.shrinfo.ibs.gen.pojo.IbsProductMaster;
+import com.shrinfo.ibs.gen.pojo.IbsProductUwFields;
 import com.shrinfo.ibs.gen.pojo.IbsQuoteSlipDetail;
 import com.shrinfo.ibs.gen.pojo.IbsQuoteSlipHeader;
 import com.shrinfo.ibs.gen.pojo.IbsStatusMaster;
@@ -71,6 +72,7 @@ public class DAOUtils {
                     InsuredVO insuredVO = (InsuredVO) baseVO;
                     ibsContact = constructIbsContact(insuredVO.getContactAndAddrDetails());
                     IbsInsuredMaster ibsInsuredMaster = constructIbsInsuredMaster(baseVO);
+                    ibsInsuredMaster.setIbsContact(ibsContact);
                     ibsContact.setIbsInsuredMasters(constructSetOfPOJOForRecType(recordType
                             .getPojoClass()));
                     ibsContact.getIbsInsuredMasters().add(ibsInsuredMaster);
@@ -90,8 +92,12 @@ public class DAOUtils {
     }
 
     private static IbsContact constructIbsContact(BaseVO baseVO) {
-        ContactVO contactDets = (ContactVO) baseVO;
         IbsContact ibsContact = new IbsContact();
+        if (null == baseVO) {
+            return ibsContact;
+        }
+        ContactVO contactDets = (ContactVO) baseVO;
+
         if (null != contactDets.getAddress())
             ibsContact.setAddress(contactDets.getAddress().getAddress());
         ibsContact.setAlternateEmailId1(contactDets.getAlternateEmailId1());
@@ -122,8 +128,12 @@ public class DAOUtils {
     }
 
     private static IbsCustomer constructIbsCustomer(BaseVO baseVO) {
-        CustomerVO customerVO = (CustomerVO) baseVO;
+
         IbsCustomer ibsCustomer = new IbsCustomer();
+        if (null == baseVO) {
+            return ibsCustomer;
+        }
+        CustomerVO customerVO = (CustomerVO) baseVO;
         ibsCustomer.setId(customerVO.getCustomerId());
         ibsCustomer.setCategory(customerVO.getCategory());
         ibsCustomer.setClassification(customerVO.getClassification());
@@ -156,13 +166,16 @@ public class DAOUtils {
     }
 
     private static IbsInsuredMaster constructIbsInsuredMaster(BaseVO baseVO) {
-        InsuredVO insuredVO = (InsuredVO) baseVO;
         IbsInsuredMaster ibsInsured = new IbsInsuredMaster();
+        if (null == baseVO) {
+            return ibsInsured;
+        }
+        InsuredVO insuredVO = (InsuredVO) baseVO;
         ibsInsured.setName(insuredVO.getName());
         ibsInsured.setSalutation(insuredVO.getSalutation());
         ibsInsured.setSource(insuredVO.getSourceOfBusiness());
         ibsInsured.setIbsCustomer(constructIbsCustomer(insuredVO.getCustomerDetails()));
-        return null;
+        return ibsInsured;
     }
 
     private static IbsCustomerEnquiry constructIbsCustEnquiry(BaseVO baseVO) {
@@ -174,7 +187,7 @@ public class DAOUtils {
         customerEnquiry.setEnquirySubjectmatterExpert(enquiryVO.getEnquirySme());
         customerEnquiry.setIbsProductMaster(constructIbsProduct(enquiryVO.getProduct()));
         customerEnquiry.setIbsCustomer(constructIbsCustomer(enquiryVO.getCustomerDetails()));
-        //customerEnquiry.setIbsContact(constructIbsContact(enquiryVO.getEnquiryContact()));
+        // customerEnquiry.setIbsContact(constructIbsContact(enquiryVO.getEnquiryContact()));
         customerEnquiry.setIsActive(enquiryVO.getIsStatusActive());
         if (null != enquiryVO.getType())
             customerEnquiry.setType(enquiryVO.getType().getEnquiryType());
@@ -189,24 +202,31 @@ public class DAOUtils {
         slipHeader.setCustomerId(quoteDetailVO.getCustomerId());
         slipHeader.setEnquiryNo(quoteDetailVO.getEnquiryNum());
         slipHeader.setIbsProductMaster(constructIbsProduct(quoteDetailVO.getProductDetails()));
-        slipHeader.setIbsQuoteSlipDetails(constructIbsQuoteSlipDetails(quoteDetailVO));
+        slipHeader.setIbsQuoteSlipDetails(constructIbsQuoteSlipDetails(slipHeader, quoteDetailVO));
 
         IbsStatusMaster ibsStatusMaster = new IbsStatusMaster();
         ibsStatusMaster.setCode((long) quoteDetailVO.getStatusCode());
         slipHeader.setIbsStatusMaster(ibsStatusMaster);
         slipHeader.setInsuredId(quoteDetailVO.getInsuredDetails().getId());
         slipHeader.setInsuredName(quoteDetailVO.getInsuredDetails().getName());
-        slipHeader.setPolicyStartDate((Date) quoteDetailVO.getPolicyVO().getPolicyEffectiveDate());
-        slipHeader.setPolicyExpiryDate((Date) quoteDetailVO.getPolicyVO().getPolicyExpiryDate());
-        slipHeader.setQuoteSlipDate((Date) quoteDetailVO.getQuoteSlipDate());
+        if (null != quoteDetailVO.getPolicyVO()) {
+            slipHeader.setPolicyStartDate((Date) quoteDetailVO.getPolicyVO()
+                    .getPolicyEffectiveDate());
+            slipHeader
+                    .setPolicyExpiryDate((Date) quoteDetailVO.getPolicyVO().getPolicyExpiryDate());
+        }
+        if (null != quoteDetailVO.getQuoteSlipDate())
+            slipHeader.setQuoteSlipDate((Date) quoteDetailVO.getQuoteSlipDate());
         slipHeader.setQuoteSlipEmailed(quoteDetailVO.getIsClosingSlipEmailed());
         // slipHeader.setRemarks(quoteDetailVO.get)
-        slipHeader.setSubClass(String.valueOf(quoteDetailVO.getProductDetails().getSubClass()));
+        if (null != quoteDetailVO.getProductDetails())
+            slipHeader.setSubClass(String.valueOf(quoteDetailVO.getProductDetails().getSubClass()));
 
         return slipHeader;
     }
 
-    private static Set<IbsQuoteSlipDetail> constructIbsQuoteSlipDetails(BaseVO baseVO) {
+    private static Set<IbsQuoteSlipDetail> constructIbsQuoteSlipDetails(
+            IbsQuoteSlipHeader slipHeader, BaseVO baseVO) {
 
         QuoteDetailVO quoteDetailVO = (QuoteDetailVO) baseVO;
         ProductVO productVO = quoteDetailVO.getProductDetails();
@@ -214,15 +234,26 @@ public class DAOUtils {
         IbsQuoteSlipDetail slipDetail = null;
         for (ProductUWFieldVO uwFieldVO : productVO.getUwFieldsList()) {
             slipDetail = new IbsQuoteSlipDetail();
-            // slipDetail.setEnquiryNo(quoteDetailVO.getEnquiryNum());
+            slipDetail.setEnquiryNo(quoteDetailVO.getEnquiryNum());
             // slipDetail.setIbsProductMaster(ibsProductMaster)
-            // slipDetail.setEnquiryCompanyCode(quoteDetailVO)
+            slipDetail.setEnquiryCompanyCode(quoteDetailVO.getEnquiryCompanyCode());
             slipDetail.setProductUwFieldAnswer(uwFieldVO.getFieldValue());
-            // slipDetail.set
-
+            slipDetail.setIbsProductUwFields(constructIbsProductUwField(uwFieldVO));
+            slipDetail.setIbsQuoteSlipHeader(slipHeader);
             slipDetailList.add(slipDetail);
         }
         return slipDetailList;
+    }
+
+    private static IbsProductUwFields constructIbsProductUwField(ProductUWFieldVO uwFieldVO) {
+        IbsProductUwFields field = new IbsProductUwFields();
+        field.setId(uwFieldVO.getUwFieldId());
+        field.setFieldName(uwFieldVO.getFieldName());
+        field.setFieldLength((long) uwFieldVO.getFieldLength());
+        field.setIsMandatory(uwFieldVO.getIsMandatory());
+        field.setSrlNo((long) uwFieldVO.getFieldOrder());
+        field.setStatus(uwFieldVO.getIsStatusActive());
+        return field;
     }
 
     private static IbsProductMaster constructIbsProduct(ProductVO productDetails) {

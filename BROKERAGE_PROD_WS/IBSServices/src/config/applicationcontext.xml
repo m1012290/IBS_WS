@@ -188,6 +188,20 @@
 	<bean id="enquirySvcDAOBean" class="com.shrinfo.ibs.enquiry.dao.EnquiryDaoImpl">
 		<property name="hibernateTemplate" ref="hibernateTemplate" />
 	</bean>
+	
+	<bean id="quoteSlipSvc" parent="baseProxyBean">
+		<property name="target" ref="quoteSlipSvcBean" />
+	</bean>
+	<bean id="quoteSlipSvcBean" class="com.shrinfo.ibs.quoteslip.svc.QuoteSlipServiceImpl">
+		<property name="quoteSlipDao" ref="quoteSlipDAOBean" />
+		<property name="insuredDao" ref="insuredDAOBean" />
+	</bean>
+	<bean id="quoteSlipDAOBean" class="com.shrinfo.ibs.quoteslip.dao.QuoteSlipDaoImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	<bean id="insuredDAOBean" class="com.shrinfo.ibs.insured.dao.InsuredDaoImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
     
  </beans>
 

@@ -4,10 +4,16 @@ import java.util.List;
 
 import com.shrinfo.ibs.base.service.BaseService;
 import com.shrinfo.ibs.cmn.vo.BaseVO;
+import com.shrinfo.ibs.gen.pojo.IbsQuoteComparisionDetail;
+import com.shrinfo.ibs.gen.pojo.IbsQuoteComparisionHeader;
 
 
 
 public class QuotationServiceImpl extends BaseService implements QuotationService {
+    
+    IbsQuoteComparisionHeader ibsQuoteComparisionHeader;
+
+    IbsQuoteComparisionDetail ibsQuoteComparisionDetail;
 
     @Override
     public Object invokeMethod(String methodName, Object... args) {
@@ -60,6 +66,18 @@ public class QuotationServiceImpl extends BaseService implements QuotationServic
     public BaseVO emailQuotation(BaseVO baseVO) {
         // TODO Auto-generated method stub
         return null;
+    }
+
+
+    
+    public void setIbsQuoteComparisionHeader(IbsQuoteComparisionHeader ibsQuoteComparisionHeader) {
+        this.ibsQuoteComparisionHeader = ibsQuoteComparisionHeader;
+    }
+
+
+    
+    public void setIbsQuoteComparisionDetail(IbsQuoteComparisionDetail ibsQuoteComparisionDetail) {
+        this.ibsQuoteComparisionDetail = ibsQuoteComparisionDetail;
     }
 
 

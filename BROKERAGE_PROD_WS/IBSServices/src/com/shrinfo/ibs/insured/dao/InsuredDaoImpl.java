@@ -4,6 +4,7 @@ import org.hibernate.HibernateException;
 
 import com.shrinfo.ibs.base.dao.BaseDBDAO;
 import com.shrinfo.ibs.cmn.exception.BusinessException;
+import com.shrinfo.ibs.cmn.exception.SystemException;
 import com.shrinfo.ibs.cmn.vo.BaseVO;
 import com.shrinfo.ibs.dao.utils.DAOUtils;
 import com.shrinfo.ibs.dao.utils.MapperUtil;
@@ -54,13 +55,22 @@ public class InsuredDaoImpl extends BaseDBDAO implements InsuredDao {
         }
 
         InsuredVO insuredVO = (InsuredVO) baseVO;
-        IbsContact ibsContact =
-            DAOUtils.constructIbsContactForRecType(insuredVO, RecordType.INSURED);
-        saveOrUpdate(ibsContact);
-        IbsInsuredMaster ibsInsuredMaster =
-            (IbsInsuredMaster) ((ibsContact.getIbsInsuredMasters().toArray())[0]);
-        insuredVO.setId(ibsInsuredMaster.getId());
-        // insuredVO.setVersion((ibsInsuredMaster.getVersion());
+        IbsContact ibsContact = null;
+        try {
+            ibsContact =
+                DAOUtils.constructIbsContactForRecType(insuredVO, RecordType.INSURED);
+            saveOrUpdate(ibsContact);
+            IbsInsuredMaster ibsInsuredMaster =
+                (IbsInsuredMaster) ((ibsContact.getIbsInsuredMasters().toArray())[0]);
+            insuredVO.setId(ibsInsuredMaster.getId());
+            // insuredVO.setVersion((ibsInsuredMaster.getVersion());
+        } catch (HibernateException hibernateException) {
+            throw new BusinessException("pas.gi.couldNotSaveInsuredDetails", hibernateException,
+                "Error while saving insured data");
+        } catch (Exception exception) {
+            throw new SystemException("pas.gi.couldNotSaveInsuredDetails", exception,
+                "Error while saving insured data");
+        }
         return insuredVO;
     }
 

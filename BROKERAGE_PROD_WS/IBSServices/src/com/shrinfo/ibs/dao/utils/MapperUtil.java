@@ -6,6 +6,7 @@ import com.shrinfo.ibs.gen.pojo.IbsCustomer;
 import com.shrinfo.ibs.gen.pojo.IbsCustomerEnquiry;
 import com.shrinfo.ibs.gen.pojo.IbsInsuredMaster;
 import com.shrinfo.ibs.gen.pojo.IbsProductMaster;
+import com.shrinfo.ibs.gen.pojo.IbsQuoteComparisionHeader;
 import com.shrinfo.ibs.gen.pojo.IbsQuoteSlipHeader;
 import com.shrinfo.ibs.vo.business.AddressVO;
 import com.shrinfo.ibs.vo.business.ContactVO;
@@ -124,6 +125,12 @@ public class MapperUtil {
             IbsQuoteSlipHeader ibsQuoteSlipHeader) {
         // TODO Auto-generated method stub
 
+    }
+
+    public static void populateQuoteSlipDetailVO(QuoteDetailVO quoteDetailVO,
+            IbsQuoteComparisionHeader ibsQuoteComparisionHeader) {
+        // TODO Auto-generated method stub
+        
     }
 
 

@@ -12,10 +12,10 @@
                 <column name="QUOTE_SLIP_VERSION" precision="22" scale="0" />
             </key-property>
         </composite-id>
-        <many-to-one name="ibsStatusMaster" class="com.shrinfo.ibs.gen.pojo.IbsStatusMaster" fetch="select">
+        <many-to-one name="ibsStatusMaster" class="com.shrinfo.ibs.gen.pojo.IbsStatusMaster" fetch="select" lazy="false">
             <column name="STATUS_CODE" precision="22" scale="0" />
         </many-to-one>
-        <many-to-one name="ibsProductMaster" class="com.shrinfo.ibs.gen.pojo.IbsProductMaster" fetch="select">
+        <many-to-one name="ibsProductMaster" class="com.shrinfo.ibs.gen.pojo.IbsProductMaster" fetch="select" lazy="false">
             <column name="PRODUCT_CLASS" precision="22" scale="0" />
         </many-to-one>
         <property name="enquiryNo" type="java.lang.Long">
@@ -73,7 +73,7 @@
             </key>
             <one-to-many class="com.shrinfo.ibs.gen.pojo.IbsUwTransactionHeader" />
         </set>
-        <set name="ibsQuoteSlipDetails" table="IBS_QUOTE_SLIP_DETAIL" inverse="true" lazy="true" fetch="select">
+        <set name="ibsQuoteSlipDetails" cascade="save-update" table="IBS_QUOTE_SLIP_DETAIL" inverse="true" lazy="false" fetch="select">
             <key>
                 <column name="QUOTE_SLIP_ID" precision="22" scale="0" />
                 <column name="QUOTE_SLIP_VERSION" precision="22" scale="0" />

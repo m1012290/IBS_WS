@@ -33,6 +33,8 @@ public class QuoteDetailVO extends BaseVO {
 
     private long enquiryNum;
 
+    private String enquiryCompanyCode;
+
     private long quoteSlipApprovedByUserId;
 
     private Date quoteSlipApprovalDate;
@@ -109,6 +111,16 @@ public class QuoteDetailVO extends BaseVO {
         this.enquiryNum = enquiryNum;
     }
 
+
+    
+    public String getEnquiryCompanyCode() {
+        return enquiryCompanyCode;
+    }
+
+    
+    public void setEnquiryCompanyCode(String enquiryCompanyCode) {
+        this.enquiryCompanyCode = enquiryCompanyCode;
+    }
 
     public long getQuoteSlipApprovedByUserId() {
         return quoteSlipApprovedByUserId;

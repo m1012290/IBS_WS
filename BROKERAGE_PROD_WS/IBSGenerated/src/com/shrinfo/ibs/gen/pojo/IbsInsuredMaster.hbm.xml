@@ -3,40 +3,45 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated Mar 17, 2014 1:52:55 AM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.shrinfo.ibs.gen.pojo.IbsInsuredMaster" table="IBS_INSURED_MASTER" schema="IBSUSER">
-        <id name="id" type="java.lang.Long">
-            <column name="ID" precision="22" scale="0" />
-            <generator class="assigned" />
-        </id>
-        <many-to-one name="ibsCustomer" class="com.shrinfo.ibs.gen.pojo.IbsCustomer" fetch="select">
-            <column name="CUSTOMER_ID" precision="22" scale="0" />
-        </many-to-one>
-        <many-to-one name="ibsContact" class="com.shrinfo.ibs.gen.pojo.IbsContact" fetch="select">
-            <column name="CONTACT_ID" precision="25" scale="0" />
-        </many-to-one>
-        <property name="salutation" type="string">
-            <column name="SALUTATION" length="5" />
-        </property>
-        <property name="name" type="string">
-            <column name="NAME" length="100" />
-        </property>
-        <property name="source" type="string">
-            <column name="SOURCE" length="15" />
-        </property>
-        <property name="salesExecutive" type="string">
-            <column name="SALES_EXECUTIVE" length="50" />
-        </property>
-        <property name="recCreUserId" type="java.lang.Long">
-            <column name="REC_CRE_USER_ID" precision="22" scale="0" />
-        </property>
-        <property name="recCreDate" type="java.sql.Date">
-            <column name="REC_CRE_DATE" />
-        </property>
-        <property name="recUpdUserId" type="java.lang.Long">
-            <column name="REC_UPD_USER_ID" precision="22" scale="0" />
-        </property>
-        <property name="recUpdDate" type="java.sql.Date">
-            <column name="REC_UPD_DATE" />
-        </property>
-    </class>
+	<class name="com.shrinfo.ibs.gen.pojo.IbsInsuredMaster" table="IBS_INSURED_MASTER"
+		schema="IBSUSER">
+		<id name="id" type="java.lang.Long">
+			<column name="ID" precision="22" scale="0" />
+			<generator class="sequence">
+				<param name="sequence">IBS_INSURED_SEQ</param>
+			</generator>
+		</id>
+		<many-to-one name="ibsCustomer" cascade="save-update" class="com.shrinfo.ibs.gen.pojo.IbsCustomer" lazy="false"
+			fetch="select">
+			<column name="CUSTOMER_ID" precision="22" scale="0" />
+		</many-to-one>
+		<many-to-one name="ibsContact" class="com.shrinfo.ibs.gen.pojo.IbsContact"
+			fetch="select" lazy="false">
+			<column name="CONTACT_ID" precision="25" scale="0" />
+		</many-to-one>
+		<property name="salutation" type="string">
+			<column name="SALUTATION" length="5" />
+		</property>
+		<property name="name" type="string">
+			<column name="NAME" length="100" />
+		</property>
+		<property name="source" type="string">
+			<column name="SOURCE" length="15" />
+		</property>
+		<property name="salesExecutive" type="string">
+			<column name="SALES_EXECUTIVE" length="50" />
+		</property>
+		<property name="recCreUserId" type="java.lang.Long">
+			<column name="REC_CRE_USER_ID" precision="22" scale="0" />
+		</property>
+		<property name="recCreDate" type="java.sql.Date">
+			<column name="REC_CRE_DATE" />
+		</property>
+		<property name="recUpdUserId" type="java.lang.Long">
+			<column name="REC_UPD_USER_ID" precision="22" scale="0" />
+		</property>
+		<property name="recUpdDate" type="java.sql.Date">
+			<column name="REC_UPD_DATE" />
+		</property>
+	</class>
 </hibernate-mapping>

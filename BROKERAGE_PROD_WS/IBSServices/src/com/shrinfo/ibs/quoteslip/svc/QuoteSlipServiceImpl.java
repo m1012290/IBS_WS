@@ -11,7 +11,7 @@ import com.shrinfo.ibs.vo.business.QuoteDetailVO;
 
 
 
-public class QuoteSlipServicempl extends BaseService implements QuoteSlipService {
+public class QuoteSlipServiceImpl extends BaseService implements QuoteSlipService {
 
     QuoteSlipDao quoteSlipDao;
 
@@ -51,8 +51,8 @@ public class QuoteSlipServicempl extends BaseService implements QuoteSlipService
 
     @Override
     public BaseVO createQuoteSlip(BaseVO baseVO) {
-        InsuredVO insuredVO = (InsuredVO) insuredDao.createInsuredDetails(baseVO);
         QuoteDetailVO quoteDetailVO = (QuoteDetailVO) baseVO;
+        InsuredVO insuredVO = (InsuredVO) insuredDao.createInsuredDetails(quoteDetailVO.getInsuredDetails());        
         quoteDetailVO.setInsuredDetails(insuredVO);
         quoteDetailVO = (QuoteDetailVO) quoteSlipDao.createQuoteSlip(baseVO);
         return quoteDetailVO;
