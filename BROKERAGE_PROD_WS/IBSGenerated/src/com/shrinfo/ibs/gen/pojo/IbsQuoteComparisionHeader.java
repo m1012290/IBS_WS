@@ -1,6 +1,6 @@
 package com.shrinfo.ibs.gen.pojo;
 
-// Generated Mar 17, 2014 1:52:55 AM by Hibernate Tools 3.4.0.CR1
+// Generated Mar 20, 2014 12:09:46 AM by Hibernate Tools 3.4.0.CR1
 
 
 import java.sql.Date;
@@ -20,6 +20,8 @@ public class IbsQuoteComparisionHeader implements java.io.Serializable {
     private IbsQuoteSlipHeader ibsQuoteSlipHeader;
 
     private IbsProductMaster ibsProductMaster;
+
+    private IbsInsuranceCompany ibsInsuranceCompany;
 
     private Long enquiryNo;
 
@@ -50,6 +52,9 @@ public class IbsQuoteComparisionHeader implements java.io.Serializable {
     private Set<IbsUwTransactionHeader> ibsUwTransactionHeaders =
         new HashSet<IbsUwTransactionHeader>(0);
 
+    private Set<IbsQuoteComparisionDetail> ibsQuoteComparisionDetails =
+        new HashSet<IbsQuoteComparisionDetail>(0);
+
     public IbsQuoteComparisionHeader() {}
 
 
@@ -59,14 +64,17 @@ public class IbsQuoteComparisionHeader implements java.io.Serializable {
 
     public IbsQuoteComparisionHeader(Long id, IbsStatusMaster ibsStatusMaster,
             IbsQuoteSlipHeader ibsQuoteSlipHeader, IbsProductMaster ibsProductMaster,
-            Long enquiryNo, String subClass, Long customerId, Long insuredId, String insuredName,
-            Date policyStartDate, Date policyExpiryDate, String recommendationSummary,
-            String quoteRecommended, Long recCreUserId, Date recCreDate, Long recUpdUserId,
-            Date recUpdDate, Set<IbsUwTransactionHeader> ibsUwTransactionHeaders) {
+            IbsInsuranceCompany ibsInsuranceCompany, Long enquiryNo, String subClass,
+            Long customerId, Long insuredId, String insuredName, Date policyStartDate,
+            Date policyExpiryDate, String recommendationSummary, String quoteRecommended,
+            Long recCreUserId, Date recCreDate, Long recUpdUserId, Date recUpdDate,
+            Set<IbsUwTransactionHeader> ibsUwTransactionHeaders,
+            Set<IbsQuoteComparisionDetail> ibsQuoteComparisionDetails) {
         this.id = id;
         this.ibsStatusMaster = ibsStatusMaster;
         this.ibsQuoteSlipHeader = ibsQuoteSlipHeader;
         this.ibsProductMaster = ibsProductMaster;
+        this.ibsInsuranceCompany = ibsInsuranceCompany;
         this.enquiryNo = enquiryNo;
         this.subClass = subClass;
         this.customerId = customerId;
@@ -81,6 +89,7 @@ public class IbsQuoteComparisionHeader implements java.io.Serializable {
         this.recUpdUserId = recUpdUserId;
         this.recUpdDate = recUpdDate;
         this.ibsUwTransactionHeaders = ibsUwTransactionHeaders;
+        this.ibsQuoteComparisionDetails = ibsQuoteComparisionDetails;
     }
 
     public Long getId() {
@@ -113,6 +122,14 @@ public class IbsQuoteComparisionHeader implements java.io.Serializable {
 
     public void setIbsProductMaster(IbsProductMaster ibsProductMaster) {
         this.ibsProductMaster = ibsProductMaster;
+    }
+
+    public IbsInsuranceCompany getIbsInsuranceCompany() {
+        return this.ibsInsuranceCompany;
+    }
+
+    public void setIbsInsuranceCompany(IbsInsuranceCompany ibsInsuranceCompany) {
+        this.ibsInsuranceCompany = ibsInsuranceCompany;
     }
 
     public Long getEnquiryNo() {
@@ -225,6 +242,15 @@ public class IbsQuoteComparisionHeader implements java.io.Serializable {
 
     public void setIbsUwTransactionHeaders(Set<IbsUwTransactionHeader> ibsUwTransactionHeaders) {
         this.ibsUwTransactionHeaders = ibsUwTransactionHeaders;
+    }
+
+    public Set<IbsQuoteComparisionDetail> getIbsQuoteComparisionDetails() {
+        return this.ibsQuoteComparisionDetails;
+    }
+
+    public void setIbsQuoteComparisionDetails(
+            Set<IbsQuoteComparisionDetail> ibsQuoteComparisionDetails) {
+        this.ibsQuoteComparisionDetails = ibsQuoteComparisionDetails;
     }
 
 

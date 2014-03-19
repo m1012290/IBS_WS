@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Mar 17, 2014 1:52:55 AM by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated Mar 20, 2014 12:09:47 AM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="com.shrinfo.ibs.gen.pojo.IbsQuoteComparisionDetail" table="IBS_QUOTE_COMPARISION_DETAIL" schema="IBSUSER">
         <id name="id" type="java.lang.Long">
@@ -13,6 +13,9 @@
         </many-to-one>
         <many-to-one name="ibsStatusMaster" class="com.shrinfo.ibs.gen.pojo.IbsStatusMaster" fetch="select">
             <column name="STATUS_CODE" precision="22" scale="0" />
+        </many-to-one>
+        <many-to-one name="ibsQuoteComparisionHeader" class="com.shrinfo.ibs.gen.pojo.IbsQuoteComparisionHeader" fetch="select">
+            <column name="QUOTE_ID" precision="22" scale="0" />
         </many-to-one>
         <many-to-one name="ibsQuoteSlipHeader" class="com.shrinfo.ibs.gen.pojo.IbsQuoteSlipHeader" fetch="select">
             <column name="QUOTE_SLIP_ID" precision="22" scale="0" />

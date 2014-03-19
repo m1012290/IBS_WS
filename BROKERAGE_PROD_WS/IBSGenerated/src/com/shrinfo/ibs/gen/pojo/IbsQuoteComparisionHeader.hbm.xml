@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Mar 17, 2014 1:52:55 AM by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated Mar 20, 2014 12:09:47 AM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="com.shrinfo.ibs.gen.pojo.IbsQuoteComparisionHeader" table="IBS_QUOTE_COMPARISION_HEADER" schema="IBSUSER">
         <id name="id" type="java.lang.Long">
@@ -17,6 +17,9 @@
         </many-to-one>
         <many-to-one name="ibsProductMaster" class="com.shrinfo.ibs.gen.pojo.IbsProductMaster" fetch="select">
             <column name="PRODUCT_CLASS" precision="22" scale="0" />
+        </many-to-one>
+        <many-to-one name="ibsInsuranceCompany" class="com.shrinfo.ibs.gen.pojo.IbsInsuranceCompany" fetch="select">
+            <column name="QUOTED_COMPANY_CODE" length="10" />
         </many-to-one>
         <property name="enquiryNo" type="java.lang.Long">
             <column name="ENQUIRY_NO" precision="22" scale="0" />
@@ -62,6 +65,12 @@
                 <column name="QUOTE_ID" precision="22" scale="0" />
             </key>
             <one-to-many class="com.shrinfo.ibs.gen.pojo.IbsUwTransactionHeader" />
+        </set>
+        <set name="ibsQuoteComparisionDetails" table="IBS_QUOTE_COMPARISION_DETAIL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="QUOTE_ID" precision="22" scale="0" />
+            </key>
+            <one-to-many class="com.shrinfo.ibs.gen.pojo.IbsQuoteComparisionDetail" />
         </set>
     </class>
 </hibernate-mapping>

@@ -17,7 +17,7 @@ public class TestSearchService {
 
     public static void main(String args[]){
         Utils.setAppContext(Utils.loadSpringBeansFactory("config/applicationcontext.xml"));
-        SearchService searchService = (SearchService) Utils.getBean("customerInsuredSearchSvcBean");
+        SearchService searchService = (SearchService) Utils.getBean("customerInsuredSearchSvc");
         SearchItemVO item = new SearchItemVO();
         item.setCustomerName("Shaik");
         item.setCustomerEmail("ABC_GMAIL.COM");

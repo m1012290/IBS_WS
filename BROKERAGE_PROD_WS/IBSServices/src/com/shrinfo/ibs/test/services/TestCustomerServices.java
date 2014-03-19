@@ -36,9 +36,9 @@ public class TestCustomerServices {
         enquiryVO.setEnquiryContact(contactVO);
         enquiryVO.setCustomerDetails(customerVO);
 
-        System.out.println(customerService.getCustomerEnquiry(enquiryVO));
+        //System.out.println(customerService.getCustomerEnquiry(enquiryVO));
 
-         //System.out.println(customerService.createCustomerEnquiry(enquiryVO));
+         System.out.println(customerService.createCustomerEnquiry(enquiryVO));
     }
     
     

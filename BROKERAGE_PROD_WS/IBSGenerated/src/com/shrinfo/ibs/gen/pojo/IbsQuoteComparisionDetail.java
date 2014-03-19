@@ -1,6 +1,6 @@
 package com.shrinfo.ibs.gen.pojo;
 
-// Generated Mar 17, 2014 1:52:55 AM by Hibernate Tools 3.4.0.CR1
+// Generated Mar 20, 2014 12:09:46 AM by Hibernate Tools 3.4.0.CR1
 
 
 import java.math.BigDecimal;
@@ -17,6 +17,8 @@ public class IbsQuoteComparisionDetail implements java.io.Serializable {
     private IbsProductUwFields ibsProductUwFields;
 
     private IbsStatusMaster ibsStatusMaster;
+
+    private IbsQuoteComparisionHeader ibsQuoteComparisionHeader;
 
     private IbsQuoteSlipHeader ibsQuoteSlipHeader;
 
@@ -80,18 +82,19 @@ public class IbsQuoteComparisionDetail implements java.io.Serializable {
     }
 
     public IbsQuoteComparisionDetail(Long id, IbsProductUwFields ibsProductUwFields,
-            IbsStatusMaster ibsStatusMaster, IbsQuoteSlipHeader ibsQuoteSlipHeader,
-            IbsProductMaster ibsProductMaster, Long enquiryNo, String enquiryType,
-            String quotedCompanyCode, Date policyStartDate, Date policyExpiryDate,
-            String productUwFieldAnswer, String quoteNo, BigDecimal quotedPremium,
-            Long discountPercentage, Long loadingPercentage, BigDecimal totalPremium,
-            BigDecimal commissionOnPrm, String policyNo, Long sumInsured, BigDecimal policyTerm,
-            String coverDescription, Date quoteDate, String quoteApprovedBy,
+            IbsStatusMaster ibsStatusMaster, IbsQuoteComparisionHeader ibsQuoteComparisionHeader,
+            IbsQuoteSlipHeader ibsQuoteSlipHeader, IbsProductMaster ibsProductMaster,
+            Long enquiryNo, String enquiryType, String quotedCompanyCode, Date policyStartDate,
+            Date policyExpiryDate, String productUwFieldAnswer, String quoteNo,
+            BigDecimal quotedPremium, Long discountPercentage, Long loadingPercentage,
+            BigDecimal totalPremium, BigDecimal commissionOnPrm, String policyNo, Long sumInsured,
+            BigDecimal policyTerm, String coverDescription, Date quoteDate, String quoteApprovedBy,
             String quoteRecommended, String closingSlipEmailed, String quoteConvertedToPol,
             Long recCreUserId, Date recCreDate, Long recUpdUserId, Date recUpdDate) {
         this.id = id;
         this.ibsProductUwFields = ibsProductUwFields;
         this.ibsStatusMaster = ibsStatusMaster;
+        this.ibsQuoteComparisionHeader = ibsQuoteComparisionHeader;
         this.ibsQuoteSlipHeader = ibsQuoteSlipHeader;
         this.ibsProductMaster = ibsProductMaster;
         this.enquiryNo = enquiryNo;
@@ -143,6 +146,14 @@ public class IbsQuoteComparisionDetail implements java.io.Serializable {
 
     public void setIbsStatusMaster(IbsStatusMaster ibsStatusMaster) {
         this.ibsStatusMaster = ibsStatusMaster;
+    }
+
+    public IbsQuoteComparisionHeader getIbsQuoteComparisionHeader() {
+        return this.ibsQuoteComparisionHeader;
+    }
+
+    public void setIbsQuoteComparisionHeader(IbsQuoteComparisionHeader ibsQuoteComparisionHeader) {
+        this.ibsQuoteComparisionHeader = ibsQuoteComparisionHeader;
     }
 
     public IbsQuoteSlipHeader getIbsQuoteSlipHeader() {
